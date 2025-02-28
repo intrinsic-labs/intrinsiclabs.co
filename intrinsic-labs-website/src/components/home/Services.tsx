@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
+import Card from '../ui/Card';
 
 // Service card data
 const services = [
@@ -109,18 +110,6 @@ const Services = () => {
     },
   };
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.215, 0.61, 0.355, 1],
-      },
-    },
-  };
-
   return (
     <section ref={sectionRef} className="py-20 md:py-32 bg-background relative overflow-hidden parallax-section">
       {/* Background decorative elements with parallax */}
@@ -167,58 +156,45 @@ const Services = () => {
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {services.map((service) => (
-            <motion.div
+            <Card
               key={service.id}
-              variants={cardVariants}
-              onMouseEnter={() => setHoveredCard(service.id)}
-              onMouseLeave={() => setHoveredCard(null)}
-              className={`relative group rounded-xl p-8 transition-all duration-300 ${
-                hoveredCard === service.id
-                  ? 'bg-neutral-800/80 shadow-lg shadow-primary/5'
-                  : 'bg-neutral-800/30 hover:bg-neutral-800/50'
-              }`}
+              id={service.id}
+              isHovered={hoveredCard === service.id}
+              onHover={setHoveredCard}
+              className="p-8 group"
+              borderColors={['#8c72ff','#ff8c72']}
             >
               <div
-                className={`absolute inset-0 rounded-xl transition-opacity duration-300 opacity-0 ${
-                  hoveredCard === service.id ? 'opacity-100' : ''
+                className={`text-primary mb-6 transition-transform duration-300 ${
+                  hoveredCard === service.id ? 'scale-110' : ''
                 }`}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-accent/60 rounded-xl opacity-60"></div>
+                {service.icon}
               </div>
-
-              <div className="relative z-10">
-                <div
-                  className={`text-primary mb-6 transition-transform duration-300 ${
-                    hoveredCard === service.id ? 'scale-110' : ''
+              <h3 className="text-2xl font-mono font-bold mb-4">{service.title}</h3>
+              <p className="text-neutral-300 mb-6">{service.description}</p>
+              <Link
+                href={service.link}
+                className="inline-flex items-center text-primary hover:text-primary-400 transition-colors"
+              >
+                <span>Learn more</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className={`h-5 w-5 ml-2 transition-transform duration-300 ${
+                    hoveredCard === service.id ? 'translate-x-1' : ''
                   }`}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  {service.icon}
-                </div>
-                <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                <p className="text-neutral-300 mb-6">{service.description}</p>
-                <Link
-                  href={service.link}
-                  className="inline-flex items-center text-primary hover:text-primary-400 transition-colors"
-                >
-                  <span>Learn more</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className={`h-5 w-5 ml-2 transition-transform duration-300 ${
-                      hoveredCard === service.id ? 'translate-x-1' : ''
-                    }`}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
-            </motion.div>
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </Link>
+            </Card>
           ))}
         </motion.div>
 

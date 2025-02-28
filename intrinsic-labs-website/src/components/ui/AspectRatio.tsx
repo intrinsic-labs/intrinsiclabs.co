@@ -6,14 +6,12 @@ interface AspectRatioProps {
   ratio?: string | number;
   className?: string;
   children: ReactNode;
-  withBorder?: boolean;
 }
 
 const AspectRatio: FC<AspectRatioProps> = ({
   ratio = '16/9',
   className = '',
-  children,
-  withBorder = false
+  children
 }) => {
   // Calculate padding based on ratio type
   const getPaddingBottom = () => {
@@ -31,7 +29,7 @@ const AspectRatio: FC<AspectRatioProps> = ({
 
   return (
     <div 
-      className={`relative w-full ${withBorder ? 'retro-border-rect group-hover:border-accent hovered:border-accent transition-colors duration-300' : ''} ${className}`}
+      className={`relative w-full overflow-hidden ${className}`}
       style={{ 
         paddingBottom: getPaddingBottom()
       }}
@@ -39,8 +37,6 @@ const AspectRatio: FC<AspectRatioProps> = ({
       <div className="absolute inset-0">
         {children}
       </div>
-      
-      {/* Corner accents removed for capsule shape */}
     </div>
   );
 };

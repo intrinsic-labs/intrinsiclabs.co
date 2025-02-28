@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import PlaceholderImage from '../ui/PlaceholderImage';
 import AspectRatio from '../ui/AspectRatio';
+import Card from '../ui/Card';
 
 // Featured projects data (placeholder)
 const featuredProjects = [
@@ -72,18 +73,6 @@ const FeaturedWork = () => {
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.215, 0.61, 0.355, 1],
-      },
-    },
-  };
-
   return (
     <section ref={sectionRef} className="py-12 md:py-20 lg:py-32 bg-background relative overflow-hidden parallax-section">
       {/* Background decorative elements with parallax */}
@@ -130,33 +119,21 @@ const FeaturedWork = () => {
           className="grid grid-cols-1 gap-8 md:gap-12"
         >
           {featuredProjects.map((project, index) => (
-            <motion.div
+            <Card
               key={project.id}
-              variants={itemVariants}
-              className="group"
+              id={project.id}
+              isHovered={hoveredProject === project.id}
+              onHover={setHoveredProject}
+              className="p-6 sm:p-8"
             >
-              <div
-                className={`flex flex-col lg:flex-row gap-6 md:gap-8 p-4 sm:p-6 rounded-xl transition-all duration-300 ${
-                  index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-                }`}
-                onMouseEnter={() => setHoveredProject(project.id)}
-                onMouseLeave={() => setHoveredProject(null)}
-              >
+              <div className={`flex flex-col lg:flex-row gap-6 md:gap-8 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                 {/* Project Image */}
                 <div className="w-full lg:w-1/2 relative overflow-hidden">
-                  <AspectRatio ratio={16/9} className="w-full" withBorder={true}>
+                  <AspectRatio ratio={16/9} className="w-full">
                     <PlaceholderImage 
                       text={`${project.title} Preview`}
-                      className={`w-full h-full card ${hoveredProject === project.id ? 'hovered' : ''}`}
+                      className={`w-full h-full rounded-lg ${hoveredProject === project.id ? 'hovered' : ''}`}
                     />
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-60"
-                      initial={{ opacity: 0.6 }}
-                      animate={{
-                        opacity: hoveredProject === project.id ? 0.3 : 0.6,
-                      }}
-                      transition={{ duration: 0.3 }}
-                    ></motion.div>
                   </AspectRatio>
                 </div>
 
@@ -165,7 +142,7 @@ const FeaturedWork = () => {
                   <div className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-1 sm:mb-2 ${hoveredProject === project.id ? 'text-accent' : 'text-neutral-300'}`}>
                     {project.category}
                   </div>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-normal mb-2 sm:mb-4 font-display">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-mono font-bold mb-2 sm:mb-4">
                     {project.title}
                   </h3>
                   <p className="text-sm sm:text-base text-neutral-300 mb-4 sm:mb-6">{project.description}</p>
@@ -208,7 +185,7 @@ const FeaturedWork = () => {
                   </Link>
                 </div>
               </div>
-            </motion.div>
+            </Card>
           ))}
         </motion.div>
 
@@ -228,4 +205,4 @@ const FeaturedWork = () => {
   );
 };
 
-export default FeaturedWork; 
+export default FeaturedWork;

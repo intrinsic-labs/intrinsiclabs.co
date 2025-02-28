@@ -31,101 +31,45 @@ const PlaceholderImage: FC<PlaceholderImageProps> = ({
 
   return (
     <div 
-      className={`relative overflow-hidden retro-border-rect w-full h-full ${className}`}
+      className={`relative overflow-hidden w-full h-full ${className}`}
       style={{ 
         width: widthStyle,
         height: heightStyle,
         aspectRatio: getAspectRatioStyle()
       }}
     >
-      {/* Warm dark wood background */}
-      <div className="absolute inset-0 bg-background" />
+      {/* Modern dark background */}
+      <div className="absolute inset-0 bg-neutral-900" />
       
       {/* Center content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center p-4 z-10">
-        <div className="w-12 h-12 sm:w-16 sm:h-16 mb-2 sm:mb-4 border border-primary rounded-full flex items-center justify-center">
+        <div className="w-12 h-12 sm:w-16 sm:h-16 mb-2 sm:mb-4 border border-primary/50 rounded-full flex items-center justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
         </div>
-        <div className="terminal-text text-center">
-          <span className="text-xs sm:text-sm opacity-70">&lt; {text} /&gt;</span>
+        <div className="text-center">
+          <span className="text-xs sm:text-sm text-neutral-300">{text}</span>
         </div>
       </div>
       
-      {/* Subtle wood grain effect */}
+      {/* Subtle gradient overlay */}
       <div 
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none opacity-30"
         style={{
-          background: 'linear-gradient(rgba(200, 162, 124, 0.05) 50%, transparent 50%)',
-          backgroundSize: '100% 4px'
+          background: 'linear-gradient(to bottom, transparent, rgba(18, 16, 9, 0.5))'
         }}
       />
       
-      {/* Subtle wood vignette */}
-      <div 
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle, transparent 70%, rgba(139, 94, 60, 0.15) 100%)'
-        }}
-      />
-      
-      {/* Frosted glass bloom effects - visible on hover */}
+      {/* Subtle accent glow on hover */}
       <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 hovered:opacity-100 transition-opacity duration-500">
-        {/* Deep green bloom */}
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-[200%] opacity-30"
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-[150%] opacity-30"
           style={{
-            background: 'radial-gradient(ellipse at bottom, rgba(90, 114, 84, 0.8) 0%, transparent 70%)',
-            filter: 'blur(40px)'
-          }}
-        />
-        
-        {/* Yellow bloom */}
-        <div className="absolute bottom-0 left-1/3 transform -translate-x-1/2 w-[120%] h-[180%] opacity-20"
-          style={{
-            background: 'radial-gradient(ellipse at bottom, rgba(200, 162, 124, 0.8) 0%, transparent 70%)',
-            filter: 'blur(35px)'
-          }}
-        />
-        
-        {/* White/cream bloom */}
-        <div className="absolute bottom-0 right-1/3 transform translate-x-1/2 w-[100%] h-[150%] opacity-10"
-          style={{
-            background: 'radial-gradient(ellipse at bottom, rgba(245, 241, 232, 0.9) 0%, transparent 70%)',
+            background: 'radial-gradient(ellipse at bottom, rgba(125, 155, 118, 0.6) 0%, transparent 70%)',
             filter: 'blur(30px)'
           }}
         />
       </div>
-      
-      {/* Frosted glass overlay - always visible but more pronounced on hover */}
-      <div className="absolute inset-0 pointer-events-none opacity-30 group-hover:opacity-60 hovered:opacity-60 transition-opacity duration-500"
-        style={{
-          background: 'linear-gradient(to bottom, transparent, rgba(18, 16, 9, 0.3))',
-          backdropFilter: 'blur(2px)'
-        }}
-      />
-      
-      {/* Subtle sage green accent in corners */}
-      <div className="absolute top-0 left-0 w-8 h-8 opacity-10" 
-        style={{ 
-          background: 'radial-gradient(circle at top left, rgba(125, 155, 118, 0.5), transparent 70%)' 
-        }} 
-      />
-      <div className="absolute top-0 right-0 w-8 h-8 opacity-10" 
-        style={{ 
-          background: 'radial-gradient(circle at top right, rgba(125, 155, 118, 0.5), transparent 70%)' 
-        }} 
-      />
-      <div className="absolute bottom-0 left-0 w-8 h-8 opacity-10" 
-        style={{ 
-          background: 'radial-gradient(circle at bottom left, rgba(125, 155, 118, 0.5), transparent 70%)' 
-        }} 
-      />
-      <div className="absolute bottom-0 right-0 w-8 h-8 opacity-10" 
-        style={{ 
-          background: 'radial-gradient(circle at bottom right, rgba(125, 155, 118, 0.5), transparent 70%)' 
-        }} 
-      />
     </div>
   );
 };
