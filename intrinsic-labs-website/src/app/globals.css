@@ -126,22 +126,22 @@ body {
 .heading-xl {
   font-family: 'Cardo', serif;
   font-weight: 400; /* Medium weight */
-  font-size: 2.5rem; /* text-4xl */
-  line-height: 2.65rem;
+  font-size: 3.75rem; /* text-4xl */
+  line-height: 3.5rem;
   letter-spacing: -0.025em; /* tracking-tight */
   color: var(--secondary);
 }
 
 @media (min-width: 768px) {
   .heading-xl {
-    font-size: 3rem; /* md:text-5xl */
+    font-size: 5rem; /* md:text-5xl */
     line-height: 1;
   }
 }
 
 @media (min-width: 1024px) {
   .heading-xl {
-    font-size: 3.75rem; /* lg:text-6xl */
+    font-size: 6rem; /* lg:text-6xl */
     line-height: 1;
   }
 }
@@ -149,15 +149,15 @@ body {
 .heading-lg {
   font-family: 'Cardo', serif;
   font-weight: 400; /* Medium weight */
-  font-size: 1.875rem; /* text-3xl */
-  line-height: 2.25rem;
+  font-size: 2.75rem; /* text-3xl */
+  line-height: 3rem;
   letter-spacing: -0.025em; /* tracking-tight */
 }
 
 @media (min-width: 768px) {
   .heading-lg {
-    font-size: 2.25rem; /* md:text-4xl */
-    line-height: 2.5rem;
+    font-size: 3.25rem; /* md:text-4xl */
+    line-height: 1;
   }
 }
 

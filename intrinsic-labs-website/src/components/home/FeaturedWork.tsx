@@ -85,28 +85,28 @@ const FeaturedWork = () => {
   };
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-32 bg-background relative overflow-hidden parallax-section">
+    <section ref={sectionRef} className="py-12 md:py-20 lg:py-32 bg-background relative overflow-hidden parallax-section">
       {/* Background decorative elements with parallax */}
       <motion.div 
         ref={bgRef}
         className="absolute inset-0 overflow-hidden parallax-bg"
         style={{ y: y1, opacity, rotate }}
       >
-        <div className="absolute top-0 left-1/3 w-72 h-72 rounded-full bg-primary/5 blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-accent/5 blur-3xl"></div>
+        <div className="absolute top-0 left-1/3 w-72 h-72 rounded-full bg-primary/20 blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-accent/20 blur-3xl"></div>
       </motion.div>
 
       <motion.div 
         className="container-custom relative z-10 parallax-content"
         style={{ y: y2, scale }}
       >
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16 px-4">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6 }}
-            className="heading-lg mb-6"
+            className="heading-lg mb-4 md:mb-6"
           >
             Featured Work
           </motion.h2>
@@ -115,7 +115,7 @@ const FeaturedWork = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-neutral-300"
+            className="text-base md:text-xl text-neutral-300"
           >
             Explore some of our recent projects and see how we've helped our
             clients achieve their goals.
@@ -127,7 +127,7 @@ const FeaturedWork = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid grid-cols-1 gap-12"
+          className="grid grid-cols-1 gap-8 md:gap-12"
         >
           {featuredProjects.map((project, index) => (
             <motion.div
@@ -136,14 +136,14 @@ const FeaturedWork = () => {
               className="group"
             >
               <div
-                className={`flex flex-col lg:flex-row gap-8 p-6 rounded-xl transition-all duration-300 ${
+                className={`flex flex-col lg:flex-row gap-6 md:gap-8 p-4 sm:p-6 rounded-xl transition-all duration-300 ${
                   index % 2 === 1 ? 'lg:flex-row-reverse' : ''
                 }`}
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
                 {/* Project Image */}
-                <div className="lg:w-1/2 relative overflow-hidden">
+                <div className="w-full lg:w-1/2 relative overflow-hidden">
                   <AspectRatio ratio={16/9} className="w-full" withBorder={true}>
                     <PlaceholderImage 
                       text={`${project.title} Preview`}
@@ -161,20 +161,20 @@ const FeaturedWork = () => {
                 </div>
 
                 {/* Project Info */}
-                <div className="lg:w-1/2 flex flex-col justify-center">
-                  <div className={`text-sm font-semibold uppercase tracking-wider mb-2 ${hoveredProject === project.id ? 'text-accent' : 'text-neutral-300'}`}>
+                <div className="w-full lg:w-1/2 flex flex-col justify-center mt-4 lg:mt-0">
+                  <div className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-1 sm:mb-2 ${hoveredProject === project.id ? 'text-accent' : 'text-neutral-300'}`}>
                     {project.category}
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-normal mb-4 font-display">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-normal mb-2 sm:mb-4 font-display">
                     {project.title}
                   </h3>
-                  <p className="text-neutral-300 mb-6">{project.description}</p>
+                  <p className="text-sm sm:text-base text-neutral-300 mb-4 sm:mb-6">{project.description}</p>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className={`px-3 py-1 rounded-full text-sm transition-colors duration-300 ${
+                        className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm transition-colors duration-300 ${
                           hoveredProject === project.id ? 'bg-accent/75' : 'bg-neutral-800'
                         }`}
                       >
@@ -185,12 +185,12 @@ const FeaturedWork = () => {
 
                   <Link
                     href={project.link}
-                    className="inline-flex items-center text-primary hover:text-primary-400 transition-colors"
+                    className="inline-flex items-center text-primary hover:text-primary-400 transition-colors text-sm sm:text-base"
                   >
                     <span>View Case Study</span>
                     <motion.svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 ml-2"
+                      className="h-4 w-4 sm:h-5 sm:w-5 ml-2"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -217,7 +217,7 @@ const FeaturedWork = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center mt-16"
+          className="text-center mt-8 md:mt-16"
         >
           <Link href="/work" className="btn-outline">
             View All Projects

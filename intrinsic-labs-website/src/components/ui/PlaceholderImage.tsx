@@ -1,18 +1,16 @@
-"use client";
-
 import { FC } from 'react';
 
 interface PlaceholderImageProps {
-  width?: number;
-  height?: number;
+  width?: number | string;
+  height?: number | string;
   text?: string;
   className?: string;
   aspectRatio?: string | number;
 }
 
 const PlaceholderImage: FC<PlaceholderImageProps> = ({
-  width = 600,
-  height = 400,
+  width = '100%',
+  height = 'auto',
   text = "Image Placeholder",
   className = "",
   aspectRatio = "16/9"
@@ -27,12 +25,16 @@ const PlaceholderImage: FC<PlaceholderImageProps> = ({
     return "16/9";
   };
 
+  // Convert width/height to string with px if they're numbers
+  const widthStyle = typeof width === 'number' ? `${width}px` : width;
+  const heightStyle = typeof height === 'number' ? `${height}px` : height;
+
   return (
     <div 
-      className={`relative overflow-hidden retro-border-rect ${className}`}
+      className={`relative overflow-hidden retro-border-rect w-full h-full ${className}`}
       style={{ 
-        width: width ? `${width}px` : '100%',
-        height: height ? `${height}px` : 'auto',
+        width: widthStyle,
+        height: heightStyle,
         aspectRatio: getAspectRatioStyle()
       }}
     >
@@ -41,13 +43,13 @@ const PlaceholderImage: FC<PlaceholderImageProps> = ({
       
       {/* Center content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center p-4 z-10">
-        <div className="w-16 h-16 mb-4 border border-primary rounded-full flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className="w-12 h-12 sm:w-16 sm:h-16 mb-2 sm:mb-4 border border-primary rounded-full flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
         </div>
         <div className="terminal-text text-center">
-          <span className="text-sm opacity-70">&lt; {text} /&gt;</span>
+          <span className="text-xs sm:text-sm opacity-70">&lt; {text} /&gt;</span>
         </div>
       </div>
       

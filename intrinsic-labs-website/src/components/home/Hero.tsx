@@ -111,8 +111,8 @@ const Hero = () => {
         className="absolute inset-0 overflow-hidden"
         style={{ y: y1, opacity }}
       >
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary/10 blur-3xl"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-secondary/10 blur-3xl"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary/25 blur-3xl"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-secondary/25 blur-3xl"></div>
       </motion.div>
 
       <motion.div 

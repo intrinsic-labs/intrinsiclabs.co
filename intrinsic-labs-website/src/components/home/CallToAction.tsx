@@ -26,7 +26,7 @@ const CallToAction = () => {
   return (
     <section ref={sectionRef} className="py-20 md:py-32 relative overflow-hidden parallax-section">
       {/* Background with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-primary/10"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-accent/30"></div>
 
       {/* Decorative elements with parallax */}
       <motion.div 
@@ -34,8 +34,8 @@ const CallToAction = () => {
         className="absolute inset-0 overflow-hidden parallax-bg"
         style={{ y: y1, opacity, rotate }}
       >
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-primary/10 blur-3xl"></div>
-        <div className="absolute bottom-1/3 left-1/4 w-96 h-96 rounded-full bg-secondary/10 blur-3xl"></div>
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-primary/25 blur-3xl"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-96 h-96 rounded-full bg-secondary/25 blur-3xl"></div>
       </motion.div>
 
       <motion.div 
