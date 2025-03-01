@@ -19,16 +19,24 @@
   --background: #121009; /* Much darker background, almost black with a hint of warmth */
   --primary: #C8A27C; /* Warm wood tone */
   --secondary: #F5F1E8; /* Soft cream */
-  --accent: #7D9B76; /* Muted sage green */
+  --accent: #7aa86f; /* Muted sage green */
   --brown: #8B5E3C; /* Rich wood brown */
+  --purple: #8c72ff;
+  --orange: #ff8c72;
+  --green: #72ff8c;
+  --terminal-green: #5bb46b;
   
   /* Keep RGB format for opacity support */
   --foreground-rgb: 255, 255, 255;
   --background-rgb: 18, 16, 9; /* Updated to match darker background */
   --primary-rgb: 200, 162, 124; /* Warm wood RGB */
   --secondary-rgb: 245, 241, 232;
-  --accent-rgb: 125, 155, 118;
+  --accent-rgb: 122, 168, 111; /* Corrected to match hex code */
   --brown-rgb: 139, 94, 60;
+  --purple-rgb: 140, 114, 255;
+  --orange-rgb: 255, 140, 114;
+  --green-rgb: 114, 255, 140;
+  --terminal-green-rgb: 91, 70, 107; /* Added to match hex code */
 }
 
 @media (prefers-color-scheme: light) {
@@ -85,6 +93,18 @@ body {
   /* text-shadow: 0 0 5px rgba(var(--primary-rgb), 0.5); */
 }
 
+.terminal-text-purple {
+  color: var(--purple);
+}
+
+.terminal-text-orange {
+  color: var(--orange);
+}
+
+.terminal-text-green {
+  color: var(--terminal-green);
+}
+
 .terminal-cursor::after {
   content: ' █';
   animation: blink 1s step-end infinite;
@@ -96,7 +116,7 @@ body {
 }
 
 /* Custom scrollbar */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 10px;
 }
 
@@ -111,7 +131,7 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
-}
+} */
 
 /* Common components */
 .container-custom {

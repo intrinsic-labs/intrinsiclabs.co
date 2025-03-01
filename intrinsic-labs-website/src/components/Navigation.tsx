@@ -46,9 +46,9 @@ const Navigation = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="logo-text text-2xl"
+            className="logo-text text-xl font-bold"
           >
-            Intrinsic<span className="text-primary-600">Labs</span>
+            Intrinsic Labs
           </motion.div>
         </Link>
 

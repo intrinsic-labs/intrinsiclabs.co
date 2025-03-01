@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, CSSProperties } from 'react';
 
 interface PlaceholderImageProps {
   width?: number | string;
@@ -6,6 +6,7 @@ interface PlaceholderImageProps {
   text?: string;
   className?: string;
   aspectRatio?: string | number;
+  style?: CSSProperties;
 }
 
 const PlaceholderImage: FC<PlaceholderImageProps> = ({
@@ -13,7 +14,8 @@ const PlaceholderImage: FC<PlaceholderImageProps> = ({
   height = 'auto',
   text = "Image Placeholder",
   className = "",
-  aspectRatio = "16/9"
+  aspectRatio = "16/9",
+  style = {}
 }) => {
   // Handle aspect ratio
   const getAspectRatioStyle = () => {
@@ -35,7 +37,8 @@ const PlaceholderImage: FC<PlaceholderImageProps> = ({
       style={{ 
         width: widthStyle,
         height: heightStyle,
-        aspectRatio: getAspectRatioStyle()
+        aspectRatio: getAspectRatioStyle(),
+        ...style
       }}
     >
       {/* Modern dark background */}

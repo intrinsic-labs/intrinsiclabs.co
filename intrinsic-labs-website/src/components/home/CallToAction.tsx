@@ -75,9 +75,6 @@ const CallToAction = () => {
             <Link href="/contact" className="btn-primary">
               Get in Touch
             </Link>
-            <Link href="/services" className="btn-secondary">
-              Explore Our Services
-            </Link>
           </motion.div>
         </div>
       </motion.div>
