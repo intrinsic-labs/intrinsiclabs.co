@@ -39,26 +39,6 @@
   --terminal-green-rgb: 91, 70, 107; /* Added to match hex code */
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    /* Using hex codes for colors */
-    --foreground: #2A1D12;
-    --background: #F5F1E8; /* Soft cream background */
-    --primary: #A67C52; /* Slightly darker wood tone for light mode */
-    --secondary: #2A1D12; /* Dark wood text on light background */
-    --accent: #5A7254; /* Darker sage green */
-    --brown: #8B5E3C; /* Rich wood brown */
-    
-    /* Keep RGB format for opacity support */
-    --foreground-rgb: 42, 29, 18;
-    --background-rgb: 245, 241, 232;
-    --primary-rgb: 166, 124, 82;
-    --secondary-rgb: 42, 29, 18;
-    --accent-rgb: 90, 114, 84;
-    --brown-rgb: 139, 94, 60;
-  }
-}
-
 body {
   color: var(--foreground);
   background: var(--background);
