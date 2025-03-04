@@ -17,7 +17,7 @@ const ServicesHero = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="min-h-[70vh] flex items-center justify-center relative overflow-hidden pt-28 bg-background"
+      className="min-h-[80vh] flex items-center justify-center relative overflow-hidden pt-28 bg-background"
     >
       {/* Background with gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background/50 to-background/95"></div>

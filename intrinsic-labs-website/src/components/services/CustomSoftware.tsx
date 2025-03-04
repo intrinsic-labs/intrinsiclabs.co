@@ -92,9 +92,12 @@ const CustomSoftware = () => {
       </div>
       
       <div className="container-custom relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 items-center mb-8 md:mb-40">
           {/* Left side: Content */}
-          <motion.div style={{ y, opacity }}>
+          <motion.div 
+            className="order-2 lg:order-1"
+            style={{ y, opacity }}
+          >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -152,37 +155,28 @@ const CustomSoftware = () => {
                 </li>
               </ul>
             </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-8"
-            >
-              <Link href="/contact" className="btn-primary">
-                Discuss Your Custom Solution
-              </Link>
-            </motion.div>
           </motion.div>
           
           {/* Right side: Image */}
           <motion.div
+            className="order-1 lg:order-2"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8 }}
           >
             <div className="relative">
-              <PlaceholderImage 
-                width={600} 
-                height={500} 
-                className="rounded-lg overflow-hidden"
-                style={{ aspectRatio: '6/5' }}
-              />
-              <div className="absolute -bottom-6 -right-6 w-28 h-28 bg-brown/10 backdrop-blur-md rounded-lg p-4 flex items-center justify-center">
+              <div className="h-[500px] md:h-auto rounded-lg overflow-hidden border border-primary/20 md:border-0 flex items-center justify-center">
+                <PlaceholderImage 
+                  width={600} 
+                  height={500} 
+                  className="rounded-lg overflow-hidden object-cover w-full h-full"
+                  style={{ objectPosition: '50% 50%' }}
+                />
+              </div>
+              <div className="absolute bottom-4 right-4 md:-bottom-6 md:-right-6 w-auto h-auto md:h-28 bg-brown/10 backdrop-blur-md rounded-lg p-3 md:p-4 flex items-center justify-center z-10">
                 <span className="terminal-text text-xs">
-                  <span className="text-primary">function</span> <span className="text-accent">customSolution</span>() {'{...}'}
+                  <span className="text-primary">func</span> <span className="text-accent">customSolution</span>() {'{...}'}
                 </span>
               </div>
             </div>
@@ -190,7 +184,7 @@ const CustomSoftware = () => {
         </div>
         
         {/* Industry Solutions */}
-        <div className="mt-20">
+        <div className="">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -226,6 +220,18 @@ const CustomSoftware = () => {
               </motion.div>
             ))}
           </motion.div>
+
+          <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-16 w-full"
+            >
+              <Link href="/contact" className="btn-secondary w-full block text-center max-w-xl mx-auto">
+                Discuss Your Custom Solution
+              </Link>
+            </motion.div>
         </div>
       </div>
     </section>

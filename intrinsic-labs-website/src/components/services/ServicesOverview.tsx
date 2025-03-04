@@ -285,49 +285,63 @@ const ServicesOverview = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-50px' }}
-            className="max-w-4xl mx-auto"
+            className="max-w-5xl mx-auto"
           >
             <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-primary/30"></div>
+              {/* Timeline line - hidden on mobile, visible on desktop */}
+              <div className="absolute hidden md:block md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-primary/30"></div>
               
               {/* Process steps */}
               {processSteps.map((step, index) => (
                 <motion.div 
                   key={step.id}
                   variants={itemVariants}
-                  className={`relative mb-12 md:mb-24 ${
+                  className={`relative mb-8 md:mb-12 ${
                     index % 2 === 0 ? 'md:pr-20 md:text-right md:ml-auto md:mr-1/2' : 'md:pl-20 md:text-left md:mr-auto md:ml-1/2'
-                  } md:w-[calc(50%-20px)] pl-12 md:pl-0`}
+                  } md:w-[calc(50%-20px)] px-0 md:px-0`}
                   onMouseEnter={() => setHoveredProcessStep(step.id)}
                   onMouseLeave={() => setHoveredProcessStep(null)}
                 >
-                  <div 
-                    className="bg-background/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20 relative transition-all duration-300"
-                    style={{
-                      borderColor: hoveredProcessStep === step.id ? step.color : 'var(--primary)',
-                    }}
-                  >
-                    <h3 className={`text-xl font-bold mb-2`}>{step.title}</h3>
-                    <p className="text-neutral-300">{step.description}</p>
-                  </div>
-                  
-                  {/* Icon on the timeline */}
-                  <div 
-                    className={`absolute top-1/2 transform -translate-y-1/2 w-10 h-10 rounded-full bg-background border-2 flex items-center justify-center z-10 transition-all duration-300 ${
-                      index % 2 === 0 ? 'md:right-0 md:translate-x-1/2 right-0' : 'md:left-0 md:-translate-x-1/2 left-0'
-                    }`}
-                    style={{
-                      borderColor: hoveredProcessStep === step.id ? step.color : 'var(--primary)',
-                    }}
-                  >
+                  {/* Flex container to position card and icon */}
+                  <div className={`flex items-center ${index % 2 === 0 ? 'flex-row-reverse' : 'flex-row'}`}>
+                    {/* Card content */}
                     <div 
-                      className="transition-colors duration-300"
+                      className="bg-background/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20 relative transition-all duration-300 flex-grow"
                       style={{
-                        color: hoveredProcessStep === step.id ? step.color : 'var(--primary)',
+                        borderColor: hoveredProcessStep === step.id ? step.color : 'rgba(var(--primary-rgb), 0.2)',
                       }}
                     >
-                      {step.icon}
+                      {/* Mobile icon - visible only on mobile */}
+                      <div 
+                        className="md:hidden flex items-center justify-left mb-4"
+                        style={{
+                          color: hoveredProcessStep === step.id ? step.color : 'var(--primary)',
+                        }}
+                      >
+                        {step.icon}
+                      </div>
+                      
+                      <h3 className={`text-xl font-bold mb-2`}>{step.title}</h3>
+                      <p className="text-neutral-300">{step.description}</p>
+                    </div>
+                    
+                    {/* Desktop icon - hidden on mobile, positioned next to the card */}
+                    <div 
+                      className="hidden md:flex w-10 h-10 rounded-full bg-background border-2 items-center justify-center z-10 transition-all duration-300 shrink-0"
+                      style={{
+                        borderColor: hoveredProcessStep === step.id ? step.color : 'var(--primary)',
+                        marginLeft: index % 2 === 0 ? '0' : '20px',
+                        marginRight: index % 2 === 0 ? '20px' : '0',
+                      }}
+                    >
+                      <div 
+                        className="transition-colors duration-300"
+                        style={{
+                          color: hoveredProcessStep === step.id ? step.color : 'var(--primary)',
+                        }}
+                      >
+                        {step.icon}
+                      </div>
                     </div>
                   </div>
                 </motion.div>

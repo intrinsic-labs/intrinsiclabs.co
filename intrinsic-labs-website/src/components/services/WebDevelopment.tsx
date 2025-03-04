@@ -44,7 +44,7 @@ const WebDevelopment = () => {
       </div>
       
       <div className="container-custom relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 items-center">
           {/* Left side: Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -53,13 +53,15 @@ const WebDevelopment = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="relative">
-              <PlaceholderImage 
-                width={600} 
-                height={400} 
-                className="rounded-lg overflow-hidden"
-                style={{ aspectRatio: '3/2' }}
-              />
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-primary/10 backdrop-blur-md rounded-lg p-4 flex items-center justify-center">
+              <div className="h-[500px] md:h-auto rounded-lg overflow-hidden border border-primary/20 md:border-0 flex items-center justify-center">
+                <PlaceholderImage 
+                  width={600} 
+                  height={400} 
+                  className="rounded-lg overflow-hidden object-cover w-full h-full"
+                  style={{ objectPosition: '50% 50%', height: '100%' }}
+                />
+              </div>
+              <div className="absolute top-4 right-4 md:-top-6 md:-right-6 w-auto md:w-24 h-auto md:h-24 bg-primary/10 backdrop-blur-md rounded-lg p-3 md:p-4 flex items-center justify-center z-10">
                 <span className="terminal-text text-xs">
                   &lt;<span className="text-primary">web</span>/&gt;
                 </span>
@@ -157,9 +159,9 @@ const WebDevelopment = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-8"
+              className="mt-8 w-full"
             >
-              <Link href="/contact" className="btn-primary">
+              <Link href="/contact" className="btn-secondary w-full block text-center">
                 Discuss Your Web Project
               </Link>
             </motion.div>
