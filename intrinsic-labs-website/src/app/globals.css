@@ -95,23 +95,40 @@ body {
   50% { opacity: 0; }
 }
 
-/* Custom scrollbar */
-/* ::-webkit-scrollbar {
-  width: 10px;
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
-::-webkit-scrollbar-track {
-  background: var(--background);
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
 }
 
-::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--primary) 70%, transparent);
-  border-radius: 5px;
+/* Custom scrollbar for browser content */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
-} */
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(var(--background-rgb), 0.5);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(var(--primary-rgb), 0.3);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--primary-rgb), 0.5);
+}
+
+/* For Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--primary-rgb), 0.3) rgba(var(--background-rgb), 0.5);
+}
 
 /* Common components */
 .container-custom {
