@@ -128,10 +128,6 @@ const TeamSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="terminal-text text-sm md:text-base tracking-wider mb-4 inline-block">
-            <span className="terminal-text-purple">const</span>{" "}
-            <span className="terminal-text-orange">team</span> = &#91;
-          </span>
           
           <h2 className="heading-lg mb-6 font-display">Meet Our Team</h2>
           
@@ -153,12 +149,6 @@ const TeamSection = () => {
             onChange={(tabId) => setActiveTeamMember(Number(tabId))}
           />
         </motion.div>
-
-        <div className="text-center mt-16">
-          <span className="terminal-text text-sm md:text-base tracking-wider">
-            &#93;
-          </span>
-        </div>
       </div>
     </section>
   );

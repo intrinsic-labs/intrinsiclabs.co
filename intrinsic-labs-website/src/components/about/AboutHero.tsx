@@ -47,19 +47,9 @@ const AboutHero = () => {
         <div className="absolute inset-0 bg-[url('/images/noise.svg')] bg-repeat opacity-[0.03] animate-[pulse_2s_ease-in-out_infinite]"></div>
       </div>
 
-      <div className="container-custom relative z-10">
+      <div className="container-custom relative z-10 pb-12">
         <div ref={textRef} className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-6"
-          >
-            <span className="terminal-text text-sm md:text-base tracking-wider">
-              <span className="terminal-text-purple">function</span>{" "}
-              <span className="terminal-text-orange">aboutUs</span>() &#123;
-            </span>
-          </motion.div>
+         
 
           <h1 className="animate-text heading-xl mb-6 font-display">
             We Build Digital Experiences That Matter
@@ -77,17 +67,6 @@ const AboutHero = () => {
               Meet the Team
             </a>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
-            className="mt-6"
-          >
-            <span className="terminal-text text-sm md:text-base tracking-wider">
-              &#125;
-            </span>
-          </motion.div>
         </div>
       </div>
 

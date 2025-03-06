@@ -114,10 +114,6 @@ const ValuesSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="terminal-text text-sm md:text-base tracking-wider mb-4 inline-block">
-            <span className="terminal-text-purple">function</span>{" "}
-            <span className="terminal-text-orange">getValues</span>() &#123;
-          </span>
           
           <h2 className="heading-lg mb-6 font-display">Our Core Values</h2>
           
@@ -194,13 +190,6 @@ const ValuesSection = () => {
               </div>
             </div>
           </motion.div>
-        </div>
-
-        <div className="text-center mt-16">
-          <span className="terminal-text text-sm md:text-base tracking-wider">
-            <span className="terminal-text-green">return</span> values;
-            &#125;
-          </span>
         </div>
       </div>
     </section>
