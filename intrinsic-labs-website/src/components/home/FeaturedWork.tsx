@@ -76,14 +76,14 @@ const FeaturedWork = () => {
   return (
     <section ref={sectionRef} className="py-12 md:py-20 lg:py-32 bg-background relative overflow-hidden parallax-section">
       {/* Background decorative elements with parallax */}
-      <motion.div 
+      {/* <motion.div 
         ref={bgRef}
         className="absolute inset-0 overflow-hidden parallax-bg"
         style={{ y: y1, opacity, rotate }}
       >
         <div className="absolute top-0 left-1/3 w-72 h-72 rounded-full bg-primary/20 blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-accent/20 blur-3xl"></div>
-      </motion.div>
+      </motion.div> */}
 
       <motion.div 
         className="container-custom relative z-10 parallax-content"
@@ -104,7 +104,7 @@ const FeaturedWork = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base md:text-xl text-neutral-300"
+            className="text-base md:text-xl text-neutral-800"
           >
             Explore some of our recent projects and see how we've helped our
             clients achieve their goals.
@@ -139,19 +139,19 @@ const FeaturedWork = () => {
 
                 {/* Project Info */}
                 <div className="w-full lg:w-1/2 flex flex-col justify-center mt-4 lg:mt-0">
-                  <div className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-1 sm:mb-2 ${hoveredProject === project.id ? 'text-accent' : 'text-neutral-300'}`}>
+                  <div className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-1 sm:mb-2 ${hoveredProject === project.id ? 'text-accent' : 'text-neutral-800'}`}>
                     {project.category}
                   </div>
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-mono font-bold mb-2 sm:mb-4">
                     {project.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-neutral-300 mb-4 sm:mb-6">{project.description}</p>
+                  <p className="text-sm sm:text-base text-neutral-800 mb-4 sm:mb-6">{project.description}</p>
 
                   <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm transition-colors duration-300 ${
+                        className={`text-secondary px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm transition-colors duration-300 ${
                           hoveredProject === project.id ? 'bg-accent/75' : 'bg-neutral-800'
                         }`}
                       >
@@ -162,7 +162,7 @@ const FeaturedWork = () => {
 
                   <Link
                     href={project.link}
-                    className="inline-flex items-center text-primary hover:text-primary-400 transition-colors text-sm sm:text-base"
+                    className="inline-flex items-center text-primary hover:text-accent transition-colors text-sm sm:text-base"
                   >
                     <span>View Case Study</span>
                     <motion.svg

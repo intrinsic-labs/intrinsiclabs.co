@@ -26,17 +26,17 @@ const CallToAction = () => {
   return (
     <section ref={sectionRef} className="py-20 md:py-32 relative overflow-hidden parallax-section">
       {/* Background with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-accent/30"></div>
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-accent/30"></div> */}
 
       {/* Decorative elements with parallax */}
-      <motion.div 
+      {/* <motion.div 
         ref={bgRef}
         className="absolute inset-0 overflow-hidden parallax-bg"
         style={{ y: y1, opacity, rotate }}
       >
         <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-primary/25 blur-3xl"></div>
         <div className="absolute bottom-1/3 left-1/4 w-96 h-96 rounded-full bg-secondary/25 blur-3xl"></div>
-      </motion.div>
+      </motion.div> */}
 
       <motion.div 
         className="container-custom relative z-10 parallax-content"
@@ -58,7 +58,7 @@ const CallToAction = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-neutral-300 mb-10 max-w-3xl mx-auto"
+            className="text-xl text-neutral-800 mb-10 max-w-3xl mx-auto"
           >
             Whether you're looking to build a new mobile app, create a web
             application, or develop custom software, we're here to help you

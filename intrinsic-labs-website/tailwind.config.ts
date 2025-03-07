@@ -9,73 +9,73 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Main brand colors - warm Frank Lloyd Wright inspired palette
+        // Main brand colors - now black/white with purple accent
         primary: {
-          DEFAULT: "#C8A27C", // Warm wood tone
-          50: "#F9F5EF",
-          100: "#F3EBDF",
-          200: "#E8D7BF",
-          300: "#DDC39F",
-          400: "#D2AF8F",
-          500: "#C8A27C", // Default
-          600: "#B88A5C",
-          700: "#A37341",
-          800: "#7F5A33",
-          900: "#5B4125",
-          950: "#2A1D12",
+          DEFAULT: "#212121", // Very dark grey almost black
+          50: "#F8F8F8",
+          100: "#F0F0F0",
+          200: "#E0E0E0",
+          300: "#C9C9C9", 
+          400: "#ADADAD",
+          500: "#8C8C8C", 
+          600: "#6B6B6B",
+          700: "#4A4A4A",
+          800: "#292929",
+          900: "#212121", // Default 
+          950: "#121212",
         },
-        // Secondary color - soft cream
+        // Secondary color - white to light grey
         secondary: {
-          DEFAULT: "#F5F1E8", // Soft cream
-          50: "#FEFDFB",
-          100: "#FCF9F4",
-          200: "#F9F5EE",
-          300: "#F5F1E8", // Default
-          400: "#EAE2D1",
-          500: "#DFD3BA",
-          600: "#D0BF9D",
-          700: "#C1AB80",
-          800: "#B29763",
-          900: "#957C4A",
-          950: "#6A5935",
+          DEFAULT: "#FFFFFF", // Pure white
+          50: "#FFFFFF", // Default
+          100: "#FAFAFA",
+          200: "#F5F5F5",
+          300: "#EEEEEE", 
+          400: "#E0E0E0",
+          500: "#BDBDBD",
+          600: "#9E9E9E",
+          700: "#757575",
+          800: "#616161",
+          900: "#424242",
+          950: "#212121",
         },
-        // Neutral colors for text and backgrounds - warm tones
+        // Neutral colors for text and backgrounds
         neutral: {
-          DEFAULT: "#2A1D12", // Dark wood brown
-          50: "#F7F4F1", // Warmer white
-          100: "#EFE9E3", // Warmer light gray
-          200: "#DFD3C7",
-          300: "#CFBDAB",
-          400: "#BFA78F",
-          500: "#AB8E6F",
-          600: "#8F7353",
-          700: "#6F5941",
-          800: "#4F3F2E",
-          900: "#2A1D12", // Default
-          950: "#15100A",
+          DEFAULT: "#21201f", // Almost black
+          50: "#FAFAFA", // Almost white
+          100: "#F5F5F5", // Very light grey
+          200: "#EEEEEE",
+          300: "#E0E0E0",
+          400: "#BDBDBD",
+          500: "#9E9E9E",
+          600: "#757575",
+          700: "#616161",
+          800: "#424242",
+          900: "#212121",
+          950: "#121212", // Default
         },
-        // Background colors
+        // Background colors - now white instead of cream
         background: {
-          light: "#F5F1E8", // Soft cream background
-          DEFAULT: "#121009", // Much darker background, almost black with a hint of warmth
-          dark: "#0A0806", // Even darker shade
+          light: "#f9f6f2", // Pure white
+          DEFAULT: "#f9f6f2", // Almost white
+          dark: "#21201f", // Light grey
         },
-        // Sage green accent color
+        // Purple-leaning indigo accent color
         accent: {
-          DEFAULT: "#7D9B76", // Muted sage green
-          50: "#F1F4F0",
-          100: "#E3E9E1",
-          200: "#C7D3C4",
-          300: "#ABBDA7",
-          400: "#8FA78A",
-          500: "#7D9B76", // Default
-          600: "#637F5C",
-          700: "#4A6045",
-          800: "#32412F",
-          900: "#1A2118",
-          950: "#0D100C",
+          DEFAULT: "#6C5CE7", // More purple-leaning indigo
+          50: "#F3F1FE",
+          100: "#E4E0FD",
+          200: "#C8C0FB",
+          300: "#ACA0F9",
+          400: "#8E7FF8",
+          500: "#6C5CE7", // Default
+          600: "#5548D9",
+          700: "#4035BE",
+          800: "#312A93",
+          900: "#221D68",
+          950: "#13103D",
         },
-        // Rich wood brown
+        // Keeping brown for any elements that might need it
         brown: {
           DEFAULT: "#8B5E3C", // Rich wood brown
           50: "#F3EDE7",
@@ -133,32 +133,32 @@ const config: Config = {
       typography: (theme: any) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.secondary.DEFAULT'),
+            color: theme('colors.neutral.900'), // Dark grey text
             a: {
-              color: theme('colors.primary.DEFAULT'),
+              color: theme('colors.accent.600'), // Purple accent
               '&:hover': {
-                color: theme('colors.primary.400'),
+                color: theme('colors.accent.700'), // Darker on hover
               },
             },
             h1: {
-              color: theme('colors.primary.DEFAULT'),
+              color: theme('colors.primary.900'),
               fontFamily: theme('fontFamily.display').join(', '),
             },
             h2: {
-              color: theme('colors.primary.DEFAULT'),
+              color: theme('colors.primary.900'),
               fontFamily: theme('fontFamily.display').join(', '),
             },
             h3: {
-              color: theme('colors.primary.DEFAULT'),
+              color: theme('colors.primary.900'),
               fontFamily: theme('fontFamily.display').join(', '),
             },
             h4: {
-              color: theme('colors.primary.DEFAULT'),
+              color: theme('colors.primary.900'),
               fontFamily: theme('fontFamily.display').join(', '),
             },
             blockquote: {
-              color: theme('colors.secondary.300'),
-              borderLeftColor: theme('colors.primary.700'),
+              color: theme('colors.neutral.700'),
+              borderLeftColor: theme('colors.accent.500'),
             },
             'code::before': {
               content: '""',
@@ -167,15 +167,15 @@ const config: Config = {
               content: '""',
             },
             code: {
-              color: theme('colors.primary.300'),
-              backgroundColor: theme('colors.neutral.800'),
+              color: theme('colors.accent.700'),
+              backgroundColor: theme('colors.secondary.100'),
               padding: '0.25rem 0.5rem',
               borderRadius: '0.25rem',
               fontWeight: '400',
             },
             pre: {
-              backgroundColor: theme('colors.neutral.900'),
-              color: theme('colors.secondary.200'),
+              backgroundColor: theme('colors.secondary.200'),
+              color: theme('colors.neutral.900'),
               borderRadius: '0.5rem',
             },
           },

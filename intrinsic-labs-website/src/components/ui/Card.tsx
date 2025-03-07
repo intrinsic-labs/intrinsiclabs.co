@@ -20,7 +20,7 @@ const Card = ({
   id = '',
   isHovered = false,
   onHover,
-  borderColors = ['#8c72ff','#ff8c72', '#72ff8c'] // Default colors
+  borderColors = ['#6C5CE7','#E07A55'] // Default colors
 }: CardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -107,8 +107,8 @@ const Card = ({
       <div 
         className={`absolute inset-0 rounded-xl transition-all duration-300 ${
           isHovered 
-            ? 'bg-neutral-800/80 shadow-lg shadow-primary/5' 
-            : 'bg-neutral-800/30'
+            ? 'bg-secondary/60 shadow-lg shadow-primary/5' 
+            : 'bg-neutral-800/10'
         }`}
       />
       

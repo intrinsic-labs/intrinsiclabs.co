@@ -30,29 +30,15 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-background-dark pt-16 pb-8 relative">
-      {/* Grid pattern overlay */}
-      <div 
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundSize: '20px 20px',
-          backgroundImage: `
-            linear-gradient(to right, rgba(237, 231, 218, 0.1) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(237, 231, 218, 0.1) 1px, transparent 1px)
-          `
-        }}
-      />
+    <footer className="bg-black/90 pt-16 pb-16 relative">
       
       <div className="container-custom relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
           {/* Brand Column */}
           <div>
-            <div className="logo-text text-2xl mb-4">
+            <div className="logo-text text-2xl mb-4 text-secondary">
               Intrinsic Labs
             </div>
-            <p className="terminal-text text-sm mb-6">
-              Building exceptional mobile and web experiences that solve real problems.
-            </p>
             <div className="flex space-x-4">
               {socialLinks.map((link) => (
                 <a
@@ -60,7 +46,7 @@ const Footer = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-secondary-400 hover:text-accent transition-colors"
+                  className="text-neutral-500 hover:text-accent transition-colors"
                   aria-label={link.name}
                 >
                   {link.icon === 'twitter' && (
@@ -117,13 +103,13 @@ const Footer = () => {
 
           {/* Links Columns */}
           <div>
-            <h3 className="terminal-text text-md font-semibold mb-4 uppercase tracking-wider">Company</h3>
+            <h3 className="text-secondary text-md font-semibold mb-4 uppercase tracking-wider">Company</h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-secondary-400 hover:text-accent transition-colors text-md tracking-wide"
+                    className="text-neutral-600 hover:text-accent transition-colors text-md tracking-wide"
                   >
                     {link.name}
                   </Link>
@@ -133,13 +119,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="terminal-text text-md font-semibold mb-4 uppercase tracking-wider">Services</h3>
+            <h3 className="text-secondary text-md font-semibold mb-4 uppercase tracking-wider">Services</h3>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-secondary-400 hover:text-accent transition-colors text-md tracking-wide"
+                    className="text-neutral-600 hover:text-accent transition-colors text-md tracking-wide"
                   >
                     {link.name}
                   </Link>
@@ -149,13 +135,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="terminal-text text-md font-semibold mb-4 uppercase tracking-wider">Resources</h3>
+            <h3 className="text-secondary text-md font-semibold mb-4 uppercase tracking-wider">Resources</h3>
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-secondary-400 hover:text-accent transition-colors text-md tracking-wide"
+                    className="text-neutral-600 hover:text-accent transition-colors text-md tracking-wide"
                   >
                     {link.name}
                   </Link>
@@ -166,15 +152,15 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="pt-8 border-t border-secondary-400/10 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-secondary-400/70 text-xs mb-4 md:mb-0 font-mono">
+        <div className="pt-8 border-t border-neutral-600/20 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-neutral-600 text-xs mb-4 md:mb-0 font-mono">
             &copy; {currentYear} Intrinsic Labs LLC. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <Link href="/privacy" className="text-secondary-400/70 hover:text-secondary-400 text-xs font-mono">
+            <Link href="/privacy" className="text-neutral-600 hover:text-accent text-xs font-mono">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-secondary-400/70 hover:text-secondary-400 text-xs font-mono">
+            <Link href="/terms" className="text-neutral-600 hover:text-accent text-xs font-mono">
               Terms of Service
             </Link>
           </div>

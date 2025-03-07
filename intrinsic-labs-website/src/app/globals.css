@@ -14,29 +14,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap');
 
 :root {
-  /* Using hex codes for colors - warm Frank Lloyd Wright inspired palette */
-  --foreground: #FFFFFF;
-  --background: #121009; /* Much darker background, almost black with a hint of warmth */
-  --primary: #C8A27C; /* Warm wood tone */
-  --secondary: #F5F1E8; /* Soft cream */
-  --accent: #7aa86f; /* Muted sage green */
-  --brown: #8B5E3C; /* Rich wood brown */
-  --purple: #8c72ff;
-  --orange: #ff8c72;
-  --green: #72ff8c;
-  --terminal-green: #5bb46b;
+  /* Using hex codes for colors - black/white with purple accent */
+  --foreground: #21201f; /* Very dark grey almost black */
+  --background: #f9f6f2; /* Almost white */
+  --primary: #21201f; /* Very dark grey */
+  --secondary: #FFFFFF; /* Pure white */
+  --accent: #6C5CE7; /* More purple-leaning indigo */
+  --brown: #8B5E3C; /* Rich wood brown (maintained for backward compatibility) */
+  --purple: #7B68EE; /* Medium slate blue */
+  --orange: #E07A55; /* Darker orange */
+  --green: #5EA36B; /* Darker green */
+  --terminal-green: #3B9A4B; /* Darker terminal green */
   
   /* Keep RGB format for opacity support */
-  --foreground-rgb: 255, 255, 255;
-  --background-rgb: 18, 16, 9; /* Updated to match darker background */
-  --primary-rgb: 200, 162, 124; /* Warm wood RGB */
-  --secondary-rgb: 245, 241, 232;
-  --accent-rgb: 122, 168, 111; /* Corrected to match hex code */
-  --brown-rgb: 139, 94, 60;
-  --purple-rgb: 140, 114, 255;
-  --orange-rgb: 255, 140, 114;
-  --green-rgb: 114, 255, 140;
-  --terminal-green-rgb: 91, 70, 107; /* Added to match hex code */
+  --foreground-rgb: 33, 33, 33; /* Very dark grey */
+  --background-rgb: 250, 250, 250; /* Almost white */
+  --primary-rgb: 33, 33, 33; /* Very dark grey */
+  --secondary-rgb: 255, 255, 255; /* Pure white */
+  --accent-rgb: 108, 92, 231; /* Purple-leaning indigo */
+  --brown-rgb: 139, 94, 60; /* Same rich wood brown */
+  --purple-rgb: 123, 104, 238; /* Medium slate blue */
+  --orange-rgb: 224, 122, 85; /* Darker orange */
+  --green-rgb: 94, 163, 107; /* Darker green */
+  --terminal-green-rgb: 59, 154, 75; /* Darker terminal green */
 }
 
 body {
@@ -44,7 +44,7 @@ body {
   background: var(--background);
   font-family: 'JetBrains Mono', monospace;
   letter-spacing: -0.025em;
-  background-image: linear-gradient(to bottom, rgba(var(--brown-rgb), 0.03), transparent); /* Reduced gradient opacity */
+  background-image: linear-gradient(to bottom, rgba(var(--accent-rgb), 0.01), transparent); /* Very subtle gradient with accent color */
 }
 
 /* Grid pattern overlay - removed */
@@ -70,7 +70,6 @@ body {
 .terminal-text {
   font-family: 'JetBrains Mono', monospace;
   color: var(--primary);
-  /* text-shadow: 0 0 5px rgba(var(--primary-rgb), 0.5); */
 }
 
 .terminal-text-purple {
@@ -111,23 +110,23 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(var(--background-rgb), 0.5);
+  background: rgba(var(--background-rgb), 0.8);
   border-radius: 4px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(var(--primary-rgb), 0.3);
+  background: rgba(var(--accent-rgb), 0.2);
   border-radius: 4px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(var(--primary-rgb), 0.5);
+  background: rgba(var(--accent-rgb), 0.3);
 }
 
 /* For Firefox */
 .custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: rgba(var(--primary-rgb), 0.3) rgba(var(--background-rgb), 0.5);
+  scrollbar-color: rgba(var(--accent-rgb), 0.2) rgba(var(--background-rgb), 0.8);
 }
 
 /* Common components */
@@ -146,7 +145,7 @@ body {
   font-size: 3.75rem; /* text-4xl */
   line-height: 3.5rem;
   letter-spacing: -0.025em; /* tracking-tight */
-  color: var(--secondary);
+  color: var(--primary); 
 }
 
 @media (min-width: 768px) {
@@ -169,6 +168,7 @@ body {
   font-size: 2.75rem; /* text-3xl */
   line-height: 3rem;
   letter-spacing: -0.025em; /* tracking-tight */
+  color: var(--primary);
 }
 
 @media (min-width: 768px) {
@@ -183,6 +183,7 @@ body {
   font-weight: 400; /* Medium weight */
   font-size: 1.5rem; /* text-2xl */
   line-height: 2rem;
+  color: var(--primary);
 }
 
 @media (min-width: 768px) {
@@ -197,6 +198,7 @@ body {
   font-weight: 400; /* Medium weight */
   font-size: 1.25rem; /* text-xl */
   line-height: 1.75rem;
+  color: var(--primary);
 }
 
 @media (min-width: 768px) {
@@ -220,8 +222,8 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--primary);
-  color: var(--background);
+  background-color: var(--accent);
+  color: var(--secondary);
   padding: 0.75rem 1.5rem; /* py-3 px-6 */
   border-radius: 9999px;
   font-weight: 500; /* font-medium */
@@ -230,14 +232,14 @@ body {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
   border: 1px solid transparent;
-  box-shadow: 0 2px 4px rgba(var(--brown-rgb), 0.2);
+  box-shadow: 0 2px 4px rgba(var(--accent-rgb), 0.2);
 }
 
 .btn-primary:hover {
   color: var(--secondary);
-  background-color: color-mix(in srgb, var(--accent) 80%, transparent);
-  border: 1px solid var(--secondary);
-  box-shadow: 0 4px 8px rgba(var(--brown-rgb), 0.3);
+  background-color: color-mix(in srgb, var(--accent) 70%, #4834d4 30%); /* Slightly darker purple */
+  border: 1px solid var(--accent);
+  box-shadow: 0 4px 8px rgba(var(--accent-rgb), 0.3);
 }
 
 .btn-primary:focus {
@@ -251,7 +253,7 @@ body {
 
 .btn-secondary {
   background-color: transparent;
-  color: var(--secondary);
+  color: var(--primary);
   padding: 0.75rem 1.5rem; /* py-3 px-6 */
   border-radius: 9999px;
   font-weight: 500; /* font-medium */
@@ -259,13 +261,14 @@ body {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-  border: 1px solid var(--secondary);
-  box-shadow: 0 2px 4px rgba(var(--brown-rgb), 0.1);
+  border: 1px solid var(--primary);
+  box-shadow: 0 1px 2px rgba(var(--foreground-rgb), 0.1);
 }
 
 .btn-secondary:hover {
-  background-color: color-mix(in srgb, var(--secondary) 30%, transparent);
-  box-shadow: 0 4px 8px rgba(var(--brown-rgb), 0.2);
+  background-color: rgba(var(--accent-rgb), 0.1);
+  border: 1px solid var(--accent);
+  color: var(--accent);
 }
 
 .btn-secondary:focus {
@@ -273,55 +276,59 @@ body {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-  --tw-ring-color: color-mix(in srgb, var(--accent) 50%, transparent);
+  --tw-ring-color: color-mix(in srgb, var(--accent) 30%, transparent);
   --tw-ring-offset-width: 2px;
 }
 
 /* Retro border - for buttons (capsule shape) */
 .retro-border {
-  border: 1px solid var(--primary);
-  border-radius: 9999px;
   position: relative;
-  overflow: visible;
-  box-sizing: border-box;
+  border: 1px solid var(--accent);
+  border-radius: 0.5rem;
+  box-shadow: 4px 4px 0 0 var(--accent);
+  transition: all 0.2s ease-in-out;
+  background-color: var(--secondary);
 }
 
 /* Retro border for rectangular content */
 .retro-border-rect {
-  border: 1px solid var(--primary);
-  border-radius: 8px;
   position: relative;
-  overflow: hidden;
-  box-sizing: border-box;
-  box-shadow: 0 0 0 1px rgba(var(--brown-rgb), 0.1);
+  border: 1px solid var(--accent);
+  box-shadow: 4px 4px 0 0 var(--accent);
+  transition: all 0.2s ease-in-out;
+  background-color: var(--secondary);
 }
 
 /* Card hover effect */
 .card {
-  transition: all 0.3s ease;
-  filter: grayscale(100%);
   position: relative;
+  background-color: var(--secondary);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .card:hover {
-  filter: grayscale(0%);
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(var(--brown-rgb), 0.1);
+  box-shadow: 0 10px 20px rgba(var(--accent-rgb), 0.1);
 }
 
 .card::after {
   content: '';
   position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  opacity: 0;
-  box-shadow: inset 0 0 0 1px rgba(var(--brown-rgb), 0.1);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, var(--accent), color-mix(in srgb, var(--accent) 50%, var(--purple) 50%));
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
 }
 
 .card:hover::after {
-  opacity: 1;
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 /* Center scroll hint */

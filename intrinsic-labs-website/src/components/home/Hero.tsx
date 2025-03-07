@@ -106,21 +106,21 @@ const Hero = () => {
       )} */}
       
       {/* Decorative elements with parallax effect */}
-      <motion.div 
+      {/* <motion.div 
         ref={decorRef}
         className="absolute inset-0 overflow-hidden"
         style={{ y: y1, opacity }}
       >
         <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary/25 blur-3xl"></div>
         <div className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-secondary/25 blur-3xl"></div>
-      </motion.div>
+      </motion.div> */}
 
       <motion.div 
         className="container-custom relative z-10 pt-20 pb-16 md:py-32 parallax-content"
         style={{ y: y2 }}
       >
         <div className="max-w-4xl mx-auto text-center" ref={textRef}>
-          <motion.div
+          {/* <motion.div
             custom={0}
             initial="hidden"
             animate="visible"
@@ -128,7 +128,7 @@ const Hero = () => {
             className="inline-block bg-gradient-to-r from-brown to-accent bg-clip-text text-transparent text-lg md:text-xl font-semibold mb-6"
           >
             Mobile & Web Development Studio
-          </motion.div>
+          </motion.div> */}
 
           <motion.h1
             custom={1}
@@ -145,7 +145,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={textVariants}
-            className="text-xl md:text-2xl text-neutral-200 mb-10 max-w-3xl mx-auto terminal-cursor"
+            className="text-xl md:text-2xl text-neutral-800 mb-10 max-w-3xl mx-auto terminal-cursor"
           >
             From native mobile apps to full-stack web applications, we craft
             beautiful, functional solutions that users love.
