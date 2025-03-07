@@ -63,21 +63,12 @@ const Navigation = () => {
             >
               <Link
                 href={link.href}
-                className="terminal-text text-sm hover:text-accent transition-colors duration-300 tracking-wide"
+                className="text-md hover:text-accent transition-colors duration-300 tracking-wide"
               >
                 {link.name}
               </Link>
             </motion.div>
           ))}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-          >
-            <Link href="/contact" className="btn-secondary text-sm">
-              Get in Touch
-            </Link>
-          </motion.div>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -118,26 +109,19 @@ const Navigation = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-background/95 backdrop-blur-md border-b border-secondary-400/20"
+          className="md:hidden bg-background/80 backdrop-blur-md border-b border-secondary-400/20"
         >
           <div className="container-custom py-5 flex flex-col space-y-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="terminal-text text-sm hover:text-accent transition-colors duration-300 py-2 tracking-wide"
+                className="text-4xl hover:text-accent transition-colors duration-300 py-2 pl-4"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.name}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className="btn-secondary inline-block text-center text-sm"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Get in Touch
-            </Link>
           </div>
         </motion.div>
       )}

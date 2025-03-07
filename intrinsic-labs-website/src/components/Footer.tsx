@@ -48,7 +48,7 @@ const Footer = () => {
           {/* Brand Column */}
           <div>
             <div className="logo-text text-2xl mb-4">
-              Intrinsic<span className="text-primary-600">Labs</span>
+              Intrinsic Labs
             </div>
             <p className="terminal-text text-sm mb-6">
               Building exceptional mobile and web experiences that solve real problems.
@@ -117,13 +117,13 @@ const Footer = () => {
 
           {/* Links Columns */}
           <div>
-            <h3 className="terminal-text text-sm font-semibold mb-4 uppercase tracking-wider">Company</h3>
+            <h3 className="terminal-text text-md font-semibold mb-4 uppercase tracking-wider">Company</h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-secondary-400 hover:text-accent transition-colors text-xs tracking-wide"
+                    className="text-secondary-400 hover:text-accent transition-colors text-md tracking-wide"
                   >
                     {link.name}
                   </Link>
@@ -133,13 +133,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="terminal-text text-sm font-semibold mb-4 uppercase tracking-wider">Services</h3>
+            <h3 className="terminal-text text-md font-semibold mb-4 uppercase tracking-wider">Services</h3>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-secondary-400 hover:text-accent transition-colors text-xs tracking-wide"
+                    className="text-secondary-400 hover:text-accent transition-colors text-md tracking-wide"
                   >
                     {link.name}
                   </Link>
@@ -149,13 +149,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="terminal-text text-sm font-semibold mb-4 uppercase tracking-wider">Resources</h3>
+            <h3 className="terminal-text text-md font-semibold mb-4 uppercase tracking-wider">Resources</h3>
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-secondary-400 hover:text-primary-600 transition-colors text-xs tracking-wide"
+                    className="text-secondary-400 hover:text-accent transition-colors text-md tracking-wide"
                   >
                     {link.name}
                   </Link>
