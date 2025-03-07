@@ -22,14 +22,14 @@ const WorkHero = () => {
       className="relative min-h-[70vh] flex items-center justify-center overflow-hidden"
     >
       {/* Background elements with parallax */}
-      <motion.div 
+      {/* <motion.div 
         className="absolute inset-0 z-0"
         style={{ y, opacity }}
-      >
+      > */}
         {/* Decorative elements */}
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary/10 blur-3xl"></div>
+        {/* <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary/10 blur-3xl"></div>
         <div className="absolute bottom-1/3 right-1/3 w-80 h-80 rounded-full bg-accent/10 blur-3xl"></div>
-      </motion.div>
+      </motion.div> */}
       
       <div className="container-custom relative z-10 px-4 py-16 md:py-24 lg:py-32">
         <motion.div 
@@ -65,7 +65,7 @@ const WorkHero = () => {
           
           {/* Description */}
           <motion.p 
-            className="text-lg md:text-xl lg:text-2xl text-neutral-300 max-w-3xl mx-auto mb-8 md:mb-12"
+            className="text-lg md:text-xl lg:text-2xl text-neutral-800 max-w-3xl mx-auto mb-8 md:mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}

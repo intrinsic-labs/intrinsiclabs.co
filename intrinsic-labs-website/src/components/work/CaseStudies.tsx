@@ -96,10 +96,10 @@ const CaseStudies = () => {
       className="py-16 md:py-24 lg:py-32 bg-background relative overflow-hidden"
     >
       {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 right-1/4 w-72 h-72 rounded-full bg-primary/5 blur-3xl"></div>
         <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full bg-accent/5 blur-3xl"></div>
-      </div>
+      </div> */}
 
       <motion.div 
         className="container-custom relative z-10"
@@ -120,7 +120,7 @@ const CaseStudies = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base md:text-xl text-neutral-300"
+            className="text-base md:text-xl text-neutral-800"
           >
             Dive deep into our most impactful projects and discover how we solve complex challenges.
           </motion.p>
@@ -149,7 +149,7 @@ const CaseStudies = () => {
                   {/* Header with title and category */}
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <div>
-                      <div className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-1 sm:mb-2 ${hoveredStudy === study.id ? 'text-accent' : 'text-neutral-300'}`}>
+                      <div className={`text-xs sm:text-sm font-semibold uppercase tracking-wider mb-1 sm:mb-2 ${hoveredStudy === study.id ? 'text-accent' : 'text-neutral-800'}`}>
                         {study.category}
                       </div>
                       <h3 className="text-xl sm:text-2xl md:text-3xl font-mono font-bold">
@@ -161,7 +161,7 @@ const CaseStudies = () => {
                       className={`self-start px-4 py-2 rounded-full border text-sm transition-all duration-300 ${
                         expandedStudy === study.id 
                           ? 'border-accent text-accent bg-accent/10' 
-                          : 'border-neutral-600 text-neutral-300 hover:border-primary hover:text-primary hover:bg-primary/5'
+                          : 'border-neutral-600 text-neutral-800 hover:border-primary hover:text-primary hover:bg-primary/5'
                       }`}
                     >
                       <span className="flex items-center">
@@ -198,7 +198,7 @@ const CaseStudies = () => {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="md:col-span-2">
                       <h4 className="text-lg font-semibold mb-2 text-primary">Overview</h4>
-                      <p className="text-neutral-300">{study.description}</p>
+                      <p className="text-neutral-800">{study.description}</p>
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold mb-2 text-primary">Technologies</h4>
@@ -206,8 +206,8 @@ const CaseStudies = () => {
                         {study.technologies.map((tech) => (
                           <span
                             key={tech}
-                            className={`px-3 py-1 rounded-full text-xs transition-colors duration-300 ${
-                              hoveredStudy === study.id ? 'bg-accent/75' : 'bg-neutral-800'
+                            className={`px-3 py-1 rounded-full text-xs transition-colors duration-300 text-secondary ${
+                              hoveredStudy === study.id ? 'bg-accent' : 'bg-neutral-800'
                             }`}
                           >
                             {tech}
@@ -250,7 +250,7 @@ const CaseStudies = () => {
                           transition={{ duration: 0.3, delay: 0.1 }}
                         >
                           <h4 className="text-lg font-semibold mb-2 text-primary">The Challenge</h4>
-                          <p className="text-neutral-300">{study.challenge}</p>
+                          <p className="text-neutral-800">{study.challenge}</p>
                         </motion.div>
                         <motion.div
                           initial={{ opacity: 0, y: 10 }}
@@ -258,7 +258,7 @@ const CaseStudies = () => {
                           transition={{ duration: 0.3, delay: 0.2 }}
                         >
                           <h4 className="text-lg font-semibold mb-2 text-primary">Our Solution</h4>
-                          <p className="text-neutral-300">{study.solution}</p>
+                          <p className="text-neutral-800">{study.solution}</p>
                         </motion.div>
                         <motion.div
                           initial={{ opacity: 0, y: 10 }}
@@ -266,7 +266,7 @@ const CaseStudies = () => {
                           transition={{ duration: 0.3, delay: 0.3 }}
                         >
                           <h4 className="text-lg font-semibold mb-2 text-primary">Results</h4>
-                          <ul className="text-neutral-300 space-y-2">
+                          <ul className="text-neutral-800 space-y-2">
                             {study.results.map((result, i) => (
                               <li key={i} className="flex items-start">
                                 <span className="text-accent mr-2">•</span>
@@ -283,7 +283,7 @@ const CaseStudies = () => {
                   <div className="flex justify-end">
                     <Link
                       href={study.link}
-                      className="inline-flex items-center text-primary hover:text-primary-400 transition-colors"
+                      className="inline-flex items-center text-primary hover:text-accent transition-colors"
                     >
                       <span>View Full Case Study</span>
                       <motion.svg

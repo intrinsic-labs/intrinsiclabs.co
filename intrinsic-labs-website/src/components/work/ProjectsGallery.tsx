@@ -166,7 +166,7 @@ const ProjectsGallery = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base md:text-xl text-neutral-300"
+            className="text-base md:text-xl text-neutral-800"
           >
             Browse our complete portfolio of projects across different categories.
           </motion.p>
@@ -187,7 +187,7 @@ const ProjectsGallery = () => {
               className={`px-4 py-2 rounded-full text-sm md:text-base transition-all duration-300 ${
                 selectedCategory === category
                   ? 'bg-primary text-background font-medium'
-                  : 'bg-neutral-800/50 text-neutral-300 hover:bg-neutral-700'
+                  : 'bg-neutral-300 text-neutral-800 hover:text-secondary hover:bg-accent'
               }`}
             >
               {category}
@@ -231,13 +231,13 @@ const ProjectsGallery = () => {
                       
                       {/* Project Info */}
                       <div className="flex-grow">
-                        <div className={`text-xs font-semibold uppercase tracking-wider mb-1 ${hoveredProject === project.id ? 'text-accent' : 'text-neutral-300'}`}>
+                        <div className={`text-xs font-semibold uppercase tracking-wider mb-1 ${hoveredProject === project.id ? 'text-accent' : 'text-neutral-800'}`}>
                           {project.category}
                         </div>
                         <h3 className="text-lg font-mono font-bold mb-2">
                           {project.title}
                         </h3>
-                        <p className="text-sm text-neutral-300 mb-4">{project.description}</p>
+                        <p className="text-sm text-neutral-800 mb-4">{project.description}</p>
                       </div>
                       
                       {/* Technologies */}
@@ -246,15 +246,15 @@ const ProjectsGallery = () => {
                           {project.technologies.slice(0, 3).map((tech) => (
                             <span
                               key={tech}
-                              className={`px-2 py-1 rounded-full text-xs transition-colors duration-300 ${
-                                hoveredProject === project.id ? 'bg-accent/75' : 'bg-neutral-800'
+                              className={`px-2 py-1 rounded-full text-xs transition-colors duration-300 text-secondary ${
+                                hoveredProject === project.id ? 'bg-accent' : 'bg-neutral-800'
                               }`}
                             >
                               {tech}
                             </span>
                           ))}
                           {project.technologies.length > 3 && (
-                            <span className="px-2 py-1 rounded-full text-xs bg-neutral-800">
+                            <span className="px-2 py-1 rounded-full text-xs bg-neutral-800 text-secondary">
                               +{project.technologies.length - 3}
                             </span>
                           )}
