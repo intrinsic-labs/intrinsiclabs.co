@@ -33,11 +33,7 @@ const Navigation = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-background/80 backdrop-blur-md py-3'
-          : 'bg-transparent py-5'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background py-4`}
     >
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
@@ -60,11 +56,11 @@ const Navigation = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="font-bold"
+              className="font-light"
             >
               <Link
                 href={link.href}
-                className="text-md hover:text-accent transition-colors duration-300 tracking-wide"
+                className="text-md hover:text-accent hover:font-medium transition-colors duration-300 tracking-wide"
               >
                 {link.name}
               </Link>
@@ -74,7 +70,7 @@ const Navigation = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-secondary-400 focus:outline-none"
+          className="md:hidden text-secondary-800 focus:outline-none"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle mobile menu"
         >
@@ -108,11 +104,11 @@ const Navigation = () => {
       {isMobileMenuOpen && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
+          animate={{ opacity: 1, height: 'calc(100vh)' }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-background/80 backdrop-blur-md border-b border-secondary-400/20"
+          className="md:hidden bg-background backdrop-blur-md border-b border-secondary-400/20 fixed left-0 right-0 z-50 overflow-y-auto"
         >
-          <div className="container-custom py-5 flex flex-col space-y-4">
+          <div className="container-custom py-12 flex flex-col space-y-4 h-full">
             {navLinks.map((link) => (
               <Link
                 key={link.name}

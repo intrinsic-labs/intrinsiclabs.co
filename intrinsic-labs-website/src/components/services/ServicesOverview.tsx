@@ -95,7 +95,7 @@ const processSteps = [
     id: 2,
     title: 'Design',
     description: 'We create wireframes and designs that align with your brand and meet user expectations.',
-    color: 'var(--purple)',
+    color: 'var(--accent)',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 20h9" />
@@ -107,7 +107,7 @@ const processSteps = [
     id: 3,
     title: 'Development',
     description: 'Our engineers build your solution using modern, scalable, and maintainable code.',
-    color: 'var(--secondary)',
+    color: 'var(--accent',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="m18 16 4-4-4-4" />
@@ -195,7 +195,7 @@ const ServicesOverview = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-neutral-300"
+            className="text-xl text-neutral-800"
           >
             We specialize in creating digital solutions that are both beautiful
             and functional, tailored to your specific needs and business goals.
@@ -227,10 +227,10 @@ const ServicesOverview = () => {
                 {service.icon}
               </div>
               <h3 className="text-2xl font-mono font-bold mb-4">{service.title}</h3>
-              <p className="text-neutral-300 mb-6 flex-grow">{service.description}</p>
+              <p className="text-neutral-800 mb-6 flex-grow">{service.description}</p>
               <Link
                 href={`#${service.id}`}
-                className="inline-flex items-center text-primary hover:text-primary-400 transition-colors mt-auto"
+                className="inline-flex items-center text-primary hover:text-accent transition-colors mt-auto"
               >
                 <span>Learn more</span>
                 <svg
@@ -272,7 +272,7 @@ const ServicesOverview = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-neutral-300"
+              className="text-xl text-neutral-800"
             >
               We follow a structured approach to ensure your project is delivered 
               on time, within budget, and exceeds expectations.
@@ -322,7 +322,7 @@ const ServicesOverview = () => {
                       </div>
                       
                       <h3 className={`text-xl font-bold mb-2`}>{step.title}</h3>
-                      <p className="text-neutral-300">{step.description}</p>
+                      <p className="text-neutral-800">{step.description}</p>
                     </div>
                     
                     {/* Desktop icon - hidden on mobile, positioned next to the card */}

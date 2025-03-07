@@ -60,6 +60,9 @@ const config: Config = {
           DEFAULT: "#f9f6f2", // Almost white
           dark: "#21201f", // Light grey
         },
+        orange: {
+          DEFAULT: "#E07A55" // Darker orange
+        },
         // Purple-leaning indigo accent color
         accent: {
           DEFAULT: "#6C5CE7", // More purple-leaning indigo

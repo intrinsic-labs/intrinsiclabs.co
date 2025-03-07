@@ -72,8 +72,8 @@ body {
   color: var(--primary);
 }
 
-.terminal-text-purple {
-  color: var(--purple);
+.terminal-text-secondary {
+  color: var(--secondary);
 }
 
 .terminal-text-orange {
@@ -82,6 +82,10 @@ body {
 
 .terminal-text-green {
   color: var(--terminal-green);
+}
+
+.terminal-text-accent  {
+  color: var(--accent);
 }
 
 .terminal-cursor::after {

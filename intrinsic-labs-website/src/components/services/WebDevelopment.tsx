@@ -38,10 +38,10 @@ const WebDevelopment = () => {
       className="py-24 bg-background relative overflow-hidden"
     >
       {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 right-1/3 w-80 h-80 rounded-full bg-accent/5 blur-3xl"></div>
         <div className="absolute bottom-1/4 left-1/3 w-96 h-96 rounded-full bg-primary/5 blur-3xl"></div>
-      </div>
+      </div> */}
       
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 items-center">
@@ -61,9 +61,9 @@ const WebDevelopment = () => {
                   style={{ objectPosition: '50% 50%', height: '100%' }}
                 />
               </div>
-              <div className="absolute top-4 right-4 md:-top-6 md:-right-6 w-auto md:w-24 h-auto md:h-24 bg-primary/10 backdrop-blur-md rounded-lg p-3 md:p-4 flex items-center justify-center z-10">
-                <span className="terminal-text text-xs">
-                  &lt;<span className="text-primary">web</span>/&gt;
+              <div className="absolute top-4 right-4 md:-top-6 md:-right-6 w-auto md:w-24 h-auto md:h-24 bg-neutral-600/30 backdrop-blur-md rounded-lg p-3 md:p-4 flex items-center justify-center z-10">
+                <span className="terminal-text-secondary text-xs">
+                  &lt;<span className="text-orange">web</span>/&gt;
                 </span>
               </div>
             </div>
@@ -78,7 +78,7 @@ const WebDevelopment = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="heading-lg mb-6">Web Development</h2>
-              <p className="text-xl text-neutral-300 mb-8">
+              <p className="text-xl text-neutral-800 mb-8">
                 We build responsive, modern web applications that engage users and drive business results, 
                 combining cutting-edge technology with thoughtful design.
               </p>
@@ -91,7 +91,7 @@ const WebDevelopment = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h3 className="text-2xl font-bold mb-4">Frontend Development</h3>
-              <p className="text-neutral-300 mb-6">
+              <p className="text-neutral-800 mb-6">
                 Our frontend development focuses on creating intuitive, performant user interfaces 
                 that work seamlessly across all devices and browsers. We use React, Next.js, and 
                 other modern frameworks to build interactive experiences.
@@ -126,7 +126,7 @@ const WebDevelopment = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <h3 className="text-2xl font-bold mb-4">Backend Development</h3>
-              <p className="text-neutral-300 mb-6">
+              <p className="text-neutral-800 mb-6">
                 Our backend solutions are scalable, secure, and built to handle complex business logic. 
                 We leverage Node.js, PostgreSQL, and modern infrastructure to create robust API services 
                 and data management systems.

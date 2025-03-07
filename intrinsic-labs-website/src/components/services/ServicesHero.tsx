@@ -20,7 +20,7 @@ const ServicesHero = () => {
       className="min-h-[80vh] flex items-center justify-center relative overflow-hidden pt-28 bg-background"
     >
       {/* Background with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background/50 to-background/95"></div>
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background/50 to-background/95"></div> */}
       
       {/* Background decorative elements */}
       {/* <div className="absolute inset-0 overflow-hidden">
@@ -41,7 +41,7 @@ const ServicesHero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl md:text-2xl text-neutral-300 max-w-2xl mx-auto mb-8"
+          className="text-xl md:text-2xl text-neutral-800 max-w-2xl mx-auto mb-8"
         >
           We build digital solutions that solve real problems, focusing on user experience,
           performance, and scalability.
@@ -52,7 +52,7 @@ const ServicesHero = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="inline-block"
         >
-          <div className="terminal-text-green terminal-cursor">
+          <div className="terminal-text-accent terminal-cursor">
             let services = [&#39;mobile&#39;, &#39;web&#39;, &#39;custom_software&#39;]
           </div>
         </motion.div>

@@ -175,7 +175,7 @@ const Services = () => {
               <p className="text-neutral-800 mb-6">{service.description}</p>
               <Link
                 href={service.link}
-                className="inline-flex items-center text-primary hover:text-primary-400 transition-colors"
+                className="inline-flex items-center text-primary hover:text-accent transition-colors"
               >
                 <span>Learn more</span>
                 <svg

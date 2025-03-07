@@ -36,10 +36,10 @@ const MobileDevelopment = () => {
       className="py-24 bg-background relative overflow-hidden"
     >
       {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/3 left-1/4 w-64 h-64 rounded-full bg-primary/5 blur-3xl"></div>
         <div className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-accent/5 blur-3xl"></div>
-      </div>
+      </div> */}
       
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 items-center">
@@ -56,7 +56,7 @@ const MobileDevelopment = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="heading-lg mb-6">Mobile Development</h2>
-              <p className="text-xl text-neutral-300 mb-8">
+              <p className="text-xl text-neutral-800 mb-8">
                 We create beautiful, high-performance native applications for iOS and Android 
                 that provide exceptional user experiences and help you connect with your audience.
               </p>
@@ -69,7 +69,7 @@ const MobileDevelopment = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h3 className="text-2xl font-bold mb-4">iOS Development</h3>
-              <p className="text-neutral-300 mb-6">
+              <p className="text-neutral-800 mb-6">
                 We build sleek, powerful iOS applications using Swift and SwiftUI, 
                 taking advantage of the latest Apple technologies and design patterns to create 
                 intuitive interfaces and smooth functionality.
@@ -83,7 +83,7 @@ const MobileDevelopment = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <h3 className="text-2xl font-bold mb-4">Android Development</h3>
-              <p className="text-neutral-300 mb-6">
+              <p className="text-neutral-800 mb-6">
                 Our Android applications are built with Kotlin and Jetpack Compose, 
                 ensuring they're modern, maintainable, and provide a premium experience 
                 across the diverse Android ecosystem.
@@ -152,9 +152,9 @@ const MobileDevelopment = () => {
                 />
               </div>
               
-              <div className="absolute bottom-4 right-4 md:-bottom-6 md:-left-6 w-auto md:w-24 h-auto md:h-24 bg-accent/10 backdrop-blur-md rounded-lg p-3 md:p-4 flex items-center justify-center md:justify-start lg:-left-6 z-10">
-                <span className="terminal-text text-sm">
-                  <span className="text-accent">iOS</span> + <span className="text-primary">Android</span>
+              <div className="absolute bottom-4 right-4 md:-bottom-6 md:-left-6 w-auto md:w-24 h-auto md:h-24 bg-neutral-600/30 backdrop-blur-md rounded-lg p-3 md:p-4 flex items-center justify-center md:justify-start lg:-left-6 z-10">
+                <span className="terminal-text-secondary text-sm">
+                  iOS <span className="text-orange">+</span> Android
                 </span>
               </div>
             </div>

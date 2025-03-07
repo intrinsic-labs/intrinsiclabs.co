@@ -86,10 +86,10 @@ const CustomSoftware = () => {
       className="py-24 bg-background relative overflow-hidden"
     >
       {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/3 right-1/4 w-96 h-96 rounded-full bg-brown/5 blur-3xl"></div>
         <div className="absolute bottom-1/3 left-1/4 w-64 h-64 rounded-full bg-primary/5 blur-3xl"></div>
-      </div>
+      </div> */}
       
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-24 items-center mb-8 md:mb-40">
@@ -105,7 +105,7 @@ const CustomSoftware = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="heading-lg mb-6">Custom Software</h2>
-              <p className="text-xl text-neutral-300 mb-8">
+              <p className="text-xl text-neutral-800 mb-8">
                 We develop bespoke software solutions tailored to your unique business needs,
                 helping you solve complex challenges and achieve your goals.
               </p>
@@ -118,7 +118,7 @@ const CustomSoftware = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h3 className="text-2xl font-bold mb-4">Our Approach</h3>
-              <p className="text-neutral-300 mb-6">
+              <p className="text-neutral-800 mb-6">
                 We take the time to understand your business processes, challenges, and objectives
                 to create software that streamlines operations, improves efficiency,
                 and provides a competitive advantage.
@@ -132,7 +132,7 @@ const CustomSoftware = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <h3 className="text-2xl font-bold mb-4">Solutions We Provide</h3>
-              <ul className="text-neutral-300 mb-8 space-y-2">
+              <ul className="text-neutral-800 mb-8 space-y-2">
                 <li className="flex items-start">
                   <span className="text-primary mr-2">›</span>
                   <span>Enterprise Resource Planning (ERP) systems</span>
@@ -174,9 +174,9 @@ const CustomSoftware = () => {
                   style={{ objectPosition: '50% 50%' }}
                 />
               </div>
-              <div className="absolute bottom-4 right-4 md:-bottom-6 md:-right-6 w-auto h-auto md:h-28 bg-brown/10 backdrop-blur-md rounded-lg p-3 md:p-4 flex items-center justify-center z-10">
-                <span className="terminal-text text-xs">
-                  <span className="text-primary">func</span> <span className="text-accent">customSolution</span>() {'{...}'}
+              <div className="absolute bottom-4 right-4 md:-bottom-6 md:-right-6 w-auto h-auto md:h-28 bg-neutral-600/30 backdrop-blur-md rounded-lg p-3 md:p-4 flex items-center justify-center z-10">
+                <span className="terminal-text-secondary text-xs">
+                  <span className="text-secondary">func</span> <span className="text-orange">customSolution</span>() {'{...}'}
                 </span>
               </div>
             </div>
@@ -193,7 +193,7 @@ const CustomSoftware = () => {
             className="text-center max-w-3xl mx-auto mb-16"
           >
             <h3 className="heading-md mb-6">Industry-Specific Solutions</h3>
-            <p className="text-xl text-neutral-300">
+            <p className="text-xl text-neutral-800">
               We have experience developing solutions across various industries, 
               each with their unique requirements and challenges.
             </p>
@@ -216,7 +216,7 @@ const CustomSoftware = () => {
                   {solution.icon}
                 </div>
                 <h4 className="text-xl font-bold mb-2">{solution.title}</h4>
-                <p className="text-neutral-300">{solution.description}</p>
+                <p className="text-neutral-800">{solution.description}</p>
               </motion.div>
             ))}
           </motion.div>
