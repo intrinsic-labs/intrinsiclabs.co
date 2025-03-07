@@ -130,10 +130,63 @@ const config: Config = {
         '2xl': '1.5rem',
         '3xl': '2rem',
       },
+      typography: (theme: any) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.secondary.DEFAULT'),
+            a: {
+              color: theme('colors.primary.DEFAULT'),
+              '&:hover': {
+                color: theme('colors.primary.400'),
+              },
+            },
+            h1: {
+              color: theme('colors.primary.DEFAULT'),
+              fontFamily: theme('fontFamily.display').join(', '),
+            },
+            h2: {
+              color: theme('colors.primary.DEFAULT'),
+              fontFamily: theme('fontFamily.display').join(', '),
+            },
+            h3: {
+              color: theme('colors.primary.DEFAULT'),
+              fontFamily: theme('fontFamily.display').join(', '),
+            },
+            h4: {
+              color: theme('colors.primary.DEFAULT'),
+              fontFamily: theme('fontFamily.display').join(', '),
+            },
+            blockquote: {
+              color: theme('colors.secondary.300'),
+              borderLeftColor: theme('colors.primary.700'),
+            },
+            'code::before': {
+              content: '""',
+            },
+            'code::after': {
+              content: '""',
+            },
+            code: {
+              color: theme('colors.primary.300'),
+              backgroundColor: theme('colors.neutral.800'),
+              padding: '0.25rem 0.5rem',
+              borderRadius: '0.25rem',
+              fontWeight: '400',
+            },
+            pre: {
+              backgroundColor: theme('colors.neutral.900'),
+              color: theme('colors.secondary.200'),
+              borderRadius: '0.5rem',
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/line-clamp'),
   ],
 };
 export default config; 
