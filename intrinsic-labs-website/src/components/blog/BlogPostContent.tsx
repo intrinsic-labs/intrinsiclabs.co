@@ -51,7 +51,7 @@ const BlogPostContent = ({ post }: BlogPostContentProps) => {
                 code({ node, inline, className, children, ...props }: any) {
                   const match = /language-(\w+)/.exec(className || '');
                   return !inline && match ? (
-                    <div className="overflow-hidden rounded-2xl my-6">
+                    <div className="overflow-hidden rounded-xl my-6">
                       <SyntaxHighlighter
                         style={vscDarkPlus as any}
                         language={match[1]}

@@ -6,8 +6,9 @@ import CallToAction from '@/components/home/CallToAction';
 import { getBlogPost, getRelatedPosts } from '@/lib/blog';
 
 // This would be replaced with actual data fetching
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = await getBlogPost(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getBlogPost(slug);
   
   return {
     title: `${post.title} | Intrinsic Labs Blog`,
@@ -20,9 +21,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = await getBlogPost(params.slug);
-  const relatedPosts = await getRelatedPosts(params.slug);
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = await getBlogPost(slug);
+  const relatedPosts = await getRelatedPosts(slug);
   
   return (
     <main className="min-h-screen">
