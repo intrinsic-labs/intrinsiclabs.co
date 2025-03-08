@@ -20,6 +20,7 @@
   --primary: #21201f; /* Very dark grey */
   --secondary: #FFFFFF; /* Pure white */
   --accent: #6C5CE7; /* More purple-leaning indigo */
+  --terminal-accent: #c9c2ff; /* More purple-leaning indigo */
   --brown: #8B5E3C; /* Rich wood brown (maintained for backward compatibility) */
   --purple: #7B68EE; /* Medium slate blue */
   --orange: #E07A55; /* Darker orange */
@@ -69,7 +70,7 @@ body {
 /* Retro terminal effect */
 .terminal-text {
   font-family: 'JetBrains Mono', monospace;
-  color: var(--primary);
+  color: var(--background);
 }
 
 .terminal-text-secondary {
@@ -85,7 +86,7 @@ body {
 }
 
 .terminal-text-accent  {
-  color: var(--accent);
+  color: var(--terminal-accent);
 }
 
 .terminal-cursor::after {

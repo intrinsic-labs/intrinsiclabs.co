@@ -141,11 +141,6 @@ const ProjectsGallery = () => {
       ref={sectionRef}
       className="py-16 md:py-24 lg:py-32 bg-background relative overflow-hidden"
     >
-      {/* Background decorative elements */}
-      {/* <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/3 left-1/3 w-72 h-72 rounded-full bg-accent/5 blur-3xl"></div>
-        <div className="absolute bottom-1/3 right-1/3 w-80 h-80 rounded-full bg-primary/5 blur-3xl"></div>
-      </div> */}
 
       <motion.div 
         className="container-custom relative z-10"
@@ -168,7 +163,7 @@ const ProjectsGallery = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base md:text-xl text-neutral-800"
           >
-            Browse our complete portfolio of projects across different categories.
+            There's a whole lot more where that came from.
           </motion.p>
         </div>
 

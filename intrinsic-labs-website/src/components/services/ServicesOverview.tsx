@@ -9,7 +9,7 @@ import Card from '../ui/Card';
 const services = [
   {
     id: 'mobile',
-    title: 'Mobile Development',
+    title: 'Build a mobile app',
     description:
       'Create beautiful, performant apps for iOS and Android that users love.',
     icon: (
@@ -30,13 +30,13 @@ const services = [
   },
   {
     id: 'web',
-    title: 'Web Development',
+    title: 'Digital Storefront Transformation',
     description:
-      'Build responsive, modern web applications using the latest technologies.',
+      'Transform Your Local Business into an Online Revenue Generator in Just 30 Days.',
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6"
+        className="h-8 w-8"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -44,17 +44,22 @@ const services = [
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+        {/* Storefront building */}
+        <path d="M3 9l9-6 9 6v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        {/* Door */}
+        <path d="M9 22V12h6v10" />
+        {/* Store sign/awning */}
         <path d="M3 9h18" />
-        <path d="M9 21V9" />
+        {/* Window */}
+        <rect x="14" y="14" width="4" height="4" />
       </svg>
     ),
   },
   {
     id: 'custom',
-    title: 'Custom Software',
+    title: 'Build something else',
     description:
-      'Tailored software solutions to address your unique business challenges.',
+      'We can help you build anything. We\'re that good. Just ask.',
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -188,7 +193,7 @@ const ServicesOverview = () => {
             transition={{ duration: 0.6 }}
             className="heading-lg mb-6"
           >
-            What We Offer
+            Let's work together.
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -220,13 +225,13 @@ const ServicesOverview = () => {
               borderColors={['#8c72ff','#ff8c72']}
             >
               <div className="flex items-center mb-6">
-                <div
+                {/* <div
                   className={`text-primary mr-4 transition-transform duration-300 ${
                     hoveredCard === service.id ? 'scale-110' : ''
                   }`}
                 >
                   {service.icon}
-                </div>
+                </div> */}
                 <h3 className="text-2xl font-mono font-bold">{service.title}</h3>
               </div>
               <p className="text-neutral-800 mb-6 flex-grow">{service.description}</p>
@@ -234,7 +239,7 @@ const ServicesOverview = () => {
                 href={`#${service.id}`}
                 className="inline-flex items-center text-primary hover:text-accent transition-colors mt-auto"
               >
-                <span>Learn more</span>
+                <span>View offer</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className={`h-5 w-5 ml-2 transition-transform duration-300 ${

@@ -1,37 +1,14 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import PageHero from '../ui/PageHero';
 
 const BlogHero = () => {
   return (
-    <section className="relative pt-24 md:pt-28 lg:pt-48 overflow-hidden">
-      <div className="container-custom relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-medium tracking-tight mb-8">
-            Researching<br />
-            at the frontier
-          </h1>
-          <p className="text-lg md:text-xl text-neutral-800 max-w-2xl mx-auto leading-relaxed">
-            At Intrinsic Labs, we develop innovative software solutions, 
-            and our research helps us create safer, more intuitive, and more 
-            reliable applications.
-          </p>
-        </motion.div>
-      </div>
-      
-      {/* Subtle background gradient */}
-      {/* <div 
-        className="absolute inset-0 pointer-events-none opacity-20"
-        style={{
-          background: 'radial-gradient(circle at 50% 50%, rgba(var(--primary-rgb), 0.3), transparent 70%)',
-        }}
-      /> */}
-    </section>
+    <PageHero
+      title="Researching\nat the frontier"
+      description="At Intrinsic Labs, we develop innovative software solutions, and our research helps us create safer, more intuitive, and more reliable applications."
+      bottomPadding={false}
+    />
   );
 };
 

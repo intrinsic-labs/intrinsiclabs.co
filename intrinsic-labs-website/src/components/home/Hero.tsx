@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import gsap from 'gsap';
 import Link from 'next/link';
+import ScrollIndicator from '../ui/ScrollIndicator';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -84,7 +85,6 @@ const Hero = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="text-center">
-          <h1 className="heading-xl">Intrinsic Labs</h1>
           <p className="paragraph">Loading...</p>
         </div>
       </div>
@@ -96,46 +96,19 @@ const Hero = () => {
       ref={heroRef}
       className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background parallax-section"
     >
-      {/* Debug display - comment out in production */}
-      {/* {process.env.NODE_ENV === 'development' && (
-        <div className="parallax-debug">
-          scrollY: {debugValues.scrollY}px<br />
-          y1: {debugValues.y1}px<br />
-          y2: {debugValues.y2}px
-        </div>
-      )} */}
-      
-      {/* Decorative elements with parallax effect */}
-      {/* <motion.div 
-        ref={decorRef}
-        className="absolute inset-0 overflow-hidden"
-        style={{ y: y1, opacity }}
-      >
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary/25 blur-3xl"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-secondary/25 blur-3xl"></div>
-      </motion.div> */}
 
       <motion.div 
-        className="container-custom relative z-10 pt-20 pb-16 md:py-32 parallax-content"
+        className="container-custom relative z-10 pt-12 pb-16 md:py-32"
         style={{ y: y2 }}
       >
         <div className="max-w-4xl mx-auto text-center" ref={textRef}>
-          {/* <motion.div
-            custom={0}
-            initial="hidden"
-            animate="visible"
-            variants={textVariants}
-            className="inline-block bg-gradient-to-r from-brown to-accent bg-clip-text text-transparent text-lg md:text-xl font-semibold mb-6"
-          >
-            Mobile & Web Development Studio
-          </motion.div> */}
 
           <motion.h1
             custom={1}
             initial="hidden"
             animate="visible"
             variants={textVariants}
-            className="heading-xl mb-8 leading-tight"
+            className="heading-xl mb-6 leading-tight"
           >
             We will fix your life with code.
           </motion.h1>
@@ -145,7 +118,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={textVariants}
-            className="text-xl md:text-2xl text-neutral-800 mb-12 max-w-3xl mx-auto"
+            className="text-xl md:text-2xl text-neutral-800 mb-16 max-w-3xl mx-auto"
           >
             Imagine anything. Make it so.
           </motion.p>
@@ -155,11 +128,20 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={textVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="gap-4 justify-center"
           >
             <Link href="/work" className="btn-primary">
               View Our Work
             </Link>
+          </motion.div>
+
+          <div className="h-16 flex-shrink-0" />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 3 }}
+          >
+            <ScrollIndicator text="" />
           </motion.div>
         </div>
       </motion.div>

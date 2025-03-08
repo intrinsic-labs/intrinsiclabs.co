@@ -53,15 +53,6 @@ const CaseStudies = () => {
   const [expandedStudy, setExpandedStudy] = useState<string | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   
-  // Parallax scroll effect
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
-  
-  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  
   // Toggle expanded state for case study
   const toggleExpand = (id: string) => {
     if (expandedStudy === id) {
@@ -93,7 +84,7 @@ const CaseStudies = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="py-16 md:py-24 lg:py-32 bg-background relative overflow-hidden"
+      className="py-20 bg-background relative overflow-hidden"
     >
       {/* Background decorative elements */}
       {/* <div className="absolute inset-0 overflow-hidden">
@@ -103,7 +94,6 @@ const CaseStudies = () => {
 
       <motion.div 
         className="container-custom relative z-10"
-        style={{ y, opacity }}
       >
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20 px-4">
           <motion.h2
