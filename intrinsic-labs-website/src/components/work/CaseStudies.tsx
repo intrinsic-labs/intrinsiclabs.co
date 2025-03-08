@@ -146,9 +146,10 @@ const CaseStudies = () => {
                         {study.title}
                       </h3>
                     </div>
+                    {/* Show button only on md screens and up in the header */}
                     <button 
                       onClick={() => toggleExpand(study.id)}
-                      className={`self-start px-4 py-2 rounded-full border text-sm transition-all duration-300 ${
+                      className={`hidden md:flex self-start px-4 py-2 rounded-full border text-sm transition-all duration-300 ${
                         expandedStudy === study.id 
                           ? 'border-accent text-accent bg-accent/10' 
                           : 'border-neutral-600 text-neutral-800 hover:border-primary hover:text-primary hover:bg-primary/5'
@@ -206,6 +207,34 @@ const CaseStudies = () => {
                       </div>
                     </div>
                   </div>
+                  
+                  {/* Mobile-only button below basic info */}
+                  <button 
+                    onClick={() => toggleExpand(study.id)}
+                    className={`md:hidden self-start px-4 py-2 rounded-full border text-sm transition-all duration-300 ${
+                      expandedStudy === study.id 
+                        ? 'border-accent text-accent bg-accent/10' 
+                        : 'border-neutral-600 text-neutral-800 hover:border-primary hover:text-primary hover:bg-primary/5'
+                    }`}
+                  >
+                    <span className="flex items-center">
+                      {expandedStudy === study.id ? (
+                        <>
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="18 15 12 9 6 15"></polyline>
+                          </svg>
+                          Show Less
+                        </>
+                      ) : (
+                        <>
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg>
+                          Show More
+                        </>
+                      )}
+                    </span>
+                  </button>
 
                   {/* Expanded content with AnimatePresence for proper exit animation */}
                   <AnimatePresence mode="wait">
@@ -266,35 +295,34 @@ const CaseStudies = () => {
                           </ul>
                         </motion.div>
                       </motion.div>
-                    )}
+                      )}
                   </AnimatePresence>
-
                   {/* Call to action */}
                   <div className="flex justify-end">
-                    <Link
-                      href={study.link}
-                      className="inline-flex items-center text-primary hover:text-accent transition-colors"
+                  <Link
+                    href={study.link}
+                    className="inline-flex items-center text-primary hover:text-accent transition-colors"
+                  >
+                    <span>View Full Case Study</span>
+                    <motion.svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 ml-2"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      animate={{
+                        x: hoveredStudy === study.id ? 5 : 0,
+                      }}
+                      transition={{ duration: 0.3 }}
                     >
-                      <span>View Full Case Study</span>
-                      <motion.svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5 ml-2"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        animate={{
-                          x: hoveredStudy === study.id ? 5 : 0,
-                        }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <path d="M5 12h14" />
-                        <path d="m12 5 7 7-7 7" />
-                      </motion.svg>
-                    </Link>
-                  </div>
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </motion.svg>
+                  </Link>
+                </div>
                 </div>
               </Card>
             </motion.div>

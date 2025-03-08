@@ -101,15 +101,6 @@ const ProjectsGallery = () => {
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const sectionRef = useRef<HTMLElement>(null);
   
-  // Parallax scroll effect
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
-  
-  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  
   // Filter projects when category changes
   useEffect(() => {
     if (selectedCategory === 'All') {
@@ -144,7 +135,6 @@ const ProjectsGallery = () => {
 
       <motion.div 
         className="container-custom relative z-10"
-        style={{ y, opacity }}
       >
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 px-4">
           <motion.h2
