@@ -42,14 +42,14 @@ const FeaturedPost = () => {
   return (
     <section className="py-8 md:py-16 bg-background/30">
       <div className="container-custom">
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="mb-6 md:mb-12"
+          className="mb-6"
         >
-          <span className="inline-block text-primary text-sm font-medium">Featured Paper</span>
-        </motion.div>
+          <span className="inline-block text-primary text-md font-medium">FEATURED PAPER</span>
+        </motion.div> */}
 
         <Link href={`/blog/${featuredPost.slug}`} className="block group">
           <motion.div 
@@ -59,7 +59,7 @@ const FeaturedPost = () => {
             className="relative rounded-xl overflow-hidden"
           >
             {/* Image */}
-            <div className="relative aspect-[3/4.5] md:aspect-[16/9] lg:aspect-[21/9] w-full">
+            <div className="relative aspect-[3/4.5] md:aspect-[16/9] lg:aspect-[21/9] w-full overflow-hidden">
               {featuredPost.coverImage ? (
                 <img 
                   src={featuredPost.coverImage} 
@@ -76,19 +76,19 @@ const FeaturedPost = () => {
               
               {/* Gradient overlay */}
               <div 
-                className="absolute inset-0 bg-gradient-to-t from-background to-transparent"
+                className="absolute inset-0 bg-gradient-to-t from-primary to-transparent z-10 pointer-events-none"
               />
               
               {/* Content overlay */}
-              <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 lg:p-12">
+              <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 lg:p-12 z-20">
                 <div className="max-w-3xl">
-                  <div className="flex items-center space-x-2 mb-3 text-sm text-primary/80">
-                    <span>{featuredPost.date}</span>
-                    <span>|</span>
+                  <div className="flex items-center space-x-1 mb-3 text-sm font-light text-secondary/60 group-hover:text-orange transition-colors duration-300">
+                    <span>Featured Paper</span>
+                    <span className="text-secondary/40">|</span>
                     <span>{featuredPost.readingTime}</span>
                   </div>
                   
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-medium mb-4 group-hover:text-primary transition-colors duration-300">
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-display text-secondary font-medium mb-4">
                     {featuredPost.title}
                   </h2>
                   

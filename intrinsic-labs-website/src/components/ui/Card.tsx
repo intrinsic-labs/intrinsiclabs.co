@@ -108,7 +108,7 @@ const Card = ({
         className={`absolute inset-0 rounded-xl transition-all duration-300 ${
           isHovered 
             ? 'bg-secondary/60 shadow-lg shadow-primary/5' 
-            : 'bg-neutral-800/10'
+            : 'bg-neutral-200 border border-primary/10'
         }`}
       />
       

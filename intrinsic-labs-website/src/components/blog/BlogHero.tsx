@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const BlogHero = () => {
   return (
-    <section className="relative py-32 md:py-40 lg:py-48 overflow-hidden">
+    <section className="relative pt-24 md:pt-28 lg:pt-48 overflow-hidden">
       <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -16,7 +16,7 @@ const BlogHero = () => {
             Researching<br />
             at the frontier
           </h1>
-          <p className="text-lg md:text-xl text-secondary/80 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-neutral-800 max-w-2xl mx-auto leading-relaxed">
             At Intrinsic Labs, we develop innovative software solutions, 
             and our research helps us create safer, more intuitive, and more 
             reliable applications.
@@ -25,12 +25,12 @@ const BlogHero = () => {
       </div>
       
       {/* Subtle background gradient */}
-      <div 
+      {/* <div 
         className="absolute inset-0 pointer-events-none opacity-20"
         style={{
           background: 'radial-gradient(circle at 50% 50%, rgba(var(--primary-rgb), 0.3), transparent 70%)',
         }}
-      />
+      /> */}
     </section>
   );
 };
