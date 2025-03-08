@@ -49,7 +49,7 @@ const RelatedPostCard = ({ post, index }: RelatedPostCardProps) => {
       transition={{ duration: 0.6, delay: 0.1 + (index * 0.1) }}
     >
       <Link href={`/blog/${post.slug}`} className="group block h-full">
-        <div className="bg-neutral-800/30 rounded-xl overflow-hidden h-full flex flex-col transition-all duration-300 hover:bg-neutral-800/50 hover:shadow-lg hover:shadow-primary/5 border border-transparent hover:border-primary/10">
+        <div className="bg-neutral-200 rounded-xl overflow-hidden h-full flex flex-col transition-all duration-300  border border-transparent hover:border-primary/10">
           {/* Image */}
           <div className="relative overflow-hidden">
             {post.coverImage ? (
@@ -72,9 +72,9 @@ const RelatedPostCard = ({ post, index }: RelatedPostCardProps) => {
           {/* Content */}
           <div className="p-5 flex flex-col flex-grow">
             <div className="flex items-center space-x-2 mb-2">
-              <span className="text-primary/80 text-xs">{post.date}</span>
-              <span className="text-secondary/50 text-xs">|</span>
-              <span className="text-primary/80 text-xs">{post.readingTime}</span>
+              <span className="text-neutral-800 text-xs">{post.date}</span>
+              <span className="text-neutral-400 text-xs">|</span>
+              <span className="text-neutral-800 text-xs">{post.readingTime}</span>
             </div>
             
             <h3 className="text-lg font-medium mb-2 group-hover:text-primary transition-colors duration-300">
@@ -85,7 +85,7 @@ const RelatedPostCard = ({ post, index }: RelatedPostCardProps) => {
               {post.category && (
                 <span 
                   key={post.category} 
-                  className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary/90"
+                  className="text-xs px-2 py-1 rounded-full border border-neutral-500 text-neutral-800 group-hover:border-orange group-hover:text-orange transition-colors duration-300"
                 >
                   {post.category}
                 </span>

@@ -11,7 +11,7 @@ interface BlogPostHeaderProps {
 
 const BlogPostHeader = ({ post }: BlogPostHeaderProps) => {
   return (
-    <section className="relative py-8 md:py-12 lg:py-16 overflow-hidden">
+    <section className="relative pt-8 md:pt-12 lg:pt-16 overflow-hidden">
       <div className="container-custom relative z-10">
         
         <div className="max-w-4xl mx-auto pt-16 text-center">
@@ -51,13 +51,13 @@ const BlogPostHeader = ({ post }: BlogPostHeaderProps) => {
             className="flex flex-wrap items-center gap-5 mb-10 justify-center"
           >
             
-            <div className="text-sm text-secondary/70">
+            <div className="text-sm text-neutral-800">
               {post.date}
             </div>
             
-            <span className="text-secondary/50"></span>
+            <span className="text-neutral-400">|</span>
             
-            <div className="text-sm text-secondary/70">
+            <div className="text-sm text-neutral-800">
               {post.readingTime}
             </div>
           </motion.div>
@@ -70,7 +70,7 @@ const BlogPostHeader = ({ post }: BlogPostHeaderProps) => {
             className="rounded-xl overflow-hidden mx-auto"
           >
             {post.coverImage ? (
-              <div className="aspect-w-16 aspect-h-9 md:aspect-h-7 lg:aspect-h-5">
+              <div className="aspect-w-16 aspect-h-16 md:aspect-h-12 lg:aspect-h-8">
                 <img 
                   src={post.coverImage} 
                   alt={post.title} 
@@ -88,12 +88,12 @@ const BlogPostHeader = ({ post }: BlogPostHeaderProps) => {
       </div>
       
       {/* Subtle background gradient */}
-      <div 
+      {/* <div 
         className="absolute inset-0 pointer-events-none opacity-30"
         style={{
           background: 'radial-gradient(circle at 50% 30%, rgba(var(--primary-rgb), 0.15), transparent 70%)',
         }}
-      />
+      /> */}
     </section>
   );
 };

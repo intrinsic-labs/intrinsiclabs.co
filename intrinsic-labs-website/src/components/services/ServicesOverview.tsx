@@ -15,7 +15,7 @@ const services = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-12 w-12"
+        className="h-6 w-6"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -36,7 +36,7 @@ const services = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-12 w-12"
+        className="h-6 w-6"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -58,7 +58,7 @@ const services = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-12 w-12"
+        className="h-6 w-6"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -219,14 +219,16 @@ const ServicesOverview = () => {
               className="p-8 h-full flex flex-col group"
               borderColors={['#8c72ff','#ff8c72']}
             >
-              <div
-                className={`text-primary mb-6 transition-transform duration-300 ${
-                  hoveredCard === service.id ? 'scale-110' : ''
-                }`}
-              >
-                {service.icon}
+              <div className="flex items-center mb-6">
+                <div
+                  className={`text-primary mr-4 transition-transform duration-300 ${
+                    hoveredCard === service.id ? 'scale-110' : ''
+                  }`}
+                >
+                  {service.icon}
+                </div>
+                <h3 className="text-2xl font-mono font-bold">{service.title}</h3>
               </div>
-              <h3 className="text-2xl font-mono font-bold mb-4">{service.title}</h3>
               <p className="text-neutral-800 mb-6 flex-grow">{service.description}</p>
               <Link
                 href={`#${service.id}`}
