@@ -170,7 +170,7 @@ The benefits include:
 
 The new App Router in Next.js introduces a more intuitive way to build applications with nested layouts, loading states, and error handling.
 
-\`\`\`
+\`\`\`python
 app/
 ├── layout.tsx      # Root layout
 ├── page.tsx        # Home page
