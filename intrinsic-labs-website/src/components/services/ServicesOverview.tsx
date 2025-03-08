@@ -11,7 +11,7 @@ const services = [
     id: 'mobile',
     title: 'Build a mobile app',
     description:
-      'Create beautiful, performant apps for iOS and Android that users love.',
+      "Wanna spend more time on your phone? Us too. Let's chat.",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -30,9 +30,9 @@ const services = [
   },
   {
     id: 'web',
-    title: 'Digital Storefront Transformation',
+    title: 'Build a website',
     description:
-      'Transform Your Local Business into an Online Revenue Generator in Just 30 Days.',
+      'Get legit and get found with a website that actually works.',
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -202,8 +202,7 @@ const ServicesOverview = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-neutral-800"
           >
-            We specialize in creating digital solutions that are both beautiful
-            and functional, tailored to your specific needs and business goals.
+            Today is the day your future self will remember with great fondness - the day you chose to be smart and hire us.
           </motion.p>
         </motion.div>
 
@@ -236,10 +235,10 @@ const ServicesOverview = () => {
               </div>
               <p className="text-neutral-800 mb-6 flex-grow">{service.description}</p>
               <Link
-                href={`#${service.id}`}
+                href={`/contact`}
                 className="inline-flex items-center text-primary hover:text-accent transition-colors mt-auto"
               >
-                <span>View offer</span>
+                <span>Book a call</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className={`h-5 w-5 ml-2 transition-transform duration-300 ${
