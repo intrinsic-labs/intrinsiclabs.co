@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiGithub, FiTwitter, FiInstagram } from 'react-icons/fi';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,13 +23,42 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu when Escape key is pressed
+  useEffect(() => {
+    const handleEscKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleEscKey);
+    return () => window.removeEventListener('keydown', handleEscKey);
+  }, [isMobileMenuOpen]);
+
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
-    { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
     { name: 'Work', href: '/work' },
     { name: 'About', href: '/about' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
+  ];
+
+  const socialLinks = [
+    { name: 'GitHub', href: 'https://github.com/intrinsic-labs', icon: <FiGithub size={20} /> },
+    { name: 'Twitter', href: 'https://twitter.com/intrinsic_labs', icon: <FiTwitter size={20} /> },
+    { name: 'Instagram', href: 'https://instagram.com/intrinsiclabs', icon: <FiInstagram size={20} /> },
   ];
 
   return (
@@ -101,27 +131,54 @@ const Navigation = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'calc(100vh)' }}
-          exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-background backdrop-blur-md border-b border-secondary-400/20 fixed left-0 right-0 z-50 overflow-y-auto"
-        >
-          <div className="container-custom py-12 flex flex-col space-y-4 h-full">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-4xl hover:text-accent transition-colors duration-300 py-2 pl-4"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'calc(100vh - 64px)' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-background backdrop-blur-md fixed left-0 right-0 top-16 z-50 overflow-y-auto"
+          >
+            <div className="container-custom flex-col justify-between h-full">
+              <div className="flex flex-col">
+                {navLinks.map((link, index) => (
+                  <div key={link.name} className="group">
+                    <Link
+                      href={link.href}
+                      className="text-3xl font-light hover:text-accent hover:font-medium transition-colors duration-300 py-4 pl-4 block"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                    {index !== navLinks.length - 1 && (
+                      <div className="border-b border-neutral-800/20 hover:border-primary/30 transition-colors duration-300 mx-4"></div>
+                    )}
+                  </div>
+                ))}
+              </div>
+              
+              <div className="mt-auto pt-8">
+                {/* <div className="border-t border-neutral-800/20 mb-8 mx-4"></div> */}
+                <div className="flex justify-center space-x-6 py-8">
+                  {socialLinks.map((social) => (
+                    <a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-primary/10 hover:bg-accent hover:text-secondary transition-colors duration-300 flex items-center justify-center text-neutral-800"
+                      aria-label={social.name}
+                    >
+                      {social.icon}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

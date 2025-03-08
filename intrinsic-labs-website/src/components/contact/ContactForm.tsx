@@ -76,8 +76,8 @@ const ContactForm = () => {
     }
   };
   
-  const inputClasses = "w-full bg-neutral-800/50 border border-primary/20 rounded-md px-4 py-3 text-secondary placeholder:text-secondary/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-transparent transition-all duration-200";
-  const labelClasses = "block text-sm font-medium text-secondary/80 mb-1";
+  const inputClasses = "w-full bg-background border border-neutral-300 rounded-md px-4 py-3 text-primary placeholder:text-neutral-400 focus:outline-none focus:ring-1 focus:ring-neutral-600 focus:border-transparent transition-all duration-200";
+  const labelClasses = "block text-sm font-light text-neutral-600 mb-1";
   const errorClasses = "text-orange text-xs mt-1";
   
   // Success message animation variants
@@ -97,24 +97,24 @@ const ContactForm = () => {
     <Card className="p-6 md:p-8" id="contact-form">
       <div className="mb-6">
         <h2 className="heading-md mb-2">Get in Touch</h2>
-        <p className="text-secondary/70">Fill out the form below and we'll get back to you within 24-48 hours.</p>
+        <p className="text-neutral-800">Fill out the form below and we'll get back to you within 24-48 hours.</p>
       </div>
       
       {isSubmitted ? (
         <motion.div 
-          className="bg-green/10 border border-green/30 rounded-lg p-6 text-center"
+          className="bg-accent/10 border border-accent/30 rounded-lg p-6 text-center"
           initial="hidden"
           animate="visible"
           variants={successVariants}
         >
-          <div className="text-green text-4xl mb-4">✓</div>
+          <div className="text-accent text-4xl mb-4">✓</div>
           <h3 className="heading-sm mb-2">Message Sent!</h3>
-          <p className="text-secondary/80">
+          <p className="text-neutral-800">
             Thank you for reaching out. We'll be in touch with you shortly.
           </p>
           <button 
             onClick={() => setIsSubmitted(false)}
-            className="mt-6 text-primary hover:text-primary/80 underline transition-colors"
+            className="mt-6 text-primary hover:text-accent transition-colors"
           >
             Send another message
           </button>

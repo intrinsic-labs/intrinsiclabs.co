@@ -38,7 +38,7 @@ const ContactHero = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative min-h-[70vh] flex items-center justify-center overflow-hidden py-20 md:py-32"
+      className="relative min-h-[40vh] flex items-center justify-center overflow-hidden pt-20 md:pt-32"
     >
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
@@ -58,12 +58,12 @@ const ContactHero = () => {
             Let's Build Something Amazing Together
           </h1>
 
-          <p className="animate-text paragraph text-secondary/80 mb-8 max-w-2xl mx-auto">
+          <p className="animate-text paragraph text-neutral-800 mb-8 max-w-2xl mx-auto">
             Have a project in mind or just want to chat about possibilities? We're here to help turn your ideas into reality.
           </p>
 
           <div className="animate-text inline-block mt-6">
-            <div className="terminal-text-green terminal-cursor">
+            <div className="terminal-text-accent terminal-cursor">
               const contact = await intrinsicLabs.connect()
             </div>
           </div>

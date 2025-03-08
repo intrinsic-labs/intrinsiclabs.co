@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronDown } from 'react-icons/fi';
-import FeatureCard from '../ui/FeatureCard';
 
 interface FAQItem {
   question: string;
@@ -45,68 +44,84 @@ const ContactFAQ = () => {
   ];
   
   return (
-    <section className="py-16 md:py-24 bg-neutral-900/30">
-      <div className="container-custom">
-        <div className="text-center mb-12">
-          <h2 className="heading-lg mb-4">Frequently Asked Questions</h2>
-          <p className="paragraph text-secondary/70 max-w-2xl mx-auto">
-            Have questions about working with us? Here are answers to some common inquiries.
-          </p>
-        </div>
-        
-        <div className="max-w-3xl mx-auto">
-          {faqs.map((faq, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="mb-4"
-            >
-              <div className="bg-background/50 backdrop-blur-sm rounded-lg border border-primary/20 hover:border-primary/40 transition-all duration-300 overflow-hidden">
-                <button
-                  onClick={() => toggleFAQ(index)}
-                  className="w-full p-6 text-left flex justify-between items-center"
-                >
-                  <h3 className="text-lg font-medium text-primary">{faq.question}</h3>
-                  <motion.div
-                    animate={{ rotate: openIndex === index ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="text-primary"
-                  >
-                    <FiChevronDown size={20} />
-                  </motion.div>
-                </button>
-                
-                <AnimatePresence>
-                  {openIndex === index && (
+    <div>
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-3xl md:text-4xl font-display font-medium mb-8"
+      >
+        Frequently Asked Questions
+      </motion.h2>
+      
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        className="text-neutral-800 mb-8"
+      >
+        Have questions about working with us? Here are answers to some common inquiries. If you can't find what you're looking for, just fill out the contact form above to get in touch.
+      </motion.p>
+      
+      <div className="space-y-6">
+        {faqs.map((faq, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.05 * index }}
+            className="group"
+          >
+            <div className="hover:border-primary/30 transition-colors duration-300">
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="w-full py-6 text-left group"
+              >
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-medium group-hover:text-accent transition-colors duration-300">
+                      {faq.question}
+                    </h3>
+                  </div>
+                  
+                  <div className="mt-2 md:mt-0">
                     <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
+                      animate={{ rotate: openIndex === index ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
+                      className="h-6 w-6 flex items-center justify-center rounded-full border border-neutral-500 text-neutral-800 group-hover:border-accent group-hover:text-accent transition-colors duration-300"
                     >
-                      <div className="px-6 pb-6 pt-0">
-                        <div className="h-px w-full bg-primary/10 mb-4"></div>
-                        <p className="text-secondary/80">{faq.answer}</p>
-                      </div>
+                      <FiChevronDown size={16} />
                     </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-        
-        <div className="text-center mt-12">
-          <p className="text-secondary/70 mb-6">
-            Still have questions? Just fill out the contact form above to get in touch.
-          </p>
-        </div>
+                  </div>
+                </div>
+              </button>
+              
+              <AnimatePresence>
+                {openIndex === index && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="pb-6">
+                      <div className="h-px w-full bg-neutral-800/50 my-4"></div>
+                      <p className="text-neutral-800">{faq.answer}</p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              
+              {/* Add a divider line between FAQ items, but not after the last item */}
+              {index !== faqs.length - 1 && (
+                <div className="border-b border-neutral-800/50 hover:border-primary/30 transition-colors duration-300"></div>
+              )}
+            </div>
+          </motion.div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
 

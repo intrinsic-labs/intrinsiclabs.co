@@ -225,6 +225,20 @@ body {
   }
 }
 
+.paragraph-serif {
+  font-family: 'Cardo', serif;
+  font-size: 1rem; /* text-base */
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .paragraph-serif {
+    font-size: 1.125rem; /* md:text-lg */
+    line-height: 1.75rem;
+  }
+}
+
+
 .btn-primary {
   background-color: var(--accent);
   color: var(--secondary);
