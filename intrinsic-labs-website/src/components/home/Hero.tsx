@@ -135,9 +135,9 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={textVariants}
-            className="heading-xl mb-6 leading-tight"
+            className="heading-xl mb-8 leading-tight"
           >
-            We build exceptional digital experiences that solve real problems.
+            We will fix your life with code.
           </motion.h1>
 
           <motion.p
@@ -145,10 +145,9 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={textVariants}
-            className="text-xl md:text-2xl text-neutral-800 mb-10 max-w-3xl mx-auto terminal-cursor"
+            className="text-xl md:text-2xl text-neutral-800 mb-12 max-w-3xl mx-auto"
           >
-            From native mobile apps to full-stack web applications, we craft
-            beautiful, functional solutions that users love.
+            Imagine anything. Make it so.
           </motion.p>
 
           <motion.div

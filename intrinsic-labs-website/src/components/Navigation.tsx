@@ -71,10 +71,34 @@ const Navigation = () => {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="logo-text text-xl font-bold"
+            transition={{ duration: 0.3 }}
+            className="logo-text text-xl font-medium tracking-tighter overflow-hidden relative"
           >
-            Intrinsic Labs
+            <AnimatePresence mode="wait">
+              {isScrolled ? (
+                <motion.span
+                  key="short-logo"
+                  initial={{ opacity: 0, position: "absolute" }}
+                  animate={{ opacity: 1, position: "relative" }}
+                  exit={{ opacity: 0, position: "absolute" }}
+                  transition={{ duration: 0.2 }}
+                  className="block"
+                >
+                  IL
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="full-logo"
+                  initial={{ opacity: 0, position: "absolute" }}
+                  animate={{ opacity: 1, position: "relative" }}
+                  exit={{ opacity: 0, position: "absolute" }}
+                  transition={{ duration: 0.2 }}
+                  className="block"
+                >
+                  Intrinsic Labs
+                </motion.span>
+              )}
+            </AnimatePresence>
           </motion.div>
         </Link>
 
@@ -135,13 +159,13 @@ const Navigation = () => {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'calc(100vh - 64px)' }}
+            animate={{ opacity: 1, height: 'calc(100vh)' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-background backdrop-blur-md fixed left-0 right-0 top-16 z-50 overflow-y-auto"
+            className="md:hidden bg-background backdrop-blur-md fixed left-0 right-0 z-50 overflow-y-auto"
           >
             <div className="container-custom flex-col justify-between h-full">
-              <div className="flex flex-col">
+              <div className="flex flex-col pt-8">
                 {navLinks.map((link, index) => (
                   <div key={link.name} className="group">
                     <Link
@@ -175,6 +199,7 @@ const Navigation = () => {
                   ))}
                 </div>
               </div>
+
             </div>
           </motion.div>
         )}
