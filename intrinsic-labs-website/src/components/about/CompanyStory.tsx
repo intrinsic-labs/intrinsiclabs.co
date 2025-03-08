@@ -72,10 +72,10 @@ const CompanyStory = () => {
       className="py-20 md:py-32 bg-background relative overflow-hidden"
     >
       {/* Background elements */}
-      <div className="absolute inset-0 z-0">
+      {/* <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background to-background/80"></div>
         <div className="absolute inset-0 bg-[url('/images/grid-pattern.svg')] bg-repeat opacity-5"></div>
-      </div>
+      </div> */}
 
       <div className="container-custom relative z-10">
         <motion.div 
@@ -88,7 +88,7 @@ const CompanyStory = () => {
           
           <h2 className="heading-lg mb-6 font-display">Our Journey</h2>
           
-          <p className="paragraph text-secondary/80 max-w-2xl mx-auto">
+          <p className="paragraph text-neutral-800 max-w-2xl mx-auto">
             Intrinsic Labs was founded with a simple mission: create exceptional digital experiences that solve real problems. Our journey is defined by a commitment to quality, innovation, and client success.
           </p>
         </motion.div>
@@ -112,11 +112,11 @@ const CompanyStory = () => {
                 />
               </div>
               
-              <div className="absolute bottom-4 right-4 md:-bottom-6 md:-left-6 w-auto md:w-24 h-auto md:h-24 bg-accent/10 backdrop-blur-md rounded-lg p-3 md:p-4 flex items-center justify-center md:justify-start lg:-left-6 z-10">
+              {/* <div className="absolute bottom-4 right-4 md:-bottom-6 md:-left-6 w-auto md:w-24 h-auto md:h-24 bg-accent/10 backdrop-blur-md rounded-lg p-3 md:p-4 flex items-center justify-center md:justify-start lg:-left-6 z-10">
                 <span className="terminal-text text-sm">
                   <span className="text-accent">iOS</span> + <span className="text-primary">Android</span>
                 </span>
-              </div>
+              </div> */}
             </div>
           </motion.div>
 
@@ -128,21 +128,21 @@ const CompanyStory = () => {
           >
             <motion.div variants={itemVariants} className="space-y-2">
               <h3 className="heading-sm font-display text-primary">Our Origin Story</h3>
-              <p className="paragraph text-secondary/80">
+              <p className="paragraph text-neutral-800">
                 Based in Fort Mill, South Carolina, Intrinsic Labs was founded by Asher Pope, a software engineer with a passion for creating exceptional digital experiences. What started as a solo venture has grown into a small but mighty team dedicated to delivering best-in-class solutions.
               </p>
             </motion.div>
 
             <motion.div variants={itemVariants} className="space-y-2">
               <h3 className="heading-sm font-display text-primary">Our Approach</h3>
-              <p className="paragraph text-secondary/80">
+              <p className="paragraph text-neutral-800">
                 We believe in quality over quantity. By taking on a limited number of clients, we ensure each project receives our full attention and expertise. This focused approach allows us to deliver solutions that truly meet our clients' needs and exceed their expectations.
               </p>
             </motion.div>
 
             <motion.div variants={itemVariants} className="space-y-2">
               <h3 className="heading-sm font-display text-primary">AI-Enhanced Development</h3>
-              <p className="paragraph text-secondary/80">
+              <p className="paragraph text-neutral-800">
                 We embrace cutting-edge AI tools to enhance our development process, allowing us to work more efficiently without compromising quality. This approach enables our small team to compete with larger agencies on both speed and quality of delivery.
               </p>
             </motion.div>
@@ -162,7 +162,7 @@ const CompanyStory = () => {
                 <div className="md:text-right md:pr-8">
                   <span className="terminal-text text-sm tracking-wider text-primary">2022</span>
                   <h4 className="text-xl font-display mt-1 mb-2">Foundation</h4>
-                  <p className="text-secondary/70 text-sm">
+                  <p className="text-neutral-800 text-sm">
                     Intrinsic Labs is established with a focus on mobile and web development.
                   </p>
                 </div>
@@ -179,7 +179,7 @@ const CompanyStory = () => {
                 <div className="md:pl-8">
                   <span className="terminal-text text-sm tracking-wider text-primary">2023</span>
                   <h4 className="text-xl font-display mt-1 mb-2">First Major Projects</h4>
-                  <p className="text-secondary/70 text-sm">
+                  <p className="text-neutral-800 text-sm">
                     Successfully delivered our first set of client projects, establishing our reputation for quality.
                   </p>
                 </div>
@@ -192,7 +192,7 @@ const CompanyStory = () => {
                 <div className="md:text-right md:pr-8">
                   <span className="terminal-text text-sm tracking-wider text-primary">2024</span>
                   <h4 className="text-xl font-display mt-1 mb-2">Team Expansion</h4>
-                  <p className="text-secondary/70 text-sm">
+                  <p className="text-neutral-800 text-sm">
                     Expanded our team and capabilities to better serve our growing client base.
                   </p>
                 </div>
@@ -209,7 +209,7 @@ const CompanyStory = () => {
                 <div className="md:pl-8">
                   <span className="terminal-text text-sm tracking-wider text-primary">Today</span>
                   <h4 className="text-xl font-display mt-1 mb-2">Looking Forward</h4>
-                  <p className="text-secondary/70 text-sm">
+                  <p className="text-neutral-800 text-sm">
                     Continuing to grow and innovate while maintaining our commitment to quality and client satisfaction.
                   </p>
                 </div>

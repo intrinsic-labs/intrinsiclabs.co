@@ -35,7 +35,7 @@ const FeatureCard: FC<FeatureCardProps> = ({
   return (
     <motion.div
       variants={variants}
-      className={`bg-background/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all duration-300 ${isHovered ? 'border-primary' : ''} ${className} ${onClick ? 'cursor-pointer' : ''}`}
+      className={`bg-background/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20 hover:border-accent transition-all duration-300 ${isHovered ? 'border-accent' : ''} ${className} ${onClick ? 'cursor-pointer' : ''}`}
       onClick={onClick}
       whileHover={{ 
         y: onClick ? -3 : 0,
@@ -55,26 +55,29 @@ const FeatureCard: FC<FeatureCardProps> = ({
         </div>
       )}
       
-      {/* Icon (if provided) */}
-      {icon && (
-        <div className="text-primary mb-4">
-          {icon}
-        </div>
-      )}
-      
-      {/* Content */}
-      <h4 className="text-xl font-display text-primary mb-2">{title}</h4>
+      {/* Icon and title in a row */}
+      <div className="flex items-center space-x-4 mb-4">
+        {/* Icon (if provided) */}
+        {icon && (
+          <div className="text-primary">
+            {icon}
+          </div>
+        )}
+        
+        {/* Title */}
+        <h4 className="text-xl font-bold">{title}</h4>
+      </div>
       
       {/* First paragraph (could be a subtitle) */}
       {firstParagraph && (
-        <p className="text-sm text-secondary/70 mb-3 font-medium">
+        <p className="text-sm text-neutral-800 mb- font-light">
           {firstParagraph}
         </p>
       )}
       
       {/* Remaining paragraphs */}
       {remainingParagraphs.length > 0 && remainingParagraphs.map((paragraph, index) => (
-        <p key={index} className="text-secondary/80 text-sm mb-3">
+        <p key={index} className="text-neutral-800 text-sm mb-3 font-light">
           {paragraph}
         </p>
       ))}
@@ -85,7 +88,7 @@ const FeatureCard: FC<FeatureCardProps> = ({
           {chips.map((chip, index) => (
             <span 
               key={index} 
-              className="text-xs px-2 py-1 rounded-sm bg-primary/10 text-primary/80"
+              className="text-xs px-2 py-1 rounded-sm bg-primary/10 text-secondary"
             >
               {chip}
             </span>

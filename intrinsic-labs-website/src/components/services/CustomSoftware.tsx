@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import PlaceholderImage from '../ui/PlaceholderImage';
+import FeatureCard from '../ui/FeatureCard';
 
 // Industry solutions
 const industrySolutions = [
@@ -207,17 +208,15 @@ const CustomSoftware = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {industrySolutions.map((solution) => (
-              <motion.div
-                key={solution.id}
-                variants={itemVariants}
-                className="bg-background/50 backdrop-blur-sm p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all duration-300"
-              >
-                <div className="text-primary mb-4">
-                  {solution.icon}
-                </div>
-                <h4 className="text-xl font-bold mb-2">{solution.title}</h4>
-                <p className="text-neutral-800">{solution.description}</p>
-              </motion.div>
+              <div key={solution.id} className="h-full">
+                <FeatureCard
+                  title={solution.title}
+                  description={solution.description}
+                  icon={solution.icon}
+                  variants={itemVariants}
+                  className="h-full"
+                />
+              </div>
             ))}
           </motion.div>
 

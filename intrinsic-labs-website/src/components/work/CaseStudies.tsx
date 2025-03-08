@@ -207,7 +207,7 @@ const CaseStudies = () => {
                           <span
                             key={tech}
                             className={`px-3 py-1 rounded-full text-xs transition-colors duration-300 text-secondary ${
-                              hoveredStudy === study.id ? 'bg-accent' : 'bg-neutral-800'
+                              hoveredStudy === study.id ? 'bg-accent' : 'bg-neutral-500'
                             }`}
                           >
                             {tech}

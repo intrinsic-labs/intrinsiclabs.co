@@ -142,10 +142,10 @@ const ProjectsGallery = () => {
       className="py-16 md:py-24 lg:py-32 bg-background relative overflow-hidden"
     >
       {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/3 left-1/3 w-72 h-72 rounded-full bg-accent/5 blur-3xl"></div>
         <div className="absolute bottom-1/3 right-1/3 w-80 h-80 rounded-full bg-primary/5 blur-3xl"></div>
-      </div>
+      </div> */}
 
       <motion.div 
         className="container-custom relative z-10"
@@ -247,7 +247,7 @@ const ProjectsGallery = () => {
                             <span
                               key={tech}
                               className={`px-2 py-1 rounded-full text-xs transition-colors duration-300 text-secondary ${
-                                hoveredProject === project.id ? 'bg-accent' : 'bg-neutral-800'
+                                hoveredProject === project.id ? 'bg-accent' : 'bg-neutral-500'
                               }`}
                             >
                               {tech}

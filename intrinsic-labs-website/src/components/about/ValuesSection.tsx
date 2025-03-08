@@ -102,10 +102,10 @@ const ValuesSection = () => {
       className="py-20 md:py-32 bg-background relative overflow-hidden"
     >
       {/* Background elements */}
-      <div className="absolute inset-0 z-0">
+      {/* <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background to-background/80"></div>
         <div className="absolute inset-0 bg-[url('/images/grid-pattern.svg')] bg-repeat opacity-5"></div>
-      </div>
+      </div> */}
 
       <div className="container-custom relative z-10">
         <motion.div 
@@ -117,7 +117,7 @@ const ValuesSection = () => {
           
           <h2 className="heading-lg mb-6 font-display">Our Core Values</h2>
           
-          <p className="paragraph text-secondary/80 max-w-2xl mx-auto">
+          <p className="paragraph text-neutral-800 max-w-2xl mx-auto">
             These principles guide everything we do, from how we work with clients to how we approach each project. They're the foundation of our company culture and our commitment to excellence.
           </p>
         </motion.div>
@@ -141,12 +141,12 @@ const ValuesSection = () => {
           ))}
         </motion.div>
 
-        <div className="max-w-4xl mx-auto mt-20">
+        {/* <div className="max-w-4xl mx-auto mt-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="bg-neutral-900/30 backdrop-blur-sm p-6 md:p-8 rounded-lg border border-primary/20"
+            className="bg-neutral-800/10 backdrop-blur-sm p-6 md:p-8 rounded-lg border border-primary/20"
           >
             <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 items-center">
               <div className="relative">
@@ -159,38 +159,38 @@ const ValuesSection = () => {
                   </div>
                 </div>
                 
-                {/* Corner accents */}
+                
                 <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-accent"></div>
                 <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-accent"></div>
               </div>
               
               <div>
                 <h3 className="heading-sm font-display text-primary mb-4">How We Work</h3>
-                <p className="text-secondary/80 mb-4">
+                <p className="text-neutral-800 mb-4">
                   Our values aren't just words on a page—they're reflected in how we approach every project. We start by deeply understanding your needs, then craft a tailored solution that addresses your specific challenges.
                 </p>
-                <p className="text-secondary/80 mb-6">
+                <p className="text-neutral-800 mb-6">
                   Throughout the development process, we maintain open communication, provide regular updates, and ensure you're involved in key decisions. Our goal is to build not just great software, but a great working relationship.
                 </p>
                 
                 <div className="flex flex-wrap gap-4">
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-2"></div>
-                    <span className="text-sm text-secondary/70">Collaborative approach</span>
+                    <span className="text-sm text-neutral-800">Collaborative approach</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-2"></div>
-                    <span className="text-sm text-secondary/70">Transparent process</span>
+                    <span className="text-sm text-neutral-800">Transparent process</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-2"></div>
-                    <span className="text-sm text-secondary/70">Continuous improvement</span>
+                    <span className="text-sm text-neutral-800">Continuous improvement</span>
                   </div>
                 </div>
               </div>
             </div>
           </motion.div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

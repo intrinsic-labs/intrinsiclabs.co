@@ -75,7 +75,7 @@ const TeamSection = () => {
     content: (
       <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
         {/* Image */}
-        <div className="relative aspect-square overflow-hidden rounded-md bg-neutral-900/50 backdrop-blur-sm border border-primary/20">
+        <div className="relative aspect-square overflow-hidden rounded-md bg-neutral-400 backdrop-blur-sm border border-primary/20">
           <PlaceholderImage 
             text={member.imagePlaceholder}
             className="group"
@@ -85,11 +85,11 @@ const TeamSection = () => {
         {/* Content */}
         <div>
           <h3 className="text-2xl font-display text-primary mb-1">{member.name}</h3>
-          <p className="text-sm text-secondary/70 mb-4">{member.role}</p>
+          <p className="text-sm text-neutral-800 mb-4">{member.role}</p>
           
-          <div className="h-[2px] w-16 bg-accent/30 mb-4"></div>
+          <div className="h-[1px] w-16 bg-accent mb-4"></div>
           
-          <p className="text-secondary/80 mb-6">
+          <p className="text-neutral-800 mb-6">
             {member.bio}
           </p>
           
@@ -131,7 +131,7 @@ const TeamSection = () => {
           
           <h2 className="heading-lg mb-6 font-display">Meet Our Team</h2>
           
-          <p className="paragraph text-secondary/80 max-w-2xl mx-auto">
+          <p className="paragraph text-neutral-800 max-w-2xl mx-auto">
             We're a small but mighty team of professionals dedicated to creating exceptional digital experiences. Each member brings unique skills and perspectives to our projects.
           </p>
         </motion.div>

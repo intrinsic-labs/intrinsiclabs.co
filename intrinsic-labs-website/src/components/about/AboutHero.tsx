@@ -36,16 +36,16 @@ const AboutHero = () => {
       className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-20 md:py-32"
     >
       {/* Background elements */}
-      <div className="absolute inset-0 z-0">
+      {/* <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-background opacity-90"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background"></div> */}
         
         {/* Grid pattern */}
-        <div className="absolute inset-0 bg-[url('/images/grid-pattern.svg')] bg-repeat opacity-5"></div>
+        {/* <div className="absolute inset-0 bg-[url('/images/grid-pattern.svg')] bg-repeat opacity-5"></div> */}
         
         {/* Animated grain effect */}
-        <div className="absolute inset-0 bg-[url('/images/noise.svg')] bg-repeat opacity-[0.03] animate-[pulse_2s_ease-in-out_infinite]"></div>
-      </div>
+        {/* <div className="absolute inset-0 bg-[url('/images/noise.svg')] bg-repeat opacity-[0.03] animate-[pulse_2s_ease-in-out_infinite]"></div>
+      </div> */}
 
       <div className="container-custom relative z-10 pb-12">
         <div ref={textRef} className="max-w-4xl mx-auto text-center">
@@ -55,7 +55,7 @@ const AboutHero = () => {
             We Build Digital Experiences That Matter
           </h1>
 
-          <p className="animate-text paragraph text-secondary/80 mb-8 max-w-2xl mx-auto">
+          <p className="animate-text paragraph text-neutral-800 mb-8 max-w-2xl mx-auto">
             Intrinsic Labs is a boutique software development studio specializing in high-end website design and native mobile app development. We focus on quality over quantity, giving our full attention to each client.
           </p>
 
@@ -72,7 +72,7 @@ const AboutHero = () => {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-        <span className="text-secondary/50 text-sm mb-2">Scroll to explore</span>
+        <span className="text-neutral-800 text-sm mb-2">Scroll to explore</span>
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
@@ -83,7 +83,7 @@ const AboutHero = () => {
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="text-secondary/50"
+            className="text-neutral-800"
           >
             <path
               d="M12 5V19M12 19L5 12M12 19L19 12"

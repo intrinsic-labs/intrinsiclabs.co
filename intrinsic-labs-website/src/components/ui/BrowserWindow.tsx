@@ -45,9 +45,9 @@ const BrowserWindow: FC<BrowserWindowProps> = ({
   );
 
   return (
-    <div className={`bg-neutral-900/50 backdrop-blur-sm rounded-lg border border-primary/20 overflow-hidden shadow-xl ${className}`}>
+    <div className={`bg-neutral-100 backdrop-blur-sm rounded-lg border border-primary/20 overflow-hidden shadow-xl ${className}`}>
       {/* Browser chrome/toolbar */}
-      <div className="bg-neutral-800 px-4 py-2 border-b border-primary/20 flex items-center">
+      <div className="bg-neutral-100 px-4 py-2 border-b border-primary/20 flex items-center">
         {/* Traffic light buttons */}
         <div className="flex-shrink-0 flex space-x-2 mr-4 mb-1">
           <div className="w-3 h-3 rounded-full bg-red-500 opacity-80"></div>
@@ -69,39 +69,39 @@ const BrowserWindow: FC<BrowserWindowProps> = ({
                   <div key={tab.id} className="flex items-end">
                     {/* Tab */}
                     <div
-                      className={`px-4 py-2 cursor-pointer transition-all duration-300 relative flex-shrink-0 ${
+                      className={`px-4 py-2 cursor-pointer transition-all duration-300 relative flex-shrink-0 group rounded-lg ${
                         activeTabId === tab.id 
-                          ? 'bg-neutral-900/80 text-primary border-primary/20 rounded-md' 
-                          : 'bg-neutral-800/50 text-secondary/70 hover:bg-neutral-800/80 rounded-md'
+                          ? 'bg-neutral-300 text-primary border-primary/20' 
+                          : 'bg-transparent text-neutral-600 hover:bg-neutral-300 hover:text-primary'
                       }`}
                       onClick={() => handleTabClick(tab.id)}
                     >
                       {/* Tab content with favicon */}
                       <div className="flex items-center space-x-2 whitespace-nowrap">
                         {/* Favicon with circular background */}
-                        <div className={`flex items-center justify-center w-5 h-5 rounded-full ${
+                        <div className={`flex items-center justify-center w-5 h-5 rounded-full transition-colors duration-300 ${
                           activeTabId === tab.id 
-                            ? 'bg-primary/10' 
-                            : 'bg-secondary/10'
+                            ? 'bg-neutral-800' 
+                            : 'bg-neutral-300 group-hover:bg-neutral-600'
                         }`}>
-                          <span className={`flex-shrink-0 ${
+                          <span className={`flex-shrink-0 transition-colors duration-300 ${
                             activeTabId === tab.id 
-                              ? 'text-primary' 
-                              : 'text-secondary/50'
+                              ? 'text-secondary' 
+                              : 'text-neutral-600 group-hover:text-secondary'
                           }`}>
                             {tab.favicon || defaultFavicon}
                           </span>
                         </div>
                         
                         {/* Tab label */}
-                        <span className="text-sm font-medium truncate max-w-[120px]">{tab.label}</span>
+                        <span className="text-sm font-light truncate max-w-[120px]">{tab.label}</span>
                       </div>
                     </div>
                     
                     {/* Divider - always render but animate opacity */}
                     {index < tabs.length - 1 && (
                       <div 
-                        className="h-6 w-px bg-primary/20 mx-0.5 self-center transition-opacity duration-300"
+                        className="h-6 w-px bg-neutral-300 mx-0.5 self-center transition-opacity duration-300"
                         style={{ 
                           opacity: (activeTabId !== tab.id && activeTabId !== tabs[index + 1].id) ? 1 : 0 
                         }}
@@ -118,19 +118,19 @@ const BrowserWindow: FC<BrowserWindowProps> = ({
           
           {/* Left fade gradient - higher z-index to overlay tabs */}
           {tabs.length > 2 && (
-            <div className="absolute left-0 top-0 bottom-0 w-4 bg-gradient-to-r from-neutral-800 to-transparent pointer-events-none z-10"></div>
+            <div className="absolute left-0 top-0 bottom-0 w-4 bg-gradient-to-r from-neutral-100 to-transparent pointer-events-none z-10"></div>
           )}
           
           {/* Right fade gradient - higher z-index to overlay tabs */}
           {tabs.length > 2 && (
-            <div className="absolute right-0 top-0 bottom-0 w-4 bg-gradient-to-l from-neutral-800 to-transparent pointer-events-none z-10"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-4 bg-gradient-to-l from-neutral-100 to-transparent pointer-events-none z-10"></div>
           )}
         </div>
       </div>
       
       {/* Browser content - fixed height with scrolling */}
       <div 
-        className="overflow-hidden bg-neutral-900/80" 
+        className="overflow-hidden bg-background" 
         style={{ height: typeof height === 'number' ? `${height}px` : height }}
       >
         <AnimatePresence mode="wait">
