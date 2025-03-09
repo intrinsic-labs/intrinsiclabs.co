@@ -177,7 +177,7 @@ const CompanyStory = () => {
                 <div className="hidden md:block"></div>
                 
                 <div className="md:pl-8">
-                  <span className="terminal-text text-sm tracking-wider text-primary">2023</span>
+                  <span className="terminal-text-primary text-sm tracking-wider">2023</span>
                   <h4 className="text-xl font-display mt-1 mb-2">First Major Projects</h4>
                   <p className="text-neutral-800 text-sm">
                     Successfully delivered our first set of client projects, establishing our reputation for quality.
