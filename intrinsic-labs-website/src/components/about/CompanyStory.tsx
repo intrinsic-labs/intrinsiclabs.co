@@ -140,12 +140,12 @@ const CompanyStory = () => {
               </p>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="space-y-2">
+            {/* <motion.div variants={itemVariants} className="space-y-2">
               <h3 className="heading-sm font-display text-primary">AI-Enhanced Development</h3>
               <p className="paragraph text-neutral-800">
                 We embrace cutting-edge AI tools to enhance our development process, allowing us to work more efficiently without compromising quality. This approach enables our small team to compete with larger agencies on both speed and quality of delivery.
               </p>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
 
@@ -160,7 +160,7 @@ const CompanyStory = () => {
             <div className="space-y-16">
               <div className="timeline-item relative pl-8 md:pl-0 md:grid md:grid-cols-2 md:gap-8 items-center">
                 <div className="md:text-right md:pr-8">
-                  <span className="terminal-text text-sm tracking-wider text-primary">2022</span>
+                  <span className="terminal-text-primary text-sm tracking-wider">2022</span>
                   <h4 className="text-xl font-display mt-1 mb-2">Foundation</h4>
                   <p className="text-neutral-800 text-sm">
                     Intrinsic Labs is established with a focus on mobile and web development.
@@ -190,7 +190,7 @@ const CompanyStory = () => {
               
               <div className="timeline-item relative pl-8 md:pl-0 md:grid md:grid-cols-2 md:gap-8 items-center">
                 <div className="md:text-right md:pr-8">
-                  <span className="terminal-text text-sm tracking-wider text-primary">2024</span>
+                  <span className="terminal-text-primary text-sm tracking-wider">2024</span>
                   <h4 className="text-xl font-display mt-1 mb-2">Team Expansion</h4>
                   <p className="text-neutral-800 text-sm">
                     Expanded our team and capabilities to better serve our growing client base.
@@ -207,7 +207,7 @@ const CompanyStory = () => {
                 <div className="hidden md:block"></div>
                 
                 <div className="md:pl-8">
-                  <span className="terminal-text text-sm tracking-wider text-primary">Today</span>
+                  <span className="terminal-text-primary text-sm tracking-wider">Today</span>
                   <h4 className="text-xl font-display mt-1 mb-2">Looking Forward</h4>
                   <p className="text-neutral-800 text-sm">
                     Continuing to grow and innovate while maintaining our commitment to quality and client satisfaction.
