@@ -4,6 +4,7 @@ import "./globals.css";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 
 // Font configuration
 const inter = Inter({
@@ -59,6 +60,9 @@ export default function RootLayout({
         
         {/* Footer */}
         <Footer />
+        
+        {/* Vercel Analytics */}
+        <Analytics />
         
         {/* Helper script for hydration */}
         <Script id="hydration-helper" strategy="afterInteractive">
