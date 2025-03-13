@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import gsap from 'gsap';
 import Link from 'next/link';
 import ScrollIndicator from '../ui/ScrollIndicator';
-
+import Image from 'next/image';
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -103,6 +103,22 @@ const Hero = () => {
       >
         <div className="max-w-4xl mx-auto text-center" ref={textRef}>
 
+          <motion.div 
+            custom={1}
+            initial="hidden"
+            animate="visible"
+            variants={textVariants}
+            className="flex justify-center items-center pb-8"
+          >
+            <Image 
+              src="/images/logo/intrinsic-labs-logo-v2-accent.svg" 
+              alt="Intrinsic Labs Logo" 
+              width={300}
+              height={300}
+              className="w-[250px] h-[250px] md:w-[400px] md:h-[400px]"
+            />
+          </motion.div>
+
           <motion.h1
             custom={1}
             initial="hidden"
@@ -118,12 +134,12 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={textVariants}
-            className="text-xl md:text-2xl text-neutral-800 mb-16 max-w-3xl mx-auto"
+            className="text-xl md:text-2xl text-neutral-800 mb-4 max-w-3xl mx-auto"
           >
             Imagine anything. Make it so.
           </motion.p>
 
-          <motion.div
+          {/* <motion.div
             custom={3}
             initial="hidden"
             animate="visible"
@@ -133,13 +149,13 @@ const Hero = () => {
             <Link href="/work" className="btn-primary">
               View Our Work
             </Link>
-          </motion.div>
+          </motion.div> */}
 
-          <div className="h-16 flex-shrink-0" />
+          {/* <div className="h-16 flex-shrink-0" /> */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 3 }}
+            transition={{ duration: 1, delay: 1.5 }}
           >
             <ScrollIndicator text="" />
           </motion.div>

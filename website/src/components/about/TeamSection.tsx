@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import PlaceholderImage from '@/components/ui/PlaceholderImage';
 import BrowserWindow from '@/components/ui/BrowserWindow';
-
+import Image from 'next/image';
 // Team member data
 const teamMembers = [
   {
@@ -15,6 +15,7 @@ const teamMembers = [
     bio: 'Software engineer with expertise in mobile and web development. Passionate about creating exceptional digital experiences and leveraging AI to enhance development workflows.',
     skills: ['Mobile Development', 'Web Development', 'AI Integration', 'UX Design'],
     imagePlaceholder: 'Asher Pope',
+    image: '/images/team/asher.jpg',
   },
   {
     id: 2,
@@ -23,6 +24,7 @@ const teamMembers = [
     bio: 'Experienced sales professional with a background in client relations. Helps clients identify their needs and ensures our solutions meet their expectations.',
     skills: ['Client Relations', 'Sales Strategy', 'Project Management', 'Business Development'],
     imagePlaceholder: 'Elaine Pope',
+    image: '/images/team/elaine.jpeg',
   },
   {
     id: 3,
@@ -31,6 +33,7 @@ const teamMembers = [
     bio: 'Sales professional with a drive for growth and innovation. Focused on expanding our client base and identifying new opportunities for the company.',
     skills: ['Business Strategy', 'Client Acquisition', 'Market Research', 'Sales'],
     imagePlaceholder: 'Quinten Harris',
+    image: '/images/team/quinten.jpeg',
   },
 ];
 
@@ -76,9 +79,17 @@ const TeamSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8">
         {/* Image */}
         <div className="relative aspect-square overflow-hidden rounded-md bg-neutral-400 backdrop-blur-sm border border-primary/20">
-          <PlaceholderImage 
+          {/* <PlaceholderImage 
             text={member.imagePlaceholder}
             className="group"
+          /> */}
+          <Image
+            src={member.image || ''}
+            alt={member.name}
+            width={600}
+            height={800}
+            className="rounded-lg overflow-hidden object-cover w-full h-full"
+            priority
           />
         </div>
         
@@ -129,11 +140,12 @@ const TeamSection = () => {
           transition={{ duration: 0.6 }}
         >
           
-          <h2 className="heading-lg mb-6 font-display">Meet Our Team</h2>
+          <h2 className="heading-lg mb-6 font-display">Meet The Team</h2>
           
-          <p className="paragraph text-neutral-800 max-w-2xl mx-auto">
-            We're a small but mighty team of professionals dedicated to creating exceptional digital experiences. Each member brings unique skills and perspectives to our projects.
+          <p className="paragraph text-neutral-800 max-w-2xl mx-auto pb-4">
+            Intrinsic Labs is a small team of developers, business professionals, and creatives. We're dedicated to creating exceptional digital experiences.*
           </p>
+          <p className="text-sm italic text-neutral-600 max-w-2xl mx-auto">* said every dev company ever lol. But seriously, we deliver.</p>
         </motion.div>
 
         <motion.div

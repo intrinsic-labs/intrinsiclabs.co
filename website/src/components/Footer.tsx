@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -36,7 +37,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
           {/* Brand Column */}
           <div>
-            <div className="logo-text text-2xl mb-4 text-secondary">
+            <Image 
+              src="/images/logo/intrinsic-labs-logo-v2-accent-dark.svg" 
+              alt="Intrinsic Labs Logo" 
+              width={80}
+              height={80}
+              className=""
+            />
+            <div className="logo-text text-2xl my-4 text-secondary">
               Intrinsic Labs
             </div>
             <div className="flex space-x-4">

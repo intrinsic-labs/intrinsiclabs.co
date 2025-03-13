@@ -6,9 +6,9 @@ const AboutHero = () => {
   return (
 
     <PageHero
-      title="If it would just do\nthis one thing,\nit would be \nperfect."
-      description="That recurring thought is where the journey started. It's been going strong ever since. Wanna be a part of it?"
-      terminalContent={"console.log(intrinsic-labs.story)"}
+      title="&ldquo;If it would just do\nthis one thing,\nit would be \nperfect.&rdquo;"
+      description="That recurring thought is where we started."
+      terminalContent={"console.log(intrinsicLabs.story)"}
     />
   );
 };
