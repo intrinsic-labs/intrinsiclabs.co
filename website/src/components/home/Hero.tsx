@@ -111,7 +111,7 @@ const Hero = () => {
             className="flex justify-center items-center pb-8"
           >
             <Image 
-              src="/images/logo/intrinsic-labs-logo-v2-alt.svg" 
+              src="/images/logo/intrinsic-labs-logo-v2-accent.svg" 
               alt="Intrinsic Labs Logo" 
               width={300}
               height={300}
