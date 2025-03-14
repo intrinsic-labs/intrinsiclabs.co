@@ -111,7 +111,7 @@ const Hero = () => {
             className="flex justify-center items-center pb-8"
           >
             <Image 
-              src="/images/logo/intrinsic-labs-logo-v2-accent.svg" 
+              src="/images/logo/intrinsic-labs-logo-v2-accent-lighter.svg" 
               alt="Intrinsic Labs Logo" 
               width={300}
               height={300}
@@ -124,7 +124,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={textVariants}
-            className="heading-xl mb-6 leading-tight"
+            className="heading-xl mb-6"
           >
             We will fix your life with code.
           </motion.h1>

@@ -95,9 +95,20 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-jetbrains-mono)", "monospace"], // Keeping monospace for body text
-        mono: ["var(--font-jetbrains-mono)", "JetBrains Mono", "Menlo", "Monaco", "Consolas", "monospace"],
-        display: ["Cardo", "serif"], // Cardo for headings
+        sans: ["var(--font-jetbrains-mono)", "JetBrains Mono Variable", "monospace"], // Keeping monospace for body text
+        mono: ["var(--font-jetbrains-mono)", "JetBrains Mono Variable", "JetBrains Mono", "Menlo", "Monaco", "Consolas", "monospace"],
+        display: ["Times New Roman", "serif"], // Times New Roman for headings
+      },
+      fontWeight: {
+        thin: '100',
+        extralight: '200',
+        light: '300',
+        normal: '400',
+        medium: '500',
+        semibold: '600',
+        bold: '700',
+        extrabold: '800',
+        black: '900',
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in-out",

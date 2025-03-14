@@ -2,16 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
+/* JetBrains Mono Variable Font */
 @font-face {
-  font-family: 'Calling Code';
-  src: url('/fonts/CallingCode-Regular.woff2') format('woff2');
+  font-family: 'JetBrains Mono Variable';
+  src: url('/fonts/jetbrains_mono/JetBrainsMono-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono Variable';
+  src: url('/fonts/jetbrains_mono/JetBrainsMono-Italic-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Times New Roman Font */
+@font-face {
+  font-family: 'Times New Roman';
+  src: url('/fonts/times_new_roman/Times New Roman.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
-/* Use Cardo font with medium weight */
-@import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap');
+@font-face {
+  font-family: 'Times New Roman';
+  src: url('/fonts/times_new_roman/Times New Roman Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Times New Roman';
+  src: url('/fonts/times_new_roman/Times New Roman Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Times New Roman';
+  src: url('/fonts/times_new_roman/Times New Roman Bold Italic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
 
 :root {
   /* Using hex codes for colors - black/white with purple accent */
@@ -145,11 +185,10 @@ body {
 }
 
 .heading-xl {
-  font-family: 'Cardo', serif;
+  font-family: 'Times New Roman', serif;
   font-weight: 400; /* Medium weight */
   font-size: 3.75rem; /* text-4xl */
   line-height: 3.5rem;
-  letter-spacing: -0.025em; /* tracking-tight */
   color: var(--primary); 
 }
 
@@ -168,7 +207,7 @@ body {
 }
 
 .heading-lg {
-  font-family: 'Cardo', serif;
+  font-family: 'Times New Roman', serif;
   font-weight: 400; /* Medium weight */
   font-size: 2.75rem; /* text-3xl */
   line-height: 3rem;
@@ -184,7 +223,7 @@ body {
 }
 
 .heading-md {
-  font-family: 'Cardo', serif;
+  font-family: 'Times New Roman', serif;
   font-weight: 400; /* Medium weight */
   font-size: 1.5rem; /* text-2xl */
   line-height: 2rem;
@@ -199,7 +238,7 @@ body {
 }
 
 .heading-sm {
-  font-family: 'Cardo', serif;
+  font-family: 'Times New Roman', serif;
   font-weight: 400; /* Medium weight */
   font-size: 1.25rem; /* text-xl */
   line-height: 1.75rem;
@@ -227,7 +266,7 @@ body {
 }
 
 .paragraph-serif {
-  font-family: 'Cardo', serif;
+  font-family: 'Times New Roman', serif;
   font-size: 1rem; /* text-base */
   line-height: 1.5;
 }

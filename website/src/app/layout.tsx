@@ -37,9 +37,16 @@ export default function RootLayout({
         {/* Preload critical fonts */}
         <link
           rel="preload"
-          href="/fonts/CallingCode-Regular.woff2"
+          href="/fonts/jetbrains_mono/JetBrainsMono-VariableFont_wght.ttf"
           as="font"
-          type="font/woff2"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/times_new_roman/Times New Roman.ttf"
+          as="font"
+          type="font/ttf"
           crossOrigin="anonymous"
         />
       </head>

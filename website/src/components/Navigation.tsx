@@ -72,7 +72,7 @@ const Navigation = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3 }}
-            className="logo-text text-xl font-medium tracking-tighter overflow-hidden relative"
+            className="logo-text text-xl font-bold tracking-tighter overflow-hidden relative"
           >
             <AnimatePresence mode="wait">
               {isScrolled ? (
