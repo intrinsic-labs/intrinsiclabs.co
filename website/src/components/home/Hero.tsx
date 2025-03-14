@@ -98,7 +98,7 @@ const Hero = () => {
     >
 
       <motion.div 
-        className="container-custom relative z-10 pt-12 pb-16 md:py-32"
+        className="container-custom relative z-10 pt-8 pb-16 md:py-16"
         style={{ y: y2 }}
       >
         <div className="max-w-4xl mx-auto text-center" ref={textRef}>
@@ -124,7 +124,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={textVariants}
-            className="heading-xl mb-6"
+            className="heading-xl mb-6 tracking-tight"
           >
             We will fix your life with code.
           </motion.h1>
@@ -134,7 +134,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={textVariants}
-            className="text-xl md:text-2xl text-neutral-800 mb-4 max-w-3xl mx-auto"
+            className="text-xl md:text-2xl text-neutral-800 mb-4 md:mb-12 max-w-3xl mx-auto"
           >
             Imagine anything. Make it so.
           </motion.p>
