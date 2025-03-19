@@ -4,10 +4,12 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiGithub, FiTwitter, FiInstagram } from 'react-icons/fi';
+import { useTheme } from './providers/ThemeProvider';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isDarkTheme } = useTheme();
 
   // Handle scroll effect
   useEffect(() => {
@@ -61,10 +63,23 @@ const Navigation = () => {
     { name: 'Instagram', href: 'https://instagram.com/intrinsiclabs', icon: <FiInstagram size={20} /> },
   ];
 
+  // Apply different background styles based on isDarkTheme
+  const headerClass = isDarkTheme 
+    ? `fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-ls-background py-4 text-white`
+    : `fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background py-4`;
+
+  // Apply different mobile menu styles based on isDarkTheme
+  const mobileMenuClass = isDarkTheme
+    ? "md:hidden bg-ls-background backdrop-blur-md fixed left-0 right-0 z-50 overflow-y-auto"
+    : "md:hidden bg-background backdrop-blur-md fixed left-0 right-0 z-50 overflow-y-auto";
+
+  // Text colors for links based on theme
+  const linkClass = isDarkTheme
+    ? "text-md hover:text-accent hover:font-medium transition-colors duration-300 tracking-wide text-white"
+    : "text-md hover:text-accent hover:font-medium transition-colors duration-300 tracking-wide";
+
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background py-4`}
-    >
+    <header className={headerClass}>
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
@@ -114,7 +129,7 @@ const Navigation = () => {
             >
               <Link
                 href={link.href}
-                className="text-md hover:text-accent hover:font-medium transition-colors duration-300 tracking-wide"
+                className={linkClass}
               >
                 {link.name}
               </Link>
@@ -162,7 +177,7 @@ const Navigation = () => {
             animate={{ opacity: 1, height: 'calc(100vh)' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-background backdrop-blur-md fixed left-0 right-0 z-50 overflow-y-auto"
+            className={mobileMenuClass}
           >
             <div className="container-custom flex-col justify-between h-full">
               <div className="flex flex-col pt-8">
@@ -170,7 +185,10 @@ const Navigation = () => {
                   <div key={link.name} className="group">
                     <Link
                       href={link.href}
-                      className="text-3xl font-light hover:text-accent hover:font-medium transition-colors duration-300 py-4 pl-4 block"
+                      className={isDarkTheme 
+                        ? "text-3xl font-light hover:text-accent hover:font-medium transition-colors duration-300 py-4 pl-4 block text-white" 
+                        : "text-3xl font-light hover:text-accent hover:font-medium transition-colors duration-300 py-4 pl-4 block"
+                      }
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {link.name}
@@ -191,7 +209,10 @@ const Navigation = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-primary/10 hover:bg-accent hover:text-secondary transition-colors duration-300 flex items-center justify-center text-neutral-800"
+                      className={isDarkTheme
+                        ? "w-10 h-10 rounded-full bg-primary/10 hover:bg-accent hover:text-secondary transition-colors duration-300 flex items-center justify-center text-white"
+                        : "w-10 h-10 rounded-full bg-primary/10 hover:bg-accent hover:text-secondary transition-colors duration-300 flex items-center justify-center text-neutral-800"
+                      }
                       aria-label={social.name}
                     >
                       {social.icon}

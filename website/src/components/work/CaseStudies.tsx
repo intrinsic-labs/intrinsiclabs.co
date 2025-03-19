@@ -11,40 +11,52 @@ import Card from '../ui/Card';
 // Case studies data (placeholder)
 const caseStudies = [
   {
-    id: 'fitness-app',
-    title: 'FitTrack Pro',
-    category: 'Mobile App',
-    description: 'A comprehensive fitness tracking application for iOS and Android with real-time workout analytics and personalized training plans.',
-    challenge: 'Create an intuitive fitness app that provides personalized workout plans while maintaining high performance with real-time analytics.',
-    solution: 'We built a native app using Swift for iOS and Kotlin for Android, with a shared backend using Firebase for real-time data synchronization.',
-    results: ['200,000+ downloads in first 3 months', '4.8 average rating across app stores', '85% user retention after 30 days'],
-    image: '/images/placeholder-project-1.jpg',
-    technologies: ['Swift', 'Kotlin', 'Firebase', 'Cloud Functions', 'Machine Learning'],
-    link: '/work/fitness-app',
+    id: 'blackthorn-geomatics',
+    title: 'Blackthorn Geomatics',
+    category: 'Website',
+    description: 'A portfolio and client attraction website for Blackthorn Geomatics, a geospatial consulting firm.',
+    challenge: 'Create a website that showcases the firm\'s expertise and capabilities, while also being easy to maintain and update.',
+    solution: 'We built a static website using Next.js and Tailwind CSS, with a distinct data layer for easy content updates.',
+    results: ['Improved lead generation by 30%', 'Increased client engagement by 25%', 'Reduced maintenance costs by 50%'],
+    image: '/images/work/blackthorn.png',
+    technologies: ['Next.js', 'Tailwind CSS', 'TypeScript', 'React', 'Vercel'],
+    link: 'https://blackthorn-geomatics.vercel.app/',
   },
   {
-    id: 'ecommerce-platform',
-    title: 'ShopSmart',
-    category: 'Web Application',
-    description: 'A full-featured e-commerce platform with inventory management, payment processing, and customer analytics.',
-    challenge: 'Build a scalable e-commerce platform that could handle high traffic volumes while providing detailed analytics for business owners.',
-    solution: 'We developed a Next.js application with server-side rendering for SEO and performance, backed by a robust API and Supabase database.',
+    id: 'the-anselm-school',
+    title: 'The Anselm School',
+    category: 'Website',
+    description: 'An informational website for The Anselm School, an up and coming Classical Christian school in Charlotte, North Carolina.',
+    challenge: 'Create a website that showcases the school\'s unique offerings and values, matching the school\'s brand and tone.',
+    solution: 'We developed a Next.js application with server-side rendering for SEO and performance. We integrated the Google suite to manage email signups and form submissions for easy integration with the school\'s existing infrastructure.',
     results: ['40% increase in conversion rate', '60% reduction in page load time', '$2.3M in sales processed in first year'],
-    image: '/images/placeholder-project-2.jpg',
+    image: '/images/work/anselm.png',
     technologies: ['React', 'Next.js', 'Supabase', 'Stripe', 'Vercel'],
-    link: '/work/ecommerce-platform',
+    link: 'https://www.anselmschool.org/',
   },
   {
-    id: 'healthcare-system',
-    title: 'MediConnect',
-    category: 'Custom Software',
-    description: 'A secure and compliant healthcare management system for patient records, appointment scheduling, and billing.',
-    challenge: 'Create a HIPAA-compliant system that streamlines healthcare workflows while maintaining the highest security standards.',
+    id: 'clearly-reformed-mobile',
+    title: 'Clearly Reformed Mobile',
+    category: 'Mobile App',
+    description: 'A content presentation app for the ministry Clearly Reformed, allowing users to listen to a podcast, watch videos, and read articles.',
+    challenge: 'Create a native mobile app for iOS and Android that is easy to use and presents content in a way that is engaging and easy to consume.',
     solution: 'We built a custom solution with end-to-end encryption, role-based access control, and automated compliance reporting.',
     results: ['Reduced administrative time by 35%', 'Improved appointment adherence by 28%', 'Saved $450K annually in operational costs'],
-    image: '/images/placeholder-project-3.jpg',
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'Docker', 'AWS'],
-    link: '/work/healthcare-system',
+    image: '/images/work/cr1.png',
+    technologies: ['Swift', 'SwiftUI', 'SwiftData', 'Kotlin', 'Jetpack Compose', 'Room'],
+    link: 'https://apps.apple.com/us/app/clearly-reformed/id1615241289',
+  },
+  {
+    id: 'record-machine',
+    title: 'Record Machine',
+    category: 'Mobile App',
+    description: 'An iOS app for musicians to organize their next release - demos, lyrics, song & album metadata, and more. Experience your album as a listener before it\'s released!',
+    challenge: 'Musicians use phones as a creative tool, but the tools that exist tend to address one piece of the puzzle.',
+    solution: 'We built a custom solution that allows musicians to organize everything in one place and preview their album as if it were finished.',
+    results: ['Reduced administrative time by 35%', 'Improved appointment adherence by 28%', 'Saved $450K annually in operational costs'],
+    image: '/images/work/spinners-studio.gif',
+    technologies: ['Swift', 'SwiftUI', 'SwiftData'],
+    link: 'https://apps.apple.com/us/app/record-machine/id6478185491',
   },
 ];
 
@@ -178,9 +190,11 @@ const CaseStudies = () => {
                   {/* Project Image */}
                   <div className="w-full relative overflow-hidden rounded-lg">
                     <AspectRatio ratio={21/9} className="w-full">
-                      <PlaceholderImage 
-                        text={`${study.title} Preview`}
-                        className={`w-full h-full ${hoveredStudy === study.id ? 'hovered' : ''}`}
+                      <Image 
+                        src={study.image}
+                        alt={`${study.title} Preview`}
+                        fill
+                        className={`w-full h-full object-cover ${hoveredStudy === study.id ? 'hovered' : ''}`}
                       />
                     </AspectRatio>
                   </div>
@@ -301,9 +315,11 @@ const CaseStudies = () => {
                   <div className="flex justify-end">
                   <Link
                     href={study.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center text-primary hover:text-accent transition-colors"
                   >
-                    <span>View Full Case Study</span>
+                    <span>View Project</span>
                     <motion.svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5 ml-2"

@@ -1,0 +1,39 @@
+{
+  "forms": {
+    "contactForm": {
+      "name": "Contact Form",
+      "fields": {
+        "name": {
+          "type": "text",
+          "required": true
+        },
+        "email": {
+          "type": "email",
+          "required": true
+        },
+        "subject": {
+          "type": "text",
+          "required": false
+        },
+        "message": {
+          "type": "text",
+          "required": true
+        },
+        "budget": {
+          "type": "text",
+          "required": false
+        },
+        "timeline": {
+          "type": "text",
+          "required": false
+        }
+      },
+      "actions": [
+        {
+          "type": "email",
+          "to": "asher.pope@intrinsiclabs.co"
+        }
+      ]
+    }
+  }
+}

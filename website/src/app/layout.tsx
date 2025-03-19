@@ -5,6 +5,9 @@ import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
+import { FormspreeProvider } from "../components/providers/FormspreeProvider";
+import { ThemeProvider } from "../components/providers/ThemeProvider";
+import ClientThemeBackground from "../components/ClientThemeBackground";
 
 // Font configuration
 const inter = Inter({
@@ -50,38 +53,42 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className="min-h-screen flex flex-col">
-        {/* Grid pattern overlay */}
-        <div className="grid-pattern" />
-        
-        {/* Grain texture overlay */}
-        <div className="grain-overlay" />
-        
-        {/* Navigation */}
-        <Navigation />
-        
-        {/* Main content */}
-        <main className="flex-grow">
-          {children}
-        </main>
-        
-        {/* Footer */}
-        <Footer />
-        
-        {/* Vercel Analytics */}
-        <Analytics />
-        
-        {/* Helper script for hydration */}
-        <Script id="hydration-helper" strategy="afterInteractive">
-          {`
-            // Force a repaint to ensure client components render properly
-            document.body.style.display = 'none';
-            setTimeout(() => {
-              document.body.style.display = '';
-            }, 10);
-          `}
-        </Script>
-      </body>
+      <ThemeProvider>
+        <ClientThemeBackground>
+          {/* Grid pattern overlay */}
+          <div className="grid-pattern" />
+          
+          {/* Grain texture overlay */}
+          <div className="grain-overlay" />
+          
+          {/* Navigation */}
+          <Navigation />
+          
+          {/* Main content */}
+          <FormspreeProvider>
+            <main className="flex-grow">
+              {children}
+            </main>
+          </FormspreeProvider>
+          
+          {/* Footer */}
+          <Footer />
+          
+          {/* Vercel Analytics */}
+          <Analytics />
+          
+          {/* Helper script for hydration */}
+          <Script id="hydration-helper" strategy="afterInteractive">
+            {`
+              // Force a repaint to ensure client components render properly
+              document.body.style.display = 'none';
+              setTimeout(() => {
+                document.body.style.display = '';
+              }, 10);
+            `}
+          </Script>
+        </ClientThemeBackground>
+      </ThemeProvider>
     </html>
   );
 }

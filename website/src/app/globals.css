@@ -52,6 +52,39 @@
   font-display: swap;
 }
 
+/* Cardo Font */
+@font-face {
+  font-family: 'Cardo';
+  src: url('/fonts/cardo/Cardo-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cardo';
+  src: url('/fonts/cardo/Cardo-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cardo';
+  src: url('/fonts/cardo/Cardo-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Calling Code Font */
+@font-face {
+  font-family: 'Calling Code';
+  src: url('/fonts/calling_code/CallingCode-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   /* Using hex codes for colors - black/white with purple accent */
@@ -86,6 +119,7 @@ body {
   font-family: 'JetBrains Mono', monospace;
   letter-spacing: -0.025em;
   background-image: linear-gradient(to bottom, rgba(var(--accent-rgb), 0.01), transparent); /* Very subtle gradient with accent color */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Grid pattern overlay - removed */

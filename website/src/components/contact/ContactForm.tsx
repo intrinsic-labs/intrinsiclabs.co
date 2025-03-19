@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Card from '../ui/Card';
+import { useForm, ValidationError } from '@formspree/react';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -15,8 +16,8 @@ const ContactForm = () => {
   });
   
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  // Use the form key from formspree.json instead of environment variable
+  const [state, handleSubmit] = useForm("contactForm");
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -47,33 +48,13 @@ const ContactForm = () => {
     return Object.keys(newErrors).length === 0;
   };
   
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     if (!validate()) return;
     
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    try {
-      // In a real app, you would send the form data to your backend
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setIsSubmitted(true);
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-        budget: '',
-        timeline: ''
-      });
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setErrors({ form: 'Something went wrong. Please try again.' });
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Let Formspree handle the submission
+    await handleSubmit(e);
   };
   
   const inputClasses = "w-full bg-background border border-neutral-300 rounded-md px-4 py-3 text-primary placeholder:text-neutral-400 focus:outline-none focus:ring-1 focus:ring-neutral-600 focus:border-transparent transition-all duration-200";
@@ -100,7 +81,7 @@ const ContactForm = () => {
         <p className="text-neutral-800">Fill out the form below and we'll get back to you within 24-48 hours.</p>
       </div>
       
-      {isSubmitted ? (
+      {state.succeeded ? (
         <motion.div 
           className="bg-accent/10 border border-accent/30 rounded-lg p-6 text-center"
           initial="hidden"
@@ -113,14 +94,14 @@ const ContactForm = () => {
             Thank you for reaching out. We'll be in touch with you shortly.
           </p>
           <button 
-            onClick={() => setIsSubmitted(false)}
+            onClick={() => window.location.reload()}
             className="mt-6 text-primary hover:text-accent transition-colors"
           >
             Send another message
           </button>
         </motion.div>
       ) : (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleFormSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
               <label htmlFor="name" className={labelClasses}>Name *</label>
@@ -134,6 +115,7 @@ const ContactForm = () => {
                 placeholder="Your name"
               />
               {errors.name && <p className={errorClasses}>{errors.name}</p>}
+              <ValidationError prefix="Name" field="name" errors={state.errors} />
             </div>
             
             <div>
@@ -148,6 +130,7 @@ const ContactForm = () => {
                 placeholder="your.email@example.com"
               />
               {errors.email && <p className={errorClasses}>{errors.email}</p>}
+              <ValidationError prefix="Email" field="email" errors={state.errors} />
             </div>
           </div>
           
@@ -162,6 +145,7 @@ const ContactForm = () => {
               className={inputClasses}
               placeholder="What's this about?"
             />
+            <ValidationError prefix="Subject" field="subject" errors={state.errors} />
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -175,13 +159,14 @@ const ContactForm = () => {
                 className={inputClasses}
               >
                 <option value="" disabled>Select a range</option>
-                <option value="< $10k">Less than $10k</option>
-                <option value="$10k - $25k">$10k - $25k</option>
-                <option value="$25k - $50k">$25k - $50k</option>
-                <option value="$50k - $100k">$50k - $100k</option>
-                <option value="> $100k">More than $100k</option>
+                <option value="Less than 10k">Less than 10k</option>
+                <option value="10k - 25k">10k - 25k</option>
+                <option value="25k - 50k">25k - 50k</option>
+                <option value="50k - 100k">50k - 100k</option>
+                <option value="More than 100k">More than 100k</option>
                 <option value="Not sure">Not sure yet</option>
               </select>
+              <ValidationError prefix="Budget" field="budget" errors={state.errors} />
             </div>
             
             <div>
@@ -197,9 +182,10 @@ const ContactForm = () => {
                 <option value="ASAP">ASAP</option>
                 <option value="1-3 months">1-3 months</option>
                 <option value="3-6 months">3-6 months</option>
-                <option value="> 6 months">More than 6 months</option>
+                <option value="More than 6 months">More than 6 months</option>
                 <option value="Not sure">Not sure yet</option>
               </select>
+              <ValidationError prefix="Timeline" field="timeline" errors={state.errors} />
             </div>
           </div>
           
@@ -215,6 +201,7 @@ const ContactForm = () => {
               placeholder="Tell us about your project or inquiry..."
             ></textarea>
             {errors.message && <p className={errorClasses}>{errors.message}</p>}
+            <ValidationError prefix="Message" field="message" errors={state.errors} />
           </div>
           
           {errors.form && (
@@ -222,13 +209,14 @@ const ContactForm = () => {
               <p className="text-orange text-sm">{errors.form}</p>
             </div>
           )}
+          <ValidationError errors={state.errors} />
           
           <button
             type="submit"
-            disabled={isSubmitting}
-            className={`btn-primary w-full flex items-center justify-center ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+            disabled={state.submitting}
+            className={`btn-primary w-full flex items-center justify-center ${state.submitting ? 'opacity-70 cursor-not-allowed' : ''}`}
           >
-            {isSubmitting ? (
+            {state.submitting ? (
               <>
                 <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-background" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
