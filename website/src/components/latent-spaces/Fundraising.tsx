@@ -6,10 +6,19 @@ import FeatureItem from './FeatureItem';
 import SectionTitle from './SectionTitle';
 import SectionContent from './SectionContent';
 import CodeChip from './CodeChip';
-// Fundraising progress data
-const FUNDING_GOAL = 100000; // $100,000 goal
-const CURRENT_FUNDING = 35000; // $35,000 current (example)
-const FUNDING_PERCENTAGE = (CURRENT_FUNDING / FUNDING_GOAL) * 100;
+import { getFundingData } from '@/lib/stripe';
+
+// Subscription tiers
+const subscriptionTiers = [
+  { id: 1, amount: 5, link: "https://donate.stripe.com/3csdUy9LDbvvgqQ4gi" },
+  { id: 2, amount: 10, link: "https://donate.stripe.com/6oE2bQ9LD433fmM147" },
+  { id: 3, amount: 20, link: "https://donate.stripe.com/6oE2bQaPHfLLcaA6op" },
+  { id: 4, amount: 25, link: "https://donate.stripe.com/dR66s63nf6bbcaA148" },
+  { id: 5, amount: 50, link: "https://donate.stripe.com/14kg2G2jbeHHfmM149" },
+  { id: 6, amount: 75, link: "https://donate.stripe.com/6oEdUy9LD9nneiIcMS" },
+  { id: 7, amount: 100, link: "https://donate.stripe.com/3cs03I5vn1UV2A014b" },
+  { id: 8, amount: 200, link: "https://donate.stripe.com/bIY03Iga1bvvcaAaEM" },
+];
 
 // Features with funding status
 const iosFeatures = [
@@ -43,13 +52,27 @@ const websiteFeatures = [
 
 export default function Fundraising() {
   const [animatedPercentage, setAnimatedPercentage] = useState(0);
+  const [fundingData, setFundingData] = useState({
+    current: 0,
+    goal: 100000,
+    percentage: 0
+  });
+  const [showMonthlyOptions, setShowMonthlyOptions] = useState(false);
   const parallaxBgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Animate the progress bar
-    const timer = setTimeout(() => {
-      setAnimatedPercentage(FUNDING_PERCENTAGE);
-    }, 500);
+    // Fetch funding data
+    const loadFundingData = async () => {
+      const data = await getFundingData();
+      setFundingData(data);
+
+      // Animate the progress bar after data is loaded
+      setTimeout(() => {
+        setAnimatedPercentage(data.percentage);
+      }, 500);
+    };
+
+    loadFundingData();
 
     const handleScroll = () => {
       if (parallaxBgRef.current) {
@@ -65,7 +88,6 @@ export default function Fundraising() {
     window.addEventListener('scroll', handleScroll);
 
     return () => {
-      clearTimeout(timer);
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
@@ -88,8 +110,8 @@ export default function Fundraising() {
 
             <div className="my-12">
               <div className="flex justify-between mb-2 text-base font-calling-code">
-                <span>${CURRENT_FUNDING.toLocaleString()} raised</span>
-                <span>Goal: ${FUNDING_GOAL.toLocaleString()}</span>
+                <span>${fundingData.current.toLocaleString()} raised</span>
+                <span>Goal: ${fundingData.goal.toLocaleString()}</span>
               </div>
               <div className="h-2 bg-white/10 rounded overflow-hidden mb-4">
                 <motion.div
@@ -100,34 +122,69 @@ export default function Fundraising() {
                 />
               </div>
               <div className="flex justify-between mb-2 text-base font-calling-code">
-                <span>{FUNDING_PERCENTAGE.toFixed(1)}% funded</span>
+                <span>{fundingData.percentage.toFixed(1)}% funded</span>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-              <div className="bg-white/[0.05] rounded-2xl p-6 md:p-8 transition-colors duration-300 hover:bg-white/[0.08]">
+              <div className="bg-white/[0.05] border border-white/10 rounded-2xl p-6 md:p-8 transition-colors duration-300 hover:border-white/40">
                 <h3 className="text-2xl mb-4 font-cardo">One-Time Contribution</h3>
                 <p>Support development with a single contribution.</p>
                 <div className="mt-6">
                   <a
-                    href="https://buy.stripe.com/test_14k3dSg1z0uw8Io144"
-                    className="inline-block w-full bg-ls-yellow text-white py-3 px-6 font-calling-code text-[0.95rem] rounded-full cursor-pointer transition-all duration-300 text-center"
+                    href="https://donate.stripe.com/cN2cQu7Dvarr6QgdQQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block w-full bg-ls-yellow hover:bg-ls-yellow/30 backdrop-blur-md border border-ls-yellow hover:border-ls-yellowLight text-white py-3 px-6 font-calling-code text-[0.95rem] rounded-full cursor-pointer transition-all duration-300 text-center"
                   >
                     Contribute Now
                   </a>
                 </div>
               </div>
-              <div className="bg-white/[0.05] rounded-2xl p-6 md:p-8 transition-colors duration-300 hover:bg-white/[0.08]">
-                <h3 className="text-2xl mb-4 font-cardo">Monthly Support</h3>
-                <p>Become a regular supporter for continuous development.</p>
-                <div className="mt-6">
-                  <a
-                    href="https://buy.stripe.com/test_14k3dSg1z0uw8Io144"
-                    className="inline-block w-full bg-ls-yellow text-white py-3 px-6 font-calling-code text-[0.95rem] rounded-full cursor-pointer transition-all duration-300 text-center"
-                  >
-                    Support Monthly
-                  </a>
-                </div>
+              <div className="bg-white/[0.05] border border-white/10 rounded-2xl p-6 md:p-8 transition-colors duration-300 hover:border-white/40">
+                {!showMonthlyOptions ? (
+                  <>
+                    <h3 className="text-2xl mb-4 font-cardo">Monthly Support</h3>
+                    <p>Become a regular supporter for continuous development.</p>
+                    <div className="mt-6">
+                      <button
+                        onClick={() => setShowMonthlyOptions(true)}
+                        className="inline-block w-full bg-ls-yellow hover:bg-ls-yellow/30 backdrop-blur-md border border-ls-yellow hover:border-ls-yellowLight text-white py-3 px-6 font-calling-code text-[0.95rem] rounded-full cursor-pointer transition-all duration-300 text-center"
+                      >
+                        Support Monthly
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <div className="relative">
+                    <div className="absolute top-0 right-0">
+                      <button 
+                        onClick={() => setShowMonthlyOptions(false)}
+                        className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-200"
+                        aria-label="Go back"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                          <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                        </svg>
+                      </button>
+                    </div>
+                    <h3 className="text-2xl mb-4 font-cardo">Select an amount</h3>
+                    <div className="grid grid-cols-2 gap-3 mt-6">
+                      {subscriptionTiers.map((tier) => (
+                        <a
+                          key={tier.id}
+                          href={tier.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex flex-col items-center justify-center p-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-xl transition-colors duration-200 text-center"
+                        >
+                          <span className="font-calling-code text-lg font-semibold">${tier.amount}</span>
+                          <span className="text-xs opacity-80">per month</span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
