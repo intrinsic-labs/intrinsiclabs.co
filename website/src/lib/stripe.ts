@@ -4,10 +4,10 @@ import { supabase } from './supabase';
 
 export async function getFundingData() {
   try {
-    // Fetch the total donations from Supabase
+    // Fetch all confirmed donations from Supabase
     const { data, error } = await supabase
       .from('donations')
-      .select('amount')
+      .select('payment_id, amount, is_recurring')
       .eq('status', 'confirmed');
     
     if (error) {
@@ -15,8 +15,25 @@ export async function getFundingData() {
       throw error;
     }
     
-    // Calculate the total amount donated
-    const totalDonated = data?.reduce((sum, donation) => sum + donation.amount, 0) || 0;
+    // Use a Map to ensure we only count each payment_id once
+    // This handles the case of duplicate webhook events for the same payment
+    const uniqueDonations = new Map();
+    
+    // Process each donation, keeping only the unique ones by payment_id
+    if (data) {
+      data.forEach(donation => {
+        // If this payment_id hasn't been seen or if current amount is greater, use it
+        // This handles cases where partial payments might be recorded
+        if (!uniqueDonations.has(donation.payment_id) || 
+            uniqueDonations.get(donation.payment_id).amount < donation.amount) {
+          uniqueDonations.set(donation.payment_id, donation);
+        }
+      });
+    }
+    
+    // Calculate the total amount from unique donations
+    const totalDonated = Array.from(uniqueDonations.values())
+      .reduce((sum, donation) => sum + donation.amount, 0);
     
     // Define the funding goal
     const goal = 12000;
