@@ -52,6 +52,39 @@ export async function POST(req: NextRequest) {
       
       console.log(`Processing ${event.type} event`);
       const paymentData = event.data.object as Stripe.PaymentIntent | Stripe.Checkout.Session;
+      
+      // Extract payment ID - it will be different depending on the event type
+      let paymentId: string;
+      if (event.type === 'payment_intent.succeeded') {
+        paymentId = paymentData.id;
+      } else {
+        // For checkout.session.completed, get the payment_intent if available
+        paymentId = 'payment_intent' in paymentData && paymentData.payment_intent
+          ? (typeof paymentData.payment_intent === 'string' 
+              ? paymentData.payment_intent 
+              : paymentData.payment_intent.id)
+          : paymentData.id;
+      }
+      
+      console.log(`Payment ID: ${paymentId}`);
+      
+      // Check if this payment has already been recorded
+      const { data: existingDonation } = await supabase
+        .from('donations')
+        .select('id')
+        .eq('payment_id', paymentId)
+        .maybeSingle();
+        
+      if (existingDonation) {
+        console.log(`Payment ${paymentId} already recorded, skipping`);
+        return new NextResponse(JSON.stringify({ received: true, status: 'already_processed' }), { 
+          status: 200,
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+      }
+      
       const amount = 'amount' in paymentData ? paymentData.amount : paymentData.amount_total;
       
       if (amount) {
@@ -66,7 +99,7 @@ export async function POST(req: NextRequest) {
           .insert([
             { 
               amount: amountInDollars,
-              payment_id: paymentData.id,
+              payment_id: paymentId,
               payment_type: event.type
             }
           ]);
