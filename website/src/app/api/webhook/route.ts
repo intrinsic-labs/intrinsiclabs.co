@@ -46,72 +46,52 @@ export async function POST(req: NextRequest) {
       return new NextResponse(`Webhook Error: ${error.message}`, { status: 400 });
     }
 
-    // Handle the event
-    if (event.type === 'payment_intent.succeeded' || 
-        event.type === 'checkout.session.completed') {
-      
-      console.log(`Processing ${event.type} event`);
-      const paymentData = event.data.object as Stripe.PaymentIntent | Stripe.Checkout.Session;
-      
-      // Extract payment ID - it will be different depending on the event type
-      let paymentId: string;
-      if (event.type === 'payment_intent.succeeded') {
-        paymentId = paymentData.id;
-      } else {
-        // For checkout.session.completed, get the payment_intent if available
-        paymentId = 'payment_intent' in paymentData && paymentData.payment_intent
-          ? (typeof paymentData.payment_intent === 'string' 
-              ? paymentData.payment_intent 
-              : paymentData.payment_intent.id)
-          : paymentData.id;
-      }
-      
-      console.log(`Payment ID: ${paymentId}`);
-      
-      // Check if this payment has already been recorded
-      const { data: existingDonation } = await supabase
-        .from('donations')
-        .select('id')
-        .eq('payment_id', paymentId)
-        .maybeSingle();
+    // Handle different event types
+    switch (event.type) {
+      case 'payment_intent.succeeded':
+      case 'checkout.session.completed': {
+        console.log(`Processing ${event.type} event`);
+        const paymentData = event.data.object as Stripe.PaymentIntent | Stripe.Checkout.Session;
         
-      if (existingDonation) {
-        console.log(`Payment ${paymentId} already recorded, skipping`);
-        return new NextResponse(JSON.stringify({ received: true, status: 'already_processed' }), { 
-          status: 200,
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
-      }
-      
-      const amount = 'amount' in paymentData ? paymentData.amount : paymentData.amount_total;
-      
-      if (amount) {
-        // Convert from cents to dollars
-        const amountInDollars = amount / 100;
-        console.log(`Amount: ${amountInDollars} from ${amount} cents`);
-        
-        // Insert donation into Supabase
-        console.log('Inserting into Supabase...');
-        const { error } = await supabase
-          .from('donations')
-          .insert([
-            { 
-              amount: amountInDollars,
-              payment_id: paymentId,
-              payment_type: event.type
-            }
-          ]);
-        
-        if (error) {
-          console.error('Error inserting donation data:', error);
+        // Extract payment ID - it will be different depending on the event type
+        let paymentId: string;
+        if (event.type === 'payment_intent.succeeded') {
+          paymentId = paymentData.id;
         } else {
-          console.log(`Donation of $${amountInDollars} recorded successfully!`);
+          // For checkout.session.completed, get the payment_intent if available
+          paymentId = 'payment_intent' in paymentData && paymentData.payment_intent
+            ? (typeof paymentData.payment_intent === 'string' 
+                ? paymentData.payment_intent 
+                : paymentData.payment_intent.id)
+            : paymentData.id;
         }
+        
+        console.log(`Payment ID: ${paymentId}`);
+        
+        await processDonation(paymentId, event.type, paymentData);
+        break;
       }
-    } else {
-      console.log(`Unhandled event type: ${event.type}`);
+      
+      case 'invoice.payment_succeeded': {
+        // This captures both initial and recurring subscription payments
+        console.log('Processing subscription payment');
+        const invoice = event.data.object as Stripe.Invoice;
+        
+        // Only process if this is a subscription invoice (not a one-time invoice)
+        if (invoice.subscription) {
+          const paymentId = invoice.payment_intent as string;
+          console.log(`Subscription payment ID: ${paymentId}`);
+          
+          // Only process if this is for a subscription (not another type of invoice)
+          if (invoice.subscription) {
+            await processDonation(paymentId, event.type, invoice);
+          }
+        }
+        break;
+      }
+      
+      default:
+        console.log(`Unhandled event type: ${event.type}`);
     }
 
     // Return a 200 response to acknowledge receipt of the event
@@ -133,5 +113,68 @@ export async function POST(req: NextRequest) {
         }
       }
     );
+  }
+}
+
+// Helper function to process donation and avoid duplicate code
+async function processDonation(
+  paymentId: string, 
+  eventType: string, 
+  paymentData: Stripe.PaymentIntent | Stripe.Checkout.Session | Stripe.Invoice
+) {
+  // Check if this payment has already been recorded
+  const { data: existingDonation } = await supabase
+    .from('donations')
+    .select('id')
+    .eq('payment_id', paymentId)
+    .maybeSingle();
+    
+  if (existingDonation) {
+    console.log(`Payment ${paymentId} already recorded, skipping`);
+    return;
+  }
+  
+  // Extract amount based on payment data type
+  let amount: number | null = null;
+  
+  if ('amount' in paymentData) {
+    // For payment intents
+    amount = paymentData.amount;
+  } else if ('amount_total' in paymentData) {
+    // For checkout sessions
+    amount = paymentData.amount_total;
+  } else if ('amount_paid' in paymentData) {
+    // For invoices
+    amount = paymentData.amount_paid;
+  }
+  
+  if (amount) {
+    // Convert from cents to dollars
+    const amountInDollars = amount / 100;
+    console.log(`Amount: ${amountInDollars} from ${amount} cents`);
+    
+    // Determine if recurring based on event type
+    const isRecurring = eventType === 'invoice.payment_succeeded';
+    
+    // Insert donation into Supabase
+    console.log('Inserting into Supabase...');
+    const { error } = await supabase
+      .from('donations')
+      .insert([
+        { 
+          amount: amountInDollars,
+          payment_id: paymentId,
+          payment_type: eventType,
+          is_recurring: isRecurring
+        }
+      ]);
+    
+    if (error) {
+      console.error('Error inserting donation data:', error);
+    } else {
+      console.log(`Donation of $${amountInDollars} recorded successfully!`);
+    }
+  } else {
+    console.log('Could not determine amount for this payment');
   }
 } 
