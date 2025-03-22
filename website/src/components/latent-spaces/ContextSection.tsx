@@ -33,22 +33,26 @@ export default function ContextSection() {
           className="absolute top-0 left-0 w-full h-[120%] z-0 opacity-15"
         />
         <div className="relative z-10">
-          <SectionTitle>Context & Purpose</SectionTitle>
+          <SectionTitle>The Probable Beauty of LLMs</SectionTitle>
           <SectionContent>
             <p>
-              In the past five years, many mobile AI chat apps have been released - Claude, ChatGPT, Gemini, and countless
-              clones. Often, these apps are supported by a more robust web app. To date, only a couple of these platforms have
-              introduced some form of conversation branching (allowing users generate many continuations to a prompt <span className="italic">and</span> continue from each generated branch). Claude.ai recently added this feature, but it is not yet available on mobile,
-              nor is it positioned as a primary feature. To date, Grok is the only commercially developed mobile app that supports
-              this feature.
+              There are many interesting differences between a traditional computer program and a large language model. One of the most powerful is the non-deterministic nature of a model's output; that is, how a single prompt may produce multiple <em>unique</em> responses each time it is run.
             </p>
             <br />
             <p>
-              While the advantages and implications of a <CodeChip>loom interface</CodeChip> are profound even for basic interactions, the majority of
-              the population is unaware of the concept, and even if they do discover it, have no obvious or easy way to experience
-              it. Most existing looms take some amount of technical know-how to get up and running and are desktop-only. While it
-              is true that most power users will be working from a computer, it is also true that there are many <span className="italic">potential</span> users who
-              desire to understand AI more deeply, and who could easily be captured by a low-barrier-to-entry mobile app.
+              To see why this is important, it is helpful to understand where models come from in the first place. LLMs like ChatGPT, Claude, and Gemini are pre-trained on terabytes of text sourced from the internet. Pre-training may take weeks or months to complete, and the result is a <CodeChip>base model</CodeChip>. 
+            </p>
+            <br />
+            <p>
+              Base models do not behave like assistants. Imagine autocomplete on steroids - to a base model, a "chat" looks like one long document, and the model simply continues that document. Base models typically output vastly varied responses to the same prompt. This makes sense - the training dataset is so large that for most prompts, <em>many</em> tokens have a high probability of coming next. With each output token, the range of possible <em>following</em> tokens shrinks, slowly pushing the model towards a deterministic output.
+            </p>
+            <br />
+            <p>
+              Usually, the base model is then fine-tuned on a specific task, typically learing to assume the role of a 'helpful, harmless, honest assistant'. This is known as <CodeChip>instruction tuning</CodeChip>. Instruction tuning inherently introduces a level of determinism to the model's output - now, tokens like "Sure, I'd be happy to help you with..." have a much higher probablity of following a given prompt than most other tokens in the training dataset.
+            </p>
+            <br />
+            <p>
+              <em>Asher is still typing...</em>
             </p>
             <br />
             <AccentText>
