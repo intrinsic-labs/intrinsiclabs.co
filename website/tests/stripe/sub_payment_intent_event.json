@@ -1,0 +1,1 @@
+{"id":"evt_test_sub_payment_intent","object":"event","api_version":"2025-02-24.acacia","type":"payment_intent.succeeded","data":{"object":{"id":"pi_test_subscription_payment","object":"payment_intent","amount":2500,"customer":"cus_test_subscription","invoice":"in_test_subscription","subscription_details":{"subscription":"sub_test_123"},"status":"succeeded"}}}
