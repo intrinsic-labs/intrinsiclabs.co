@@ -6,35 +6,37 @@ import { useInView } from 'framer-motion';
 import PlaceholderImage from '@/components/ui/PlaceholderImage';
 import BrowserWindow from '@/components/ui/BrowserWindow';
 import Image from 'next/image';
+import Link from 'next/link';
+
 // Team member data
 const teamMembers = [
   {
     id: 1,
     name: 'Asher Pope',
     role: 'Founder & Lead Developer',
-    bio: 'Software engineer with expertise in mobile and web development. Passionate about creating exceptional digital experiences and leveraging AI to enhance development workflows.',
-    skills: ['Mobile Development', 'Web Development', 'AI Integration', 'UX Design'],
+    bio: 'Software engineer with expertise in mobile and web development. AI researcher and developer. Understander of many things.',
+    skills: ['Mobile Development', 'Web Development', 'AI Research', 'UX Design'],
     imagePlaceholder: 'Asher Pope',
     image: '/images/team/asher.jpg',
   },
-  {
-    id: 2,
-    name: 'Elaine Pope',
-    role: 'Sales & Client Relations',
-    bio: 'Experienced sales professional with a background in client relations. Helps clients identify their needs and ensures our solutions meet their expectations.',
-    skills: ['Client Relations', 'Sales Strategy', 'Project Management', 'Business Development'],
-    imagePlaceholder: 'Elaine Pope',
-    image: '/images/team/elaine.jpeg',
-  },
-  {
-    id: 3,
-    name: 'Quinten Harris',
-    role: 'Business Development',
-    bio: 'Sales professional with a drive for growth and innovation. Focused on expanding our client base and identifying new opportunities for the company.',
-    skills: ['Business Strategy', 'Client Acquisition', 'Market Research', 'Sales'],
-    imagePlaceholder: 'Quinten Harris',
-    image: '/images/team/quinten.jpeg',
-  },
+  // {
+  //   id: 2,
+  //   name: 'Elaine Pope',
+  //   role: 'Sales & Client Relations',
+  //   bio: 'Experienced sales professional with a background in client relations. Helps clients identify their needs and ensures our solutions meet their expectations.',
+  //   skills: ['Client Relations', 'Sales Strategy', 'Project Management', 'Business Development'],
+  //   imagePlaceholder: 'Elaine Pope',
+  //   image: '/images/team/elaine.jpeg',
+  // },
+  // {
+  //   id: 3,
+  //   name: 'Quinten Harris',
+  //   role: 'Business Development',
+  //   bio: 'Sales professional with a drive for growth and innovation. Focused on expanding our client base and identifying new opportunities for the company.',
+  //   skills: ['Business Strategy', 'Client Acquisition', 'Market Research', 'Sales'],
+  //   imagePlaceholder: 'Quinten Harris',
+  //   image: '/images/team/quinten.jpeg',
+  // },
 ];
 
 const TeamSection = () => {
@@ -140,12 +142,11 @@ const TeamSection = () => {
           transition={{ duration: 0.6 }}
         >
           
-          <h2 className="heading-lg mb-6 font-display">Meet The Team</h2>
+          <h2 className="heading-lg mb-6 font-display">Meet The Founder</h2>
           
           <p className="paragraph text-neutral-800 max-w-2xl mx-auto pb-4">
-            Intrinsic Labs is a small team of developers, business professionals, and creatives. We're dedicated to creating exceptional digital experiences.*
+            Asher founded Intrinsic Labs with a vision for building a team of exceptional thinkers. Think you'd be a good fit? <Link className="underline" href="/contact">Reach out.</Link>
           </p>
-          <p className="text-sm italic text-neutral-600 max-w-2xl mx-auto">* said every dev company ever lol. But seriously, we deliver.</p>
         </motion.div>
 
         <motion.div

@@ -12,10 +12,9 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen">
       <ContactHero />
-      <div className="container-custom py-16 md:py-24">
-        <div className="flex flex-col max-w-3xl mx-auto gap-24">
+      <div className="container-custom py-12 md:py-16">
+        <div className="flex flex-col max-w-3xl mx-auto gap-12">
           <ContactForm />
-          <ContactFAQ />
           <ContactInfo />
         </div>
       </div>

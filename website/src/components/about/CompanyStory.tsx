@@ -16,7 +16,7 @@ if (typeof window !== 'undefined') {
 const CompanyStory = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.08 });
 
   useEffect(() => {
     if (timelineRef.current && typeof window !== 'undefined') {
@@ -83,7 +83,7 @@ const CompanyStory = () => {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
           >
             <div className="relative">
               <div className="h-[500px] md:h-auto rounded-lg overflow-hidden border border-primary/20 md:border-0 flex items-center justify-center">
@@ -97,7 +97,7 @@ const CompanyStory = () => {
                 />
               </div>
               
-              <div className="absolute bottom-4 right-4 md:-bottom-6 md:-left-6 w-auto md:w-96 h-auto md:h-24 bg-accent/40 backdrop-blur-md rounded-lg p-3 md:p-4 flex items-center justify-center md:justify-start lg:-left-6 z-10">
+              <div className="absolute -bottom-4 mx-4 md:mx-0 md:-bottom-6 md:-left-6 w-auto md:w-96 h-auto md:h-24 bg-accent/40 backdrop-blur-md rounded-lg p-3 md:p-4 flex items-center justify-center md:justify-start lg:-left-6 z-10">
                 <span className="terminal-text text-sm">
                   The iPad keyboard Asher learned to code on<br />(now owned and operated by his kids)
                 </span>
@@ -120,7 +120,7 @@ const CompanyStory = () => {
                     initial={{ width: 0 }}
                     whileInView={{ width: "100%" }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 1 }}
+                    transition={{ duration: 0.6, delay: 1}}
                   />
                 </span>
               </h2>
@@ -129,7 +129,7 @@ const CompanyStory = () => {
 
             <motion.div variants={itemVariants} className="space-y-2 pb-8">
               <p className="paragraph text-neutral-800">
-                Intrinsic Labs LLC was founded in 2024 with the conviction that serious businesses shouldn't have to jerry rig off-the-shelf solutions that don't fully understand their needs.
+                Intrinsic Labs LLC was founded in 2024 with the conviction that serious people shouldn't have to jerry rig off-the-shelf solutions that don't fully understand their needs.
               </p>
             </motion.div>
 

@@ -27,24 +27,6 @@ const ContactInfo = () => {
   
   return (
     <div>
-      <motion.h2 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-3xl md:text-4xl font-display font-medium mb-8"
-      >
-        Contact Information
-      </motion.h2>
-      
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-        className="text-neutral-800 mb-8"
-      >
-        Reach out to us directly or connect on social media.
-      </motion.p>
-      
       <Card className="p-6 md:p-8">
         <motion.div
           variants={containerVariants}

@@ -50,10 +50,11 @@ const Navigation = () => {
   }, [isMobileMenuOpen]);
 
   const navLinks = [
-    { name: 'Services', href: '/services' },
-    { name: 'Work', href: '/work' },
-    { name: 'About', href: '/about' },
-    { name: 'Blog', href: '/blog' },
+    { name: 'Latent Spaces', href: '/latent-spaces' },
+    // { name: 'Services', href: '/services' },
+    // { name: 'Work', href: '/work' },
+    // { name: 'About', href: '/about' },
+    // { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -82,7 +83,7 @@ const Navigation = () => {
     <header className={headerClass}>
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -167,7 +168,7 @@ const Navigation = () => {
             )}
           </svg>
         </button>
-      </div>
+      </div> 
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -201,7 +202,6 @@ const Navigation = () => {
               </div>
               
               <div className="mt-auto pt-8">
-                {/* <div className="border-t border-neutral-800/20 mb-8 mx-4"></div> */}
                 <div className="flex justify-center space-x-6 py-8">
                   {socialLinks.map((social) => (
                     <a

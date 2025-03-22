@@ -77,7 +77,6 @@ const ContactForm = () => {
   return (
     <Card className="p-6 md:p-8" id="contact-form">
       <div className="mb-6">
-        <h2 className="heading-md mb-2">Get in Touch</h2>
         <p className="text-neutral-800">Fill out the form below and we'll get back to you within 24-48 hours.</p>
       </div>
       
@@ -146,47 +145,6 @@ const ContactForm = () => {
               placeholder="What's this about?"
             />
             <ValidationError prefix="Subject" field="subject" errors={state.errors} />
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div>
-              <label htmlFor="budget" className={labelClasses}>Budget Range</label>
-              <select
-                id="budget"
-                name="budget"
-                value={formData.budget}
-                onChange={handleChange}
-                className={inputClasses}
-              >
-                <option value="" disabled>Select a range</option>
-                <option value="Less than 10k">Less than 10k</option>
-                <option value="10k - 25k">10k - 25k</option>
-                <option value="25k - 50k">25k - 50k</option>
-                <option value="50k - 100k">50k - 100k</option>
-                <option value="More than 100k">More than 100k</option>
-                <option value="Not sure">Not sure yet</option>
-              </select>
-              <ValidationError prefix="Budget" field="budget" errors={state.errors} />
-            </div>
-            
-            <div>
-              <label htmlFor="timeline" className={labelClasses}>Timeline</label>
-              <select
-                id="timeline"
-                name="timeline"
-                value={formData.timeline}
-                onChange={handleChange}
-                className={inputClasses}
-              >
-                <option value="" disabled>Select a timeline</option>
-                <option value="ASAP">ASAP</option>
-                <option value="1-3 months">1-3 months</option>
-                <option value="3-6 months">3-6 months</option>
-                <option value="More than 6 months">More than 6 months</option>
-                <option value="Not sure">Not sure yet</option>
-              </select>
-              <ValidationError prefix="Timeline" field="timeline" errors={state.errors} />
-            </div>
           </div>
           
           <div className="mb-6">

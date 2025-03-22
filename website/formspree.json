@@ -18,14 +18,6 @@
         "message": {
           "type": "text",
           "required": true
-        },
-        "budget": {
-          "type": "text",
-          "required": false
-        },
-        "timeline": {
-          "type": "text",
-          "required": false
         }
       },
       "actions": [
