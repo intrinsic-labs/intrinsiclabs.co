@@ -55,11 +55,6 @@ export default function RootLayout({
       </head>
       <ThemeProvider>
         <ClientThemeBackground>
-          {/* Grid pattern overlay */}
-          <div className="grid-pattern" />
-          
-          {/* Grain texture overlay */}
-          <div className="grain-overlay" />
           
           {/* Navigation */}
           <Navigation />
