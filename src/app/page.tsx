@@ -16,7 +16,7 @@ export default function Home() {
       <ParallaxEffect />
       <Navigation />
 
-      <div className="px-6 md:px-16">
+      <div className="md:px-16">
         <Hero />
         <ValuesSection />
 
