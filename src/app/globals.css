@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "./fonts.css";
 
 :root {
   --background: #ede9e3;
@@ -38,12 +37,13 @@
   --color-creme: var(--creme);
   --color-slate: var(--slate);
   --color-navy: var(--navy);
+
   /* Fonts */
-  --font-calling-code: calling-code;
-  --font-neue-montreal: neue-montreal;
-  --font-cardo: cardo;
-  --font-jetbrains-mono: jetbrains-mono;
-  --font-lato: lato;
+  --font-calling-code: var(--font-calling-code);
+  --font-neue-montreal: var(--font-neue-montreal);
+  --font-cardo: var(--font-cardo);
+  --font-jetbrains-mono: var(--font-jetbrains-mono);
+  --font-lato: var(--font-lato);
 }
 
 @layer base {
