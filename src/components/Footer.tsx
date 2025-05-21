@@ -67,7 +67,7 @@ const Footer = () => {
 
           {/* Links Columns */}
           <div>
-            <h3 className="text-primary pt-8 md:pt-0 text-md font-semibold mb-4 uppercase tracking-wider">Jump To:</h3>
+            <h3 className="text-creme pt-8 md:pt-0 text-md font-semibold mb-4 uppercase tracking-wider">Jump To:</h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
