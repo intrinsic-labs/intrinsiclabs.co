@@ -117,7 +117,7 @@ const Navigation = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link, index) => (
+          {navLinks.map((link) => (
             <div
               key={link.name}
               className=""

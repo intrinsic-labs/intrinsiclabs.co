@@ -29,7 +29,7 @@ const TeamSection = () => {
           <div className="relative">
             {/* Team members */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {teamMembers.map((member, index) => (
+              {teamMembers.map((member) => (
                 <div
                   key={member.id}
                   className="bg-white/40 hover:bg-white/80 dark:bg-primary/20 dark:hover:bg-primary/30 backdrop-blur-sm rounded-lg overflow-hidden border border-primary/20 hover:border-accent/60 flex flex-col transition-all duration-300"

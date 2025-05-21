@@ -1,4 +1,3 @@
-import Image from 'next/image';
 
 const Hero = () => (
   <div className="min-h-[40vh] flex items-center relative overflow-hidden bg-background parallax-section">

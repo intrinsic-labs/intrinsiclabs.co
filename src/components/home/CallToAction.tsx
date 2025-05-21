@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { FiCalendar, FiMail, FiPhone } from 'react-icons/fi';
+import { FiMail, FiPhone } from 'react-icons/fi';
 
 interface CallToActionProps {
   id?: string;

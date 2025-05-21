@@ -33,7 +33,7 @@ const Reviews = () => {
         >
           <h2 className="heading-lg mb-6 max-w-2xl mx-auto font-display">Reviews</h2>
           <p className="text-2xl max-w-2xl mx-auto">
-            We've had the privilege of working with amazing clients who trusted us to find the perfect solution for their needs.
+            We&apos;ve had the privilege of working with amazing clients who trusted us to find the perfect solution for their needs.
           </p>
         </div>
 
