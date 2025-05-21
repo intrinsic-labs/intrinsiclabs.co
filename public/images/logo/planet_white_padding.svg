@@ -1,0 +1,19 @@
+<svg width="1780" height="1773" viewBox="0 0 1780 1773" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_127_31)">
+<ellipse cx="886.309" cy="847.147" rx="346.898" ry="346.776" fill="#F9F6F2"/>
+<g clip-path="url(#clip1_127_31)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1572.54 1377.47L195.937 340.788L205.871 327.605L1582.48 1364.29L1572.54 1377.47Z" fill="#F9F6F2"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1156.81 1064.4L602.772 647.168L612.714 633.975L1166.75 1051.2L1156.81 1064.4Z" fill="#7F71EA"/>
+</g>
+<ellipse cx="1268.16" cy="623.301" rx="30.2163" ry="30.17" fill="#F9F6F2"/>
+<path d="M1209.96 685.488C1277.42 685.488 1332.11 740.16 1332.11 807.597C1332.11 875.034 1277.42 929.705 1209.96 929.705C1142.49 929.705 1087.8 875.034 1087.8 807.597C1087.8 740.16 1142.49 685.488 1209.96 685.488Z" fill="#21201F" stroke="#F9F6F2" stroke-width="10"/>
+</g>
+<defs>
+<clipPath id="clip0_127_31">
+<rect width="911" height="906" fill="white" transform="translate(434 395)"/>
+</clipPath>
+<clipPath id="clip1_127_31">
+<rect width="813.259" height="812.992" rx="100" transform="matrix(0.990298 -0.138964 0.139666 0.990199 427.7 501.994)" fill="white"/>
+</clipPath>
+</defs>
+</svg>
