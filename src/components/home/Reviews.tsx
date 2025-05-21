@@ -48,9 +48,10 @@ const Reviews = () => {
                   relative w-[300px] md:w-[400px] lg:w-[480px]
                   ${(() => {
                     if (index === 0) return 'ml-auto mr-16 -mb-3 md:mr-24 lg:mr-24 md:-mb-3 lg:-mb-4';
-                    if (index === 1) return 'mr-auto ml-16 -mb-3 md:ml-28 lg:ml-36 md:-mb-3 lg:-mb-16';
+                    if (index === 1) return 'mr-auto ml-16 -mb-3 md:ml-28 lg:ml-36 md:-mb-3 lg:-mb-12';
                     if (index === 2) return 'ml-auto mr-16 -mb-3 md:mr-12 lg:mr-18 md:-mb-3 lg:-mb-4';
-                    if (index === 3) return 'mr-auto ml-16 -mb-3 md:ml-20 lg:ml-28 md:-mb-3 lg:-mb-4';
+                    if (index === 3) return 'mr-auto ml-16 -mb-3 md:ml-20 lg:ml-28 md:-mb-3 lg:-mb-12';
+                    if (index === 4) return 'ml-auto mr-16 -mb-3 md:mr-12 lg:mr-18 md:-mb-3 lg:-mb-4';
                     return '';
                   })()}
                 `}
@@ -68,7 +69,7 @@ const Reviews = () => {
                     <StarRating rating={review.stars} />
                   </div>
                   <blockquote className="mb-4">
-                    <p className="paragraph-serif">{review.quote}</p>
+                    <p className="paragraph-serif text-lg">{review.quote}</p>
                   </blockquote>
                   <footer className="text-sm font-medium font-mono">
                     {review.credit}
