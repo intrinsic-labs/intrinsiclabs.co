@@ -10,8 +10,8 @@ const Hero = () => (
           height={300}
           className="w-[300px] h-[300px] md:w-[500px] md:h-[500px] mx-auto"
         /> */}
-        <h1 className="heading-xl mb-8">
-          Let&apos;s grow your <span className="text-orange font-bold">revenue</span> with top notch apps and websites
+        <h1 className="heading-xl font-bold mb-8">
+          Do you want to <span className="text-orange font-bold">elevate</span> your online presence?
         </h1>
 
         <div>       

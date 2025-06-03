@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ede9e3;
+  --background: #f0eee6;
   --foreground: #21201f;
   --primary: #21201f;
   --secondary: #FFFFFF;
@@ -15,8 +15,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #1c1d21;
-    --foreground: #f3f2ef;
-    --primary: #f3f2ef;
+    --foreground: #f0eee6;
+    --primary: #f0eee6;
     --secondary: #23222b;
     --accent: #5da2d7;
     --yellow: #fbdf8c;
@@ -87,9 +87,9 @@
   }
 
   .heading-xl {
-    /* font-family: var(--font-neue-montreal), sans-serif; */
+    font-family: var(--font-neue-montreal), sans-serif;
     font-weight: bold; 
-    font-size: 3.75rem; 
+    font-size: 3rem; 
     line-height: 0.85;
     color: var(--primary); 
     color: inherit;
@@ -110,7 +110,7 @@
   }
   
   .heading-lg {
-    /* font-family: var(--font-neue-montreal), sans-serif; */
+    font-family: var(--font-neue-montreal), sans-serif;
     font-weight: bold; 
     font-size: 2.75rem; 
     line-height: 3rem;
@@ -126,7 +126,7 @@
   }
   
   .heading-md {
-    /* font-family: var(--font-neue-montreal), sans-serif; */
+    font-family: var(--font-neue-montreal), sans-serif;
     font-weight: bold; 
     font-size: 2.25rem; 
     line-height: 2rem;
@@ -142,7 +142,7 @@
   }
   
   .heading-sm {
-    /* font-family: var(--font-neue-montreal), sans-serif; */
+    font-family: var(--font-neue-montreal), sans-serif;
     font-weight: bold; 
     font-size: 1.5rem; 
     line-height: 1.75rem;

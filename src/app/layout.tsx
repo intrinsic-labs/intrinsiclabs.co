@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
-import { neueMontreal, cardo, jetbrainsMono, lato, callingCode } from "./fonts";
+import { neueMontreal, cardo, lato, callingCode } from "./fonts";
 
 // Metadata
 export const metadata: Metadata = {
@@ -21,7 +21,6 @@ export default function RootLayout({
       className={`
         ${neueMontreal.variable}
         ${cardo.variable}
-        ${jetbrainsMono.variable}
         ${lato.variable}
         ${callingCode.variable}
       `}

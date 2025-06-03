@@ -9,7 +9,17 @@ import Image from 'next/image';
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
   const { isDarkTheme } = useTheme();
+
+  // Handle hydration
+  useEffect(() => {
+    setIsHydrated(true);
+    // Check initial scroll position after hydration
+    if (window.scrollY > 10) {
+      setIsScrolled(true);
+    }
+  }, []);
 
   // Handle scroll effect
   useEffect(() => {
@@ -79,39 +89,108 @@ const Navigation = () => {
     ? "text-md hover:text-accent hover:font-medium transition-colors duration-300 tracking-wide text-white"
     : "text-md hover:text-accent hover:font-medium transition-colors duration-300 tracking-wide";
 
+  // Get the appropriate logo sources
+  const getLogoSources = () => {
+    const themePrefix = isDarkTheme ? 'white' : 'black';
+    return {
+      full: `/images/logo/nav_${themePrefix}.svg`,
+      collapsed: `/images/logo/nav_collapsed_${themePrefix}.svg`
+    };
+  };
+
+  const logoSources = getLogoSources();
+
+  // Prevent hydration mismatch by not rendering logo until hydrated
+  if (!isHydrated) {
+    return (
+      <header className={headerClass}>
+        <div className="container-custom flex items-center justify-between">
+          {/* Placeholder for logo to prevent layout shift */}
+          <div className="flex items-center">
+            <div className="w-[200px] h-[30px]" />
+          </div>
+          
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <div key={link.name}>
+                <Link href={link.href} className={linkClass}>
+                  {link.name}
+                </Link>
+              </div>
+            ))}
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-secondary-800 focus:outline-none"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle mobile menu"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </header>
+    );
+  }
+
   return (
     <header className={headerClass}>
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center" onClick={() => setIsMobileMenuOpen(false)}>
-          <div
-            className="logo-text text-xl font-bold tracking-tighter overflow-hidden relative"
-          >
-            {isScrolled ? (
-              <span
-                className="flex items-center"
-              >
+          <div className="logo-text text-xl font-bold tracking-tighter overflow-hidden relative">
+            <div className="relative w-fit h-[30px] flex items-center">
+              {/* Full Logo */}
+              <div className={`absolute transition-opacity duration-200 ease-in-out ${
+                isScrolled 
+                  ? 'opacity-0' 
+                  : 'opacity-100'
+              }`}>
                 <Image
-                  src={isDarkTheme ? "/images/logo/nav_collapsed_white.svg" : "/images/logo/nav_collapsed_black.svg"}
-                  alt="Intrinsic Labs Logo"
-                  width={56}
-                  height={30}
-                  className="mr-2"
-                />
-              </span>
-            ) : (
-              <span
-                className="flex items-center"
-              >
-                <Image
-                  src={isDarkTheme ? "/images/logo/nav_white.svg" : "/images/logo/nav_black.svg"}
+                  src={logoSources.full}
                   alt="Intrinsic Labs Logo"
                   width={200}
                   height={30}
-                  className="mr-2"
+                  priority
+                  className="object-contain"
                 />
-              </span>
-            )}
+              </div>
+              
+              {/* Collapsed Logo */}
+              <div className={`absolute transition-opacity duration-300 ease-in-out ${
+                isScrolled 
+                  ? 'opacity-100' 
+                  : 'opacity-0'
+              }`}>
+                <Image
+                  src={logoSources.collapsed}
+                  alt="Intrinsic Labs Logo"
+                  width={56}
+                  height={30}
+                  priority
+                  className="object-contain"
+                />
+              </div>
+              
+              {/* Spacer to maintain layout */}
+              <div className={`transition-all duration-200 ease-in-out ${
+                isScrolled ? 'w-[56px]' : 'w-[200px]'
+              }`} />
+            </div>
           </div>
         </Link>
 
