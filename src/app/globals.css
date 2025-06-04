@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./neumorphism.css";
 
 :root {
   --background: #f0eee6;
@@ -8,7 +9,7 @@
   --accent: #1C6AA6;
   --yellow: #c9a024;
   --orange: #E07A55;
-  --creme: #f9f6f2;
+  --creme: #f0eee6;
   --slate: #21201f;
 }
 
