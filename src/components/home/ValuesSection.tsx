@@ -11,7 +11,7 @@ const ValuesSection = () => {
     <section 
       id="values"
       ref={sectionRef}
-      className="pb-16 md:pb-24 bg-background relative overflow-hidden border-t border-slate/30 dark:border-creme/30 lg:border-none pt-4 md:pt-8 lg:pt-0"
+      className="pb-16 md:pb-24 bg-background relative overflow-hidden pt-4 md:pt-8 lg:pt-0"
     >
 
       <div className="container-custom relative z-10 pb-8 md:pb-0">
