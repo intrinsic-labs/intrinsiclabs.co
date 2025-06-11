@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FiInstagram, FiGithub } from 'react-icons/fi';
 import { FiTwitter } from 'react-icons/fi';
-import ClientAccessButton from '@/components/ClientAccessButton'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -64,7 +63,6 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-            <ClientAccessButton className="mt-4" />
           </div>
 
           {/* Links Columns */}
