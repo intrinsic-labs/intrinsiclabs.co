@@ -5,17 +5,17 @@ const Hero = () => (
     {/* Graph paper grid background */}
     <div
       className="absolute -inset-40 opacity-7"
-      style={{
-        backgroundImage: `
-          linear-gradient(to right, currentColor 1px, transparent 1px),
-          linear-gradient(to bottom, currentColor 1px, transparent 1px)
-        `,
-        backgroundSize: "100px 60px",
-        maskImage:
-          "linear-gradient(to bottom, black 0%, black 50%, transparent 100%)",
-        WebkitMaskImage:
-          "linear-gradient(to bottom, black 0%, black 50%, transparent 100%)",
-      }}
+      // style={{
+      //   backgroundImage: `
+      //     linear-gradient(to right, currentColor 1px, transparent 1px),
+      //     linear-gradient(to bottom, currentColor 1px, transparent 1px)
+      //   `,
+      //   backgroundSize: "100px 60px",
+      //   maskImage:
+      //     "linear-gradient(to bottom, black 0%, black 50%, transparent 100%)",
+      //   WebkitMaskImage:
+      //     "linear-gradient(to bottom, black 0%, black 50%, transparent 100%)",
+      // }}
     />
     <div className="container-custom relative z-10 mt-24 md:py-12 flex flex-col items-center justify-center">
       <div className="max-w-7xl w-full flex flex-col items-center justify-center text-center">
